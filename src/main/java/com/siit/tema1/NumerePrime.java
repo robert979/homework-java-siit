@@ -19,11 +19,12 @@ public class NumerePrime {
             }
             if(conditie){
 
-                System.out.println(i + " ");
+                System.out.print(i + " ");
                 suma = suma +i;
 
             }
         }
+
         System.out.println("suma = " + suma);
 
     }
