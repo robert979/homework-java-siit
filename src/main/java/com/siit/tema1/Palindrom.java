@@ -8,7 +8,7 @@ public class Palindrom {
         System.out.println("introduceti numarul");
         int x =numar.nextInt();
         int k=x;
-        //int k = numar.nextInt();
+
         int y=0;
 
         while (x!=0){
