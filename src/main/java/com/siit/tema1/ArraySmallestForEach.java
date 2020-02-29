@@ -10,9 +10,9 @@ public class ArraySmallestForEach {
 
         int [] sir= new int[a] ;
         for (int k=0; k<=a-1;k++){
-            Scanner y=new Scanner(System.in);
+
             System.out.println("introduceti numarul " + (k+1) + " al sirului");
-            sir[k] = y.nextInt();
+            sir[k] = x.nextInt();
         }
         System.out.println("Sirul este " );
         for (int q=0; q<a; q++){
