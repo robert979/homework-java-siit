@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class FactorialMetode {
     static public void main(String [] args){
         Scanner numar = new Scanner(System.in);
-        System.out.println("Introduceti numarul al carui factorial doriti sa6=-l calculati");
+        System.out.println("Introduceti numarul al carui factorial doriti sa-l calculati");
         int n = numar.nextInt();
         returnFactorial(n);
 
