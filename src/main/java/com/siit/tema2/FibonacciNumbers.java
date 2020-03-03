@@ -16,9 +16,7 @@ public class FibonacciNumbers {
     public static void calculeazaSirulFibonacci(long[]sir){
 
         int n = sir.length;
-
         sir[0]=0;
-
         for (int i=1; i<=n-1; i++){
             double b=Math.pow(1.618033988749895,i);
             double c=Math.pow(0.6180339887,i);
