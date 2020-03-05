@@ -35,7 +35,7 @@ public class MaxDigitAndPalindromMetode {
         if (c == n){
             System.out.println("Numarul " + c + " este un palindrom");
         }
-        return c;
+        return b;
         }
         }
 
