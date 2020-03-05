@@ -16,11 +16,24 @@ public class ArraySmallestMethod {
         }
         System.out.println("Sirul este" + Arrays.toString(arr));
         findMin(arr);
+        findMin2ndSolution(arr);
     }
     public static void findMin(int [] arr){
         Arrays.sort(arr);
         System.out.println("Cel mai mic numar as sirului este " + arr[0]);
 
+    }
+    public static int findMin2ndSolution(int []arr){
+        int l=arr.length;
+        int m= arr[0];
+        for (int i=1; i<= l-1; i++){
+            if(m > arr[i]){
+                m=arr[i];
+            }
+        }
+        System.out.println("Cel mai mic numar al sirului este " + m);
+
+        return m;
     }
 
 }
