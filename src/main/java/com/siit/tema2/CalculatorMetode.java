@@ -9,9 +9,9 @@ public class CalculatorMetode {
         int a=numere.nextInt();
         System.out.println("Introduceti al doilea numar");
         int b=numere.nextInt();
-        calculeaza(a,b);
+        opereazaCalculator(a,b);
     }
-    public static int calculeaza(int a, int b){
+    public static int opereazaCalculator(int a, int b){
         Scanner op = new Scanner(System.in);
         System.out.println("Introduceti operatia");
         String operator=op.nextLine();
@@ -34,7 +34,6 @@ public class CalculatorMetode {
         else {
             System.out.println("Operatorul introdus este gresit");
         }
-
 
         return a;
     }

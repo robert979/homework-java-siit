@@ -19,7 +19,7 @@ public class PairsSumNumbers {
                 if (m[i] + m[j] == b) {
                  c=c+1;
 
-                    System.out.println("Perechea nr " + (c) + " a carei suma este egala cu " + b+ " este " + m[i] + ", " + m[j] + "; ");
+                    System.out.println("Perechea nr " + (c) + " a carei suma este egala cu " + b+ " este " + m[i] + " si " + m[j] + "; ");
 
 
                 }
