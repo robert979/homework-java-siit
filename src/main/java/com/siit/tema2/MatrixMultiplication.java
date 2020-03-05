@@ -12,7 +12,7 @@ public class MatrixMultiplication {
                 {12, 11, 10},
                 {9, 20, 4}
         };
-        multiplyMatrix(a, b);
+        multiplyMatrix(a,b);
 
 
     }
