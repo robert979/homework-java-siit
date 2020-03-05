@@ -9,11 +9,11 @@ public class StringDuplicates {
         System.out.println("Inroduceti sirul de caractere;" );
         String sir = caractere.nextLine();
         System.out.println("Sirul este \n" + sir);
-        removeDuplicates(sir);
+       printDuplicates(sir);
 
 
     }
-    public static String removeDuplicates(String sir){
+    public static String printDuplicates(String sir){
         char [] arr = sir.toCharArray();
         Arrays.sort(arr);
         System.out.println("Sirul sortat este \n" + Arrays.toString(arr));
