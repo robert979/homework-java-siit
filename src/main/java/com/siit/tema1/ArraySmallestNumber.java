@@ -25,7 +25,7 @@ public class ArraySmallestNumber {
                 b= sir[k];}
 
             }
-        System.out.println("cel mai mic numar al sirului este " + b);
+        System.out.println("\ncel mai mic numar al sirului este " + b);
         }
 
 
