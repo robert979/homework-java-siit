@@ -5,7 +5,7 @@ public class SquareArrayMetode {
         int[][] matrix = {
                 {1, 2, 3, 8},
                 {5, 6, 7, 5},
-                {4, 5, 8, 5},
+                {4, 5, 9, 5},
                 {5, 7, 9, 10}
         };
         checkSquareMatrix(matrix);
@@ -15,7 +15,7 @@ public class SquareArrayMetode {
         int l = matrix.length;
         int c=0;
         for (int i=0; i<=l-1;i++){
-            if (l!=matrix[i].length){
+            if (checkLinesVsColumns(matrix[i], l)){
 
                c=1;
             }
@@ -29,5 +29,9 @@ public class SquareArrayMetode {
         else {
             System.out.println("Matricea  este patrata");
         }
+    }
+
+    private static boolean checkLinesVsColumns(int[] matrix, int l) {
+        return l!= matrix.length;
     }
 }
