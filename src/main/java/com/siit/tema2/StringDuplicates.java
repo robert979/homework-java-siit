@@ -10,7 +10,7 @@ public class StringDuplicates {
         String sir = caractere.nextLine();
         System.out.println("Sirul este \n" + sir);
        printDuplicates(sir);
-
+       removeDuplicates(sir);
 
     }
     public static String printDuplicates(String sir){
@@ -18,18 +18,36 @@ public class StringDuplicates {
         Arrays.sort(arr);
         System.out.println("Sirul sortat este \n" + Arrays.toString(arr));
         int l= arr.length;
-        String faraduble= "[";
+        String duble= "[";
         if (arr[0] == arr [1]){
-            faraduble=faraduble + arr[0] + ", ";
+            duble=duble + arr[0] + ", ";
         }
         for (int i=1; i<=l-2; i++){
             if (arr[i]==arr[i+1]&&arr[i]!=arr[i-1]){
-                faraduble = faraduble+ arr[i] + ", ";
+                duble = duble+ arr[i] + ", ";
             }
         }
-        faraduble= faraduble+ "]";
+        duble= duble+ "]";
 
-        System.out.println("Sirul caracterelor duble este \n" + faraduble);
+        System.out.println("Sirul caracterelor duble este \n" + duble);
+
+        return duble;
+    }
+    public static String removeDuplicates(String sir){
+        char [] arr = sir.toCharArray();
+        Arrays.sort(arr);
+        int l= arr.length;
+        String faraduble = "[";
+        for (int i=0; i<=l-2;i++) {
+            if (arr [i] != arr[i+1]){
+                faraduble = faraduble + arr[i]+", ";
+            }
+
+        }
+
+        faraduble = faraduble + arr[l-1] + "]";
+        System.out.println("Sirul fara caractere duble este \n" + faraduble);
+        
 
         return faraduble;
     }
