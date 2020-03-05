@@ -13,7 +13,7 @@ public class NumarZileMetode {
     public static String afiseazaNrZile(String l) {
         String[] luna31 = {"1", "3", "5", "7", "8", "10", "12", "ianuarie", "martie", "mai", "iulie", "august", "octombrie", "decembrie", "Ianuarie",
                 "Martie", "Mai", "Iulie", "August", "Octombrie", "Decembrie"};
-        String[] luna30 = {"4", "6", "9", "11"};
+        String[] luna30 = {"4", "6", "9", "11" , "aprilie", "Aprilie", "iunie", "Iunie", "septembrie", "Septembrie", "noiembrie", "Noiembrie"};
         String [] februarie= {"2" , "februarie" , "Februarie"};
 
         for (String str : luna31) {
@@ -37,9 +37,9 @@ public class NumarZileMetode {
                 System.out.println("Introduceti anul");
                 int an=year.nextInt();
                 if(an%4==0){
-                    System.out.println("Luna are 29 de zile");}
+                    System.out.println("Luna " + l +" are 29 de zile");}
                 else {
-                    System.out.println("Luna are 28 de zile");
+                    System.out.println("Luna " + l +" are 28 de zile");
                 }
                 }
 
