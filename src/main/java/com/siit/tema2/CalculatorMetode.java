@@ -36,6 +36,6 @@ public class CalculatorMetode {
         }
 
 
-        return c;
+        return a;
     }
 }

@@ -12,10 +12,15 @@ public class PairsSumNumbers {
         System.out.println("Introduceti suma dorita");
         int b = y.nextInt();
         int l=m.length;
+        int c=0;
         for (int i=0; i<=l-2;i++){
             for (int j =i+1; j<=l-1; j++) {
+
                 if (m[i] + m[j] == b) {
-                    System.out.print(m[i] + ", " + m[j] + "; ");
+                 c=c+1;
+
+                    System.out.println("Perechea nr " + (c) + " a carei suma este egala cu " + b+ " este " + m[i] + ", " + m[j] + "; ");
+
 
                 }
             }
