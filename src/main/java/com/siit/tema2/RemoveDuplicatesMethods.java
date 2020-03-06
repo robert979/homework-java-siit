@@ -6,13 +6,13 @@ import java.util.Arrays;
 public class RemoveDuplicatesMethods {
     public static void main(String... args) {
         int[] arr = {10, 5, 5, 80, 70, 60, 90, 10, 100, 50, 50, 50, 30};
-        System.out.println("sirul initial este " + Arrays.toString(arr));
+        System.out.println("sirul initial este    " + Arrays.toString(arr));
         removeDuplicates(arr);
     }
 
     public static int[] removeDuplicates(int[] arr) {
         Arrays.sort(arr);
-        System.out.println("sirul sortat este" + Arrays.toString(arr));
+        System.out.println("sirul sortat este     " + Arrays.toString(arr));
         int l = arr.length;
         int[] faradublet = new int[l];
         int counter = -1;
@@ -35,7 +35,7 @@ public class RemoveDuplicatesMethods {
         }
 
 
-            System.out.println("sirul fara duble este" + Arrays.toString(arrfinal));
+            System.out.println("sirul fara duble este " + Arrays.toString(arrfinal));
             return arrfinal;
         }
 
