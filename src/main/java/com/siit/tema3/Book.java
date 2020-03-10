@@ -13,8 +13,12 @@ public class Book {
         this.amount=amount;
     }
 
-    public void addBook (){
+    public void add (int addBook ){
+        this.amount=+addBook;
+    }
 
+    public void remove (int removeBook){
+        this.amount=-removeBook;
     }
 
     public String getName() {
