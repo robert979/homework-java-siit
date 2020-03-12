@@ -13,6 +13,9 @@ public class Pos extends Card {
     public static void main (String ... args){
         Card card001 = new Card(" Ion Popescu", "RO20ING844845",1000.00 , " 12345678910212", 20231207);
         card001.withdraw(100.00);
-        card001.withdraw(250.00);
+        card001.withdraw(1000.00);
+
+        Card card002 = new Card("Mihai Ionescu", "RO44847421212", 00.00, "129959859584", 20191207);
+        card002.withdraw(00.00);
     }
 }

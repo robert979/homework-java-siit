@@ -4,6 +4,7 @@ public class Card extends BankAcount {
 
     private String cardNumber;
     private int expirationDate;
+    double ballance =getBalance();
 
     public Card(String name, String iban, double balance, String cardNumber, int expirationDate) {
         super(name, iban, balance);
@@ -13,27 +14,26 @@ public class Card extends BankAcount {
 
 
         public void withdraw (double withdrawMoney){
-            double ballance = getBalance();
 
-        if (getBalance() >= withdrawMoney) {
+
+        if (ballance >= withdrawMoney) {
+
+            ballance-=withdrawMoney;
             if (getExpirationDate() >=20200312) {
                 if (getIban().length() == 13){
 
-                    ballance=ballance -withdrawMoney;
-
-                    System.out.println("your request to withdraw " + withdrawMoney + " was accepted and your new ballance is " + ballance);
+                    System.out.println("the request made by  " + getName() + " to withdraw " + withdrawMoney + " was accepted and your new ballance is " + ballance);
                 }
                 else {
-                    System.out.println("you don't have a valid iban");
+                    System.out.println("the request made by  " + getName() + " was not accepted as the IBAN is not valid");
                 }
-
             }
             else {
-                System.out.println("your card is expired");
+                System.out.println("the request made by  " + getName() + " was not accepted as the card is expired");
             }
             }
         else {
-            System.out.println("you have insuficient funds");
+            System.out.println("the request made by  " + getName() + " was not accepted as there are insuficient funds");
         }
         }
 
