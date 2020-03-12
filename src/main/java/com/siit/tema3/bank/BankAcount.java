@@ -9,10 +9,15 @@ public class BankAcount extends User {
         this.balance=balance;
         }
 
+
     public double getBalance() {
         return balance;
     }
-        /*public void withdraw (double withdrawModey){
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+    /*public void withdraw (double withdrawModey){
         this.balance=-withdrawModey;
         if (this.balance>= withdrawModey){
 

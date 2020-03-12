@@ -13,11 +13,15 @@ public class Card extends BankAcount {
 
 
         public void withdraw (double withdrawMoney){
+            double ballance = getBalance();
+
         if (getBalance() >= withdrawMoney) {
             if (getExpirationDate() >=20200312) {
                 if (getIban().length() == 13){
-                    double amount =-withdrawMoney;
-                    System.out.println("your request have been accepted");
+
+                    ballance=ballance -withdrawMoney;
+
+                    System.out.println("your request to withdraw " + withdrawMoney + " was accepted and your new ballance is " + ballance);
                 }
                 else {
                     System.out.println("you don't have a valid iban");
@@ -41,5 +45,11 @@ public class Card extends BankAcount {
         return expirationDate;
     }
 
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
 
+    public void setExpirationDate(int expirationDate) {
+        this.expirationDate = expirationDate;
+    }
 }

@@ -18,4 +18,12 @@ public class User {
     public String getIban() {
         return iban;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
 }
