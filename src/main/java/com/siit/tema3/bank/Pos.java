@@ -17,5 +17,9 @@ public class Pos extends Card {
 
         Card card002 = new Card("Mihai Ionescu", "RO44847421212", 00.00, "129959859584", 20191207);
         card002.withdraw(00.00);
+
+        Card card003 = new Card("Virgil Marinescu", "RO458789", 60.00, "12459884848", 20230606);
+        card003.withdraw(45.00);
+
     }
 }
