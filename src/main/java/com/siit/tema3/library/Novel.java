@@ -1,4 +1,4 @@
-package com.siit.tema3;
+package com.siit.tema3.library;
 
 public class Novel extends Book {
 
@@ -7,6 +7,7 @@ public class Novel extends Book {
     public Novel(String name, int pageNumbers, int yearOfRelease, int amount, String type) {
         super(name, pageNumbers, yearOfRelease, amount);
         this.type=type;
+
     }
 
 

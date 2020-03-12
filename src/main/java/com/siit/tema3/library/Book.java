@@ -1,4 +1,6 @@
-package com.siit.tema3;
+package com.siit.tema3.library;
+
+import java.util.Scanner;
 
 public class Book {
     private String name;
@@ -15,11 +17,13 @@ public class Book {
 
     public void add (int addBook ){
         this.amount=+addBook;
+        System.out.println();
     }
 
     public void remove (int removeBook){
         this.amount=-removeBook;
     }
+
 
     public String getName() {
         return name;
