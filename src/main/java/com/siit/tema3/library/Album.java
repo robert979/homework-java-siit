@@ -5,15 +5,11 @@ import java.util.Scanner;
 public class Album extends Book {
     private String paperQuality;
 
-   public Album(String name, int pageNumbers, int yearOfRelease, int amount, String paperQuality) {
-        super(name, pageNumbers, yearOfRelease, amount);
+
+    public Album(String name, int amount, int pageNumbers, int yearOfRelease, int novel, int album, String paperQuality) {
+        super(name, amount, pageNumbers, yearOfRelease, novel, album);
         this.paperQuality=paperQuality;
-
-        Scanner newAlbum = new Scanner(System.in);
-       System.out.println( " introduceti");
-       Book x = new Book(newAlbum.nextLine(), newAlbum.nextInt(),newAlbum.nextInt(),newAlbum.nextInt());
-
-
     }
 }
+
 
