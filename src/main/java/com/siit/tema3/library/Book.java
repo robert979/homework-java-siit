@@ -1,7 +1,5 @@
 package com.siit.tema3.library;
 
-import java.util.Scanner;
-
 public class Book {
     private String name;
     private int amount;
@@ -16,6 +14,13 @@ public class Book {
         this.pageNumbers = pageNumbers;
         this.yearOfRelease = yearOfRelease;
 
+
+    }
+
+    public void remove (String removeBooks){
+        if (getName() ==removeBooks ){
+            remove(removeBooks);
+        }
 
     }
 
