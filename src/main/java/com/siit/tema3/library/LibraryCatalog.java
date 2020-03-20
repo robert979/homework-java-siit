@@ -13,7 +13,7 @@ public class LibraryCatalog {
 
         Books.add(cartea1);
         int a=Books.size();
-        System.out.println("Cartea nr " + a + " a fost introdusa in biblioteca");
+        System.out.println("Cartea" + a + " a fost introdusa in biblioteca");
 
 
 
@@ -24,6 +24,7 @@ public class LibraryCatalog {
 
         Book cartea3= new Novel("Stapanul Inelelor", 1,645,2008,2);
         Books.add(cartea3);
+        //System.out.println("prima carte este "+ Books.getName(0));
 
         int b= Books.size();
         System.out.println("b = " + b);
@@ -43,9 +44,11 @@ public class LibraryCatalog {
             }
             //System.out.println("Toate cartile sunt :" + toateCartile[i] + ", ");
         }
-        Books.remove(cartea1);
+        Books.remove(cartea2);
         int c = Books.size();
         System.out.println("c = " + c);
+        //Books.remove(cartea3);
+
         for (int i = 0; i <= c - 1; i++) {
 
 

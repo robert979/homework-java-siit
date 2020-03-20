@@ -20,9 +20,14 @@ public class Book {
     public void remove (String removeBooks){
         if (getName() ==removeBooks ){
             remove(removeBooks);
+            System.out.println("vom retrage " + removeBooks);
         }
+       /* else {
+        System.out.println("cartea mentionata nu se gaseste in biblioteca");
+        }*/
 
     }
+
 
 
 
