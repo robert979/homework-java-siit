@@ -9,6 +9,7 @@ import lombok.Setter;
 
 
 
+
 public class BankAccount extends User {
     private String iban;
     private double ballance;
@@ -18,18 +19,20 @@ public class BankAccount extends User {
         this.iban = iban;
         this.ballance = ballance;
     }
-    public void  deposit (double depositMoney ){
+    public void  add (double addMoney ){
 
-        this.ballance+=depositMoney;
-        System.out.println("suma de " + depositMoney + " de  lei a fost debitata in contul dumneavoastra si acum aveti in cont " + this.ballance + " de lei" );
+        this.ballance+=addMoney;
+        System.out.println("Domnule " + getName() +"\nSuma de " + addMoney + " de  lei a fost debitata in contul dumneavoastra si acum aveti in cont " + this.ballance + " de lei" );
     }
-    public void withdraw (double withdrawMoney) {
-        if (ballance >= withdrawMoney) {
-            this.ballance -= withdrawMoney;
-            System.out.println("Domnule " + getName() + "\nSuma de " + withdrawMoney + " lei a fost eliberata in numerar.\n Mai aveti in cont " + ballance + " de lei");
+    public void remove (double removeMoney) {
+        if (ballance >= removeMoney) {
+            this.ballance -= removeMoney;
+            String str = String.format("%.02f", ballance);
+            System.out.println("Domnule " + getName() + "\nSuma de " + removeMoney + " lei a fost eliberata in numerar.\n Mai aveti in cont " + str+ " de lei");
         }
         else {
-            System.out.println("Domnule " + getName() + "\n Suma nu a fost retrasa, fonduri insuficiente, mai aveti in cont " + getBallance() + " de lei");
+            //String str = String.format("%.02f", ballance);  //merge asa :)
+            System.out.println("Domnule " + getName() + "\nSuma nu a fost retrasa, fonduri insuficiente, mai aveti in cont " + getBallance() + " de lei");
         }
     }
 

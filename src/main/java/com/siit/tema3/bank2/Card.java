@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Getter
 @Setter
-@ToString
+
 
 public class Card extends BankAccount {
     private long cardNumber;
@@ -19,21 +19,35 @@ public class Card extends BankAccount {
         this.cardNumber = cardNumber;
         this.expirationDate = expirationDate;
     }
-    public void extrage (double extrageBani) {
+    public void withdraw (double withdrawMoney) {
 
             if (getExpirationDate() >=20200323){
                 if(getIban().length()==10){
-                    withdraw(extrageBani);
-                    //System.out.println();
+                    remove(withdrawMoney);
+
                 }
                 else {
                    System.out.println("Domnule " + getName() + "\nSuma nu a fost retrasa, cont IBAN incorect");
                                   }
             }
             else {
-                System.out.println("Domnule " + getName() +"\nSuma nu a fost retrasa, card expirat");
+                System.out.println( "Domnule " + getName() +"\nSuma nu a fost retrasa, card expirat");
                   }
 
+    }
+    public void deposit (double depositMoney){
+        if (getExpirationDate() >=20200323){
+            if(getIban().length()==10){
+                add(depositMoney);
+
+            }
+            else {
+                System.out.println("Domnule " + getName() + "\nSuma nu a fost depusa, cont IBAN incorect");
+            }
+        }
+        else {
+            System.out.println("Domnule " + getName() +"\nSuma nu a fost depusa, card expirat");
+        }
 
     }
 
