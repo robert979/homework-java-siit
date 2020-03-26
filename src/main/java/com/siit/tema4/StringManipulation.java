@@ -12,11 +12,25 @@ public class StringManipulation {
         String str4 = "CAcacaca";
         char givenChar = 'a';
 
-        reverseString(str);
-        checkPalindrome(str2);
-        checkIfAnagram(str3,str4);
-        countChar(str, givenChar);
+        //reverseString(str);
+        //checkPalindrome(str2);
+        //checkIfAnagram(str3,str4);
+        //countChar(str, givenChar);
+        removeChar(str,givenChar);
     }
+    public static String removeChar (String str, char givenChar){
+        String strRemoveChar = new String();
+        int l = str.length();
+        for (int i =0; i<=l-1; i++){
+            if (givenChar != str.charAt(i)){
+                strRemoveChar = strRemoveChar + str.charAt(i);
+            }
+        }
+        System.out.println("Prin eliminarea caracterului \"" + givenChar + "\" sirul [" + str + "] a devenit [" + strRemoveChar + "]");
+
+        return strRemoveChar;
+    }
+
      public static int countChar (String str, char givenChar){
         int l = str.length();
         int count = 0;
