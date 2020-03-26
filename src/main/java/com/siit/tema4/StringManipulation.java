@@ -5,18 +5,30 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String[] args) {
 
-        String str= "aabbcbbaa";
+        String str= "aabbcaaabbaa";
         String str1 ="cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
         String str4 = "CAcacaca";
-
+        char givenChar = 'a';
 
         reverseString(str);
-        checkPalindrome(str);
         checkPalindrome(str2);
         checkIfAnagram(str3,str4);
+        countChar(str, givenChar);
     }
+     public static int countChar (String str, char givenChar){
+        int l = str.length();
+        int count = 0;
+        for (int j =0; j<= l-1; j++){
+            if (givenChar == str.charAt(j)){
+                count +=1;
+               }
+        }
+         System.out.println("caracterul \"" + givenChar + "\" apare de " + count + " ori in sirul [" + str + "]");
+        return count;
+
+     }
 
     public static void checkIfAnagram (String str, String str1){
         char [] char1= str.toLowerCase().toCharArray();
@@ -31,21 +43,15 @@ public class StringManipulation {
             string1 = string1+ char1[i];
             }
 
-        for (int i=0; i<=l2-1; i++){
-            string2 = string2+ char2[i];
+        for (int i=0; i<=l2-1; i++) {
+            string2 = string2 + char2[i];
         }
-
-
-        System.out.println("string 2 " + string2);
         if (string1.equals(string2)){
             System.out.println("Sirul " + str + " este o anagrama a sirului " + str1);
         }
         else {
             System.out.println("Sirul " + str + " nu este o anagrama a sirului " + str1);
         }
-
-
-
     }
 
     public static String checkPalindrome (String str){
@@ -55,9 +61,9 @@ public class StringManipulation {
         for (int i = b-1; i >= 1; i--){
             palindromCheck=palindromCheck+str.substring(i-1,i);
         }
-        System.out.println(palindromCheck);
+
         if (palindromCheck.equals(str)){
-            System.out.println("Sirul " + str + " este un palindrom");
+            System.out.println("Sirul [" + str + "] este un palindrom");
         }
 
         return palindromCheck;
@@ -84,8 +90,8 @@ public class StringManipulation {
 
     public static String reverseString (String str){
         int b = str.length();
-        java.lang.String strrev = str.substring(b - 1);
-        System.out.println("prima " + strrev);
+        String strrev = str.substring(b - 1);
+
         for (int i = b - 1; i >0; i--) {
             strrev = strrev + str.substring(i - 1, i );
         }
