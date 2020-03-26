@@ -12,6 +12,7 @@ public class StringManipulation {
         String str4 = "CAcacaca";
         String str5 = "123587894454";
         String str6 = "a014894548545417";
+        String str7 = "aabbcddeffjkjk";
         char givenChar = 'a';
 
         //reverseString(str);
@@ -19,8 +20,42 @@ public class StringManipulation {
         //checkIfAnagram(str3,str4);
         //countChar(str, givenChar);
         //removeChar(str,givenChar);
-        checkIfOnlyDigits(str6);
-        checkIfOnlyDigits(str5);
+        //checkIfOnlyDigits(str6);
+        //findPrintDuplicates(removeDuplicates(str5));
+        //removeDuplicates(str3);
+
+        }
+        public static String removeDuplicates (String str){
+        String withoutDuplicates = new String();
+        char [] wihDuplicates = str.toCharArray();
+        Arrays.sort(wihDuplicates);
+        int l = wihDuplicates.length;
+
+
+       for (int i = 0; i<=l-2; i++){
+           if (wihDuplicates[i]!= wihDuplicates[i+1]){
+               withoutDuplicates = withoutDuplicates + wihDuplicates[i];
+           }
+
+       }
+            withoutDuplicates = withoutDuplicates + wihDuplicates[l-1];
+            System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
+        return withoutDuplicates;
+        }
+    public static String findPrintDuplicates (String str){
+        char [] withDuplicates=str.toCharArray();
+       Arrays.sort(withDuplicates);
+       int l = withDuplicates.length;
+       String onlyDuplicates=new String();
+       for (int i=0; i<=l-2;i++){
+           if (withDuplicates[i] == withDuplicates[i+1] ){
+               onlyDuplicates=onlyDuplicates+withDuplicates[i];
+           }
+
+       }
+       System.out.println("duplicatele din sirul [" +str + "] sunt " + onlyDuplicates);
+       return onlyDuplicates;
+
     }
     public static void checkIfOnlyDigits (String str) {
         int l = str.length();
@@ -142,7 +177,7 @@ public class StringManipulation {
         for (int i = b - 1; i >0; i--) {
             strrev = strrev + str.substring(i - 1, i );
         }
-        System.out.println("Reverse String " + strrev);
+        System.out.println("Inversul sirului [" + str + "] este [" + strrev + "]");
 
         return strrev;
             }
