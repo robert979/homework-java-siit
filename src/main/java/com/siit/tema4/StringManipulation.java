@@ -9,7 +9,7 @@ public class StringManipulation {
         String str1 ="cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
-        String str4 = "cacacaca";
+        String str4 = "CAcacaca";
 
 
         reverseString(str);
@@ -19,8 +19,8 @@ public class StringManipulation {
     }
 
     public static void checkIfAnagram (String str, String str1){
-        char [] char1= str.toCharArray();
-        char [] char2 = str1.toCharArray();
+        char [] char1= str.toLowerCase().toCharArray();
+        char [] char2 = str1.toLowerCase().toCharArray();
         Arrays.sort(char1);
         Arrays.sort(char2);
         int l1 = char1.length;
@@ -30,11 +30,18 @@ public class StringManipulation {
         for (int i=0; i<=l1-1; i++){
             string1 = string1+ char1[i];
             }
+
         for (int i=0; i<=l2-1; i++){
             string2 = string2+ char2[i];
         }
+
+
+        System.out.println("string 2 " + string2);
         if (string1.equals(string2)){
             System.out.println("Sirul " + str + " este o anagrama a sirului " + str1);
+        }
+        else {
+            System.out.println("Sirul " + str + " nu este o anagrama a sirului " + str1);
         }
 
 
