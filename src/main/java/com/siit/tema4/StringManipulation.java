@@ -10,26 +10,59 @@ public class StringManipulation {
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
         String str4 = "CAcacaca";
+        String str5 = "123587894454";
+        String str6 = "a014894548545417";
         char givenChar = 'a';
 
         //reverseString(str);
         //checkPalindrome(str2);
         //checkIfAnagram(str3,str4);
         //countChar(str, givenChar);
-        removeChar(str,givenChar);
+        //removeChar(str,givenChar);
+        checkIfOnlyDigits(str6);
+        checkIfOnlyDigits(str5);
     }
-    public static String removeChar (String str, char givenChar){
-        String strRemoveChar = new String();
+    public static void checkIfOnlyDigits (String str) {
         int l = str.length();
-        for (int i =0; i<=l-1; i++){
-            if (givenChar != str.charAt(i)){
-                strRemoveChar = strRemoveChar + str.charAt(i);
-            }
-        }
-        System.out.println("Prin eliminarea caracterului \"" + givenChar + "\" sirul [" + str + "] a devenit [" + strRemoveChar + "]");
+        System.out.println("l este " + l);
+        int count = 0;
+        String digitArray = "1234567890";
+        if (digitArray.contains(str.substring(l-1))) {
+            for (int i = 0; i <= l - 2; i++) {
+                if (digitArray.contains(str.substring(i, i + 1))) {
 
-        return strRemoveChar;
-    }
+                    count += 1;
+                }
+
+
+                //System.out.println("count este " + count);
+            }
+
+        }
+
+        if (count == l - 1) {
+            System.out.println("sirul [" + str + "] contine doar cifre");
+        }
+
+        else {
+            System.out.println("sirul [" + str + "] NU contine doar cifre");
+        }
+
+        }
+
+        public static String removeChar (String str,char givenChar){
+            String strRemoveChar = new String();
+            int l = str.length();
+            for (int i = 0; i <= l - 1; i++) {
+                if (givenChar != str.charAt(i)) {
+                    strRemoveChar = strRemoveChar + str.charAt(i);
+                }
+            }
+            System.out.println("Prin eliminarea caracterului \"" + givenChar + "\" sirul [" + str + "] a devenit [" + strRemoveChar + "]");
+
+            return strRemoveChar;
+        }
+
 
      public static int countChar (String str, char givenChar){
         int l = str.length();
