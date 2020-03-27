@@ -9,6 +9,7 @@ public class LibraryCatalog {
 
         ArrayList<Book> Books = new ArrayList<Book>();
 
+
         Book cartea1 = new Novel("Razboiul stelelor", 1, 160, 1965, 1);
 
         Books.add(cartea1);

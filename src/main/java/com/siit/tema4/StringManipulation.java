@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StringManipulation {
-    public static void main(String[] args) {
+    public static void main(String... args) {
 
-        String str= "aabbcaaabbaa";
+        String str= "abcdcdef";
         String str1 ="cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
@@ -27,7 +27,124 @@ public class StringManipulation {
         //removeDuplicates(str3);
         //findFirstNonRepetedCharacter(str8);
         //reverseWordsOrder(str8);
-        removeUnnecesarySpaces(reverseWordsOrder(str8));
+        //removeUnnecesarySpaces(reverseWordsOrder(str8));
+        //checkLongestPalindrom(str);
+        //findAllSubstrings(str);
+        findBiggestPalindrom(str);
+        }
+        public static void findBiggestPalindrom (String str) {
+            ArrayList<String> newString = new ArrayList();
+            ArrayList<String> strWithPalindrom=new ArrayList<>();
+            int l = str.length();
+            for (int i = 0; i <= l - 1; i++) {
+                for (int j = 0; j <= l - i - 1; j++) {
+                    newString.add(str.substring(i, j + i + 1));
+                    System.out.println(str.substring(i, j + i + 1));
+                }
+            }
+            int ll=newString.size();
+            for (int i=0; i<=ll-1;i++){
+                newString.get(i);
+
+
+                int bbbbb = newString.get(i).length();
+                String palindromCheck1 = newString.get(i).substring(bbbbb-1);
+                for (int j = bbbbb-1; j >= 1; j--){
+                    palindromCheck1=palindromCheck1+newString.get(i).substring(j-1,j);
+                }
+
+                if (palindromCheck1.equals(newString.get(i))){
+                    strWithPalindrom.add(newString.get(i));
+                    System.out.println("Sirul [" +newString.get(i) + "] este un palindrom");
+                }
+
+
+
+
+
+
+            }
+
+        }
+
+    public static void findAllSubstrings (String str) {
+
+        int l = str.length();
+        for (int i=0; i<=l-1;i++){
+            for (int j=0; j<=l-i-1;j++){
+
+                System.out.println(str.substring(i,j+i+1));
+            }
+        }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*int lungime = str.length();
+        String temp = str;
+        String temp1 = str;
+        String temp2 = new String();
+        String temp3 = new String();
+
+        for (int p = 0; p<=lungime-2; p++){
+            temp = temp.substring(0,((lungime-p)-1));
+            temp1 = temp1.substring(1);
+            temp2=temp.substring(1);
+            int lungimeintermediara = temp1.length();
+            if (lungimeintermediara>1){
+                temp3=temp1.substring(0,lungimeintermediara-2);
+               }
+
+            System.out.println("temp  "+temp + " lungimea sirului este " + temp.length() );
+            System.out.println("temp1 "+temp1 + " lungimea sirului este " + temp1.length());
+            System.out.println("temp2 " + temp2 + " lungimea sirului este " + temp2.length());
+            System.out.println("temp3 " + temp3 + " lungimea sirului este " + temp3.length());
+            System.out.println("lungimeintermediara " + lungimeintermediara);
+            //temp1=temp.substring(0,lungime-1);
+           //System.out.println("string initial " + str + "\ntemp " + temp + "\ntemp1 " + temp1);
+
+
+
+
+        }
+
+
+
+    }
+ */
+        public static String checkLongestPalindrom (String str){
+        String bigestPalindrome = new String();
+        String temp =new String();
+        int l= str.length();
+
+        for (int j=0; j<=l-1; j++){
+            temp=str.substring(j);
+            int b = temp.length();
+            String palindromCheck = temp.substring(b-1);
+            for (int i = b-1; i >= 1; i--){
+                palindromCheck=palindromCheck+temp.substring(i-1,i);
+            }
+
+            if (palindromCheck.equals(temp)){
+                System.out.println("Subsirul [" + temp + "] este cel mai mare palindrom gasit in sirul [" + str + "]");
+                break;
+            }
+        }
+
+
+
+
+        return bigestPalindrome;
         }
 
         public static String removeUnnecesarySpaces (String str8){
@@ -249,7 +366,7 @@ public class StringManipulation {
         }
         */
 
-    public static String reverseString (String str){
+    private static String reverseString (String str){
         int b = str.length();
         String strrev = str.substring(b - 1);
 
