@@ -29,10 +29,10 @@ public class StringManipulation {
         //reverseWordsOrder(str8);
         //removeUnnecesarySpaces(reverseWordsOrder(str8));
         //checkLongestPalindrom(str);
-        //findAllSubstrings(str);
-        findBiggestPalindrom(str);
+        findAllSubstrings(str);
+        //findBiggestPalindrom(str);
         }
-        public static void findBiggestPalindrom (String str) {
+        private static void findBiggestPalindrom (String str) {
             ArrayList<String> newString = new ArrayList();
             ArrayList<String> strWithPalindrom=new ArrayList<>();
             int l = str.length();
@@ -60,11 +60,12 @@ public class StringManipulation {
                 }
 
             }
+
             System.out.println("incercare " + strWithPalindrom.get(5).length());
 
         }
 
-    public static void findAllSubstrings (String str) {
+    private static void findAllSubstrings (String str) {
 
         int l = str.length();
         for (int i=0; i<=l-1;i++){
@@ -119,7 +120,7 @@ public class StringManipulation {
 
     }
  */
-        public static String checkLongestPalindrom (String str){
+        private static String checkLongestPalindrom (String str){
         String bigestPalindrome = new String();
         String temp =new String();
         int l= str.length();
@@ -144,7 +145,7 @@ public class StringManipulation {
         return bigestPalindrome;
         }
 
-        public static String removeUnnecesarySpaces (String str8){
+        private static String removeUnnecesarySpaces (String str8){
         String strWithoutSpaces = new String();
         int count = 0;
         strWithoutSpaces=str8.trim();
@@ -164,7 +165,7 @@ public class StringManipulation {
         return strWithoutSpaces;
         }
 
-        public static String reverseWordsOrder (String str8){
+        private static String reverseWordsOrder (String str8){
         String strSpaceRemoved = str8.trim() ;
         String reversedWords= new String();
         int count=0;
@@ -204,7 +205,7 @@ public class StringManipulation {
 
         }
 
-        public static void findFirstNonRepetedCharacter (String str){
+        private static void findFirstNonRepetedCharacter (String str){
 
         int l = str.length();
         for (int i=1; i<=l-1; i++){
@@ -217,7 +218,7 @@ public class StringManipulation {
 
 
         }
-        public static String removeDuplicates (String str){
+        private static String removeDuplicates (String str){
         String withoutDuplicates = new String();
         char [] wihDuplicates = str.toCharArray();
         Arrays.sort(wihDuplicates);
@@ -235,7 +236,7 @@ public class StringManipulation {
         return withoutDuplicates;
         }
 
-    public static String findPrintDuplicates (String str){
+    private static String findPrintDuplicates (String str){
         char [] withDuplicates=str.toCharArray();
        Arrays.sort(withDuplicates);
        int l = withDuplicates.length;
@@ -250,7 +251,7 @@ public class StringManipulation {
        return onlyDuplicates;
 
     }
-    public static void checkIfOnlyDigits (String str) {
+    private static void checkIfOnlyDigits (String str) {
         int l = str.length();
         System.out.println("l este " + l);
         int count = 0;
@@ -278,7 +279,7 @@ public class StringManipulation {
 
         }
 
-        public static String removeChar (String str,char givenChar){
+        private static String removeChar (String str,char givenChar){
             String strRemoveChar = new String();
             int l = str.length();
             for (int i = 0; i <= l - 1; i++) {
@@ -292,7 +293,7 @@ public class StringManipulation {
         }
 
 
-     public static int countChar (String str, char givenChar){
+     private static int countChar (String str, char givenChar){
         int l = str.length();
         int count = 0;
         for (int j =0; j<= l-1; j++){
@@ -305,7 +306,7 @@ public class StringManipulation {
 
      }
 
-    public static void checkIfAnagram (String str, String str1){
+    private static void checkIfAnagram (String str, String str1){
         char [] char1= str.toLowerCase().toCharArray();
         char [] char2 = str1.toLowerCase().toCharArray();
         Arrays.sort(char1);
@@ -329,7 +330,7 @@ public class StringManipulation {
         }
     }
 
-    public static String checkPalindrome (String str){
+    private static String checkPalindrome (String str){
 
         int b = str.length();
         String palindromCheck = str.substring(b-1);
@@ -344,7 +345,7 @@ public class StringManipulation {
         return palindromCheck;
     }
     /*
-    public static String printDuplicates(String str){
+    private static String printDuplicates(String str){
         String duplicates = new String();
         int b = str.length();
         for (int i =0; i<=b-3;i++ ){
