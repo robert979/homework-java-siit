@@ -1,5 +1,6 @@
 package com.siit.tema4;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StringManipulation {
@@ -13,7 +14,7 @@ public class StringManipulation {
         String str5 = "123587894454";
         String str6 = "a014894548545417";
         String str7 = "aabbcddeffjkjk";
-        String str8 = "astazi e ziua tas";
+        String str8 = "    astazi e ziua     ta   norocoasa ca asa am zis eu    ";
         char givenChar = 'a';
 
         //reverseString(str);
@@ -24,14 +25,70 @@ public class StringManipulation {
         //checkIfOnlyDigits(str6);
         //findPrintDuplicates(removeDuplicates(str5));
         //removeDuplicates(str3);
-        findFirstNonRepetedCharacter(str8);
+        //findFirstNonRepetedCharacter(str8);
+        //reverseWordsOrder(str8);
+        removeUnnecesarySpaces(reverseWordsOrder(str8));
         }
-        //public static String reverseWordsOrder (String str8){
-        //int l = str8.length();
 
-        //for
+        public static String removeUnnecesarySpaces (String str8){
+        String strWithoutSpaces = new String();
+        int count = 0;
+        strWithoutSpaces=str8.trim();
+        int l=strWithoutSpaces.length();
+        for (int i=0; i<=l-1;i++){
+            if (strWithoutSpaces.charAt(i) == ' '){
+                count+=1;
+            }
+        }
+        for (int i=0; i<(count/2); i++){
+            strWithoutSpaces=strWithoutSpaces.replace("  ", " ");
+        }
+            System.out.println("[" + str8 + "] devine dupa scoaterea spatiilor nenecesare \n[" + strWithoutSpaces + "]");
 
-       // }
+
+
+        return strWithoutSpaces;
+        }
+
+        public static String reverseWordsOrder (String str8){
+        String strSpaceRemoved = str8.trim() ;
+        String reversedWords= new String();
+        int count=0;
+        int l=strSpaceRemoved.length();
+        for (int i=0; i<=l-1; i++){
+            if (strSpaceRemoved.charAt(i) == ' '){
+                count=count+1;
+            }
+        }
+
+        String [] strColector = new String[count+1];
+        String temp = strSpaceRemoved;
+
+        for (int j=0; j<=count -1; j++){
+            strColector[j]=temp.substring(temp.lastIndexOf(" "));
+            temp=temp.substring(0,temp.lastIndexOf(" "));
+
+
+        }
+        strColector[count]=strSpaceRemoved.substring(0,strSpaceRemoved.indexOf(" "));
+
+
+
+            for (int i =0; i<=count-1; i++){
+                reversedWords = reversedWords +strColector[i] ;
+
+            }
+            reversedWords=reversedWords + " " + strColector[count];
+            reversedWords=reversedWords.trim();
+
+            System.out.println("[" + str8 + "] in urma inversarii cuvintelor devine \n[" + reversedWords + "]");
+
+
+
+
+            return reversedWords;
+
+        }
 
         public static void findFirstNonRepetedCharacter (String str){
 
