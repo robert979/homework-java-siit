@@ -56,14 +56,11 @@ public class StringManipulation {
                 if (palindromCheck1.equals(newString.get(i))){
                     strWithPalindrom.add(newString.get(i));
                     System.out.println("Sirul [" +newString.get(i) + "] este un palindrom");
+
                 }
 
-
-
-
-
-
             }
+            System.out.println("incercare " + strWithPalindrom.get(5).length());
 
         }
 
