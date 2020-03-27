@@ -13,6 +13,7 @@ public class StringManipulation {
         String str5 = "123587894454";
         String str6 = "a014894548545417";
         String str7 = "aabbcddeffjkjk";
+        String str8 = "astazi e ziua tas";
         char givenChar = 'a';
 
         //reverseString(str);
@@ -23,6 +24,26 @@ public class StringManipulation {
         //checkIfOnlyDigits(str6);
         //findPrintDuplicates(removeDuplicates(str5));
         //removeDuplicates(str3);
+        findFirstNonRepetedCharacter(str8);
+        }
+        //public static String reverseWordsOrder (String str8){
+        //int l = str8.length();
+
+        //for
+
+       // }
+
+        public static void findFirstNonRepetedCharacter (String str){
+
+        int l = str.length();
+        for (int i=1; i<=l-1; i++){
+            if (str.indexOf(str.charAt(i))==str.lastIndexOf(str.charAt(i))){
+                System.out.println("primul caracter unic din sirul [" + str + "] este " + "\"" + str.charAt(i) + "\"");
+                break;
+            }
+
+        }
+
 
         }
         public static String removeDuplicates (String str){
@@ -42,6 +63,7 @@ public class StringManipulation {
             System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
         return withoutDuplicates;
         }
+
     public static String findPrintDuplicates (String str){
         char [] withDuplicates=str.toCharArray();
        Arrays.sort(withDuplicates);
