@@ -1,15 +1,21 @@
 package com.siit.tema3.library2;
 
-public class Books {
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@ToString
+@EqualsAndHashCode
+
+public class Book {
     private String name;
     private int pageNumbers;
 
-    public Books(String name, int pageNumbers) {
+    public Book(String name, int pageNumbers) {
         this.name = name;
         this.pageNumbers = pageNumbers;
     }
 
-    public Books(){
+    public Book(){
         this("Jon Doe",0);
 
     }

@@ -1,6 +1,12 @@
 package com.siit.tema3.library2;
 
-public class Novel extends Books {
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@ToString
+@EqualsAndHashCode
+
+public class Novel extends Book {
     private String type;
 
     public Novel(){

@@ -1,5 +1,9 @@
 package com.siit.tema3.bank;
 
+import lombok.ToString;
+
+@ToString
+
 public class Pos extends Card {
 
     public Pos(String name, String iban, double balance, String cardNumber, int expirationDate) {
