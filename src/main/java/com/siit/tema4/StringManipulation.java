@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str= "abcdcdef";
+        String str= "abcdcdedcf";
         String str1 ="cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
@@ -29,8 +29,8 @@ public class StringManipulation {
         //reverseWordsOrder(str8);
         //removeUnnecesarySpaces(reverseWordsOrder(str8));
         //checkLongestPalindrom(str);
-        findAllSubstrings(str);
-        //findBiggestPalindrom(str);
+        //findAllSubstrings(str);
+        findBiggestPalindrom(str);
         }
         private static void findBiggestPalindrom (String str) {
             ArrayList<String> newString = new ArrayList();
@@ -39,7 +39,7 @@ public class StringManipulation {
             for (int i = 0; i <= l - 1; i++) {
                 for (int j = 0; j <= l - i - 1; j++) {
                     newString.add(str.substring(i, j + i + 1));
-                    System.out.println(str.substring(i, j + i + 1));
+                    //System.out.println(str.substring(i, j + i + 1));
                 }
             }
             int ll=newString.size();
@@ -55,13 +55,26 @@ public class StringManipulation {
 
                 if (palindromCheck1.equals(newString.get(i))){
                     strWithPalindrom.add(newString.get(i));
-                    System.out.println("Sirul [" +newString.get(i) + "] este un palindrom");
+                    //System.out.println("Sirul [" +newString.get(i) + "] este un palindrom");
 
                 }
 
             }
+            int counter = 0;
 
-            System.out.println("incercare " + strWithPalindrom.get(5).length());
+            for(int i=0; i<=strWithPalindrom.size()-1;i++){
+                if (counter <strWithPalindrom.get(i).length()){
+                    counter=i;
+                    }
+            }
+            if (counter>1){
+                System.out.println("cel mai mare si primul palindrom (de aceasta marime) care apare in sirul [" + str + "]\neste [" + strWithPalindrom.get(counter) + "]");
+            }
+            else {
+                System.out.println("Sirul [" + str + "] nocontine niciun palindrom");
+            }
+
+
 
         }
 
