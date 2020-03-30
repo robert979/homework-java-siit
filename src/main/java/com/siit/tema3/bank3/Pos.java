@@ -67,7 +67,9 @@ public class Pos extends Card {
         card1.withdraw(BigDecimal.valueOf(4));
         card1.withdraw(BigDecimal.valueOf(20));
         card5.withdraw(BigDecimal.valueOf(10));
+        card5.deposit(BigDecimal.valueOf(10));
         card6.withdraw(BigDecimal.valueOf(10));
+        card6.deposit(BigDecimal.valueOf(10));
         card1.deposit(BigDecimal.valueOf(50));
 
 

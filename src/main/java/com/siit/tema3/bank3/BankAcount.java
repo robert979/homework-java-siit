@@ -57,7 +57,7 @@ public class BankAcount extends User {
                     ballance = ballance.subtract(moneyAmount);
 
                 } else {
-                    System.out.println("IBAN Incorect - Operatia nu a fost efectuata");
+                    System.out.println("IBAN Incorect - cererea dumneavoastra de a retrage bani, nu a putut fi procesata");
                 }
             } else {
                 System.out.println("Domnule " + getName() + " cererea dumneavoastra nu a fost procesata\nSuma introdusa trebuie sa fie multiplu de 5");
@@ -72,7 +72,7 @@ public class BankAcount extends User {
             System.out.println("Domnule " + getName() + " contul dumneavoastra a fost alimentat cu suma de " + moneyAmount + " de LEI\nsold nou :" + ballance.add(moneyAmount) + " LEI");
             ballance = ballance.add(moneyAmount);
         } else {
-            System.out.println("IBAN Incorect - Operatia nu a fost efectuata");
+            System.out.println("IBAN Incorect - cererea dumneavoastra de a alimenta contul cu bani, nu a putut fi procesata");
 
         }
 

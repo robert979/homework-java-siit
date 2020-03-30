@@ -6,8 +6,8 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str= "abcdcdedcf";
-        String str1 ="cikedhvrnvkfjeknkndncdolfjeerlkc";
+        String str = "";
+        String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
         String str4 = "CAcacaca";
@@ -16,6 +16,9 @@ public class StringManipulation {
         String str7 = "aabbcddeffjkjk";
         String str8 = "    astazi e ziua     ta   norocoasa ca asa am zis eu    ";
         char givenChar = 'a';
+
+        String str9 = " ";
+        String str10 = " ";
 
         //reverseString(str);
         //checkPalindrome(str2);
@@ -30,76 +33,103 @@ public class StringManipulation {
         //removeUnnecesarySpaces(reverseWordsOrder(str8));
         //checkLongestPalindrom(str);
         //findAllSubstrings(str);
-        findBiggestPalindrom(str);
+        //findBiggestPalindrom(str);
+        checkStringsRotation(str9, str10);
 
-        }
-        private static void findBiggestPalindrom (String str) {
-            ArrayList<String> newString = new ArrayList();
-            ArrayList<String> strWithPalindrom=new ArrayList<>();
-            int l = str.length();
-            for (int i = 0; i <= l - 1; i++) {
-                for (int j = 0; j <= l - i - 1; j++) {
-                    newString.add(str.substring(i, j + i + 1));
-                    //System.out.println(str.substring(i, j + i + 1));
-                }
-            }
-            int ll=newString.size();
-            for (int i=0; i<=ll-1;i++){
-                newString.get(i);
+    }
+
+    private static void checkStringsRotation(String str1, String str2) {
+        int l1 = str1.length();
+        int l2 = str2.length();
+
+        String strCompare = str1.substring(1);
 
 
-                int bbbbb = newString.get(i).length();
-                String palindromCheck1 = newString.get(i).substring(bbbbb-1);
-                for (int j = bbbbb-1; j >= 1; j--){
-                    palindromCheck1=palindromCheck1+newString.get(i).substring(j-1,j);
-                }
+        if (l1 == l2) {
+            if (!str1.equals(str2)) {
+                for (int i = 0; i <= l1 - 2; i++) {
+                    strCompare = strCompare + str1.substring(i, i + 1);
+                    if (strCompare.substring(i).equals(str2)) {
+                        System.out.println("sirul [" + str1 + "] este o rotatie a sirului [" + str2 + "], si se obtine prin permutarea a " + (i + 1) + " elemente");
+                        break;
 
-                if (palindromCheck1.equals(newString.get(i))){
-                    strWithPalindrom.add(newString.get(i));
-                    //System.out.println("Sirul [" +newString.get(i) + "] este un palindrom");
-
-                }
-
-            }
-            int counter = 0;
-
-            for(int i=0; i<=strWithPalindrom.size()-1;i++){
-                if (counter <strWithPalindrom.get(i).length()){
-                    counter=i;
                     }
-            }
-            if (counter>1){
-                System.out.println("cel mai mare si primul palindrom (de aceasta marime) care apare in sirul [" + str + "]\neste [" + strWithPalindrom.get(counter) + "]");
-            }
-            else {
-                System.out.println("Sirul [" + str + "] nocontine niciun palindrom");
-            }
 
 
+                }
 
+            } else {
+                System.out.println("cele doua siruri sunt identice");
+            }
+
+        } else {
+
+            System.out.println("cele doua siruri au lungimi diferite");
         }
 
-    private static void findAllSubstrings (String str) {
+    }
+
+
+    private static void findBiggestPalindrom(String str) {
+        ArrayList<String> newString = new ArrayList();
+        ArrayList<String> strWithPalindrom = new ArrayList<>();
+        int l = str.length();
+        for (int i = 0; i <= l - 1; i++) {
+            for (int j = 0; j <= l - i - 1; j++) {
+                newString.add(str.substring(i, j + i + 1));
+                //System.out.println(str.substring(i, j + i + 1));
+            }
+        }
+        int ll = newString.size();
+        for (int i = 0; i <= ll - 1; i++) {
+            newString.get(i);
+
+
+            int bbbbb = newString.get(i).length();
+            String palindromCheck1 = newString.get(i).substring(bbbbb - 1);
+            for (int j = bbbbb - 1; j >= 1; j--) {
+                palindromCheck1 = palindromCheck1 + newString.get(i).substring(j - 1, j);
+            }
+
+            if (palindromCheck1.equals(newString.get(i))) {
+                strWithPalindrom.add(newString.get(i));
+                //System.out.println("Sirul [" +newString.get(i) + "] este un palindrom");
+
+            }
+
+        }
+        int counter = 0;
+
+        for (int i = 0; i <= strWithPalindrom.size() - 1; i++) {
+            if (counter < strWithPalindrom.get(i).length()) {
+                counter = i;
+            }
+        }
+        if (counter > 1) {
+            System.out.println("cel mai mare si primul palindrom (de aceasta marime) care apare in sirul [" + str + "]\neste [" + strWithPalindrom.get(counter) + "]");
+        } else {
+            System.out.println("Sirul [" + str + "] nu contine niciun palindrom");
+        }
+
+
+    }
+
+    private static void findAllSubstrings(String str) {
 
         int l = str.length();
-        for (int i=0; i<=l-1;i++){
-            for (int j=0; j<=l-i-1;j++){
+        if (l > 1) {
+            for (int i = 0; i <= l - 1; i++) {
+                for (int j = 0; j <= l - i - 1; j++) {
 
-                System.out.println(str.substring(i,j+i+1));
+                    System.out.println(str.substring(i, j + i + 1));
+                }
             }
+
+        } else {
+            System.out.println("Sirul trebuie sa contina minin 2 elemente");
         }
 
-        }
-
-
-
-
-
-
-
-
-
-
+    }
 
 
     /*int lungime = str.length();
@@ -134,96 +164,90 @@ public class StringManipulation {
 
     }
  */
-        private static String checkLongestPalindrom (String str){
+    private static String checkLongestPalindrom(String str) {
         String bigestPalindrome = new String();
-        String temp =new String();
-        int l= str.length();
+        String temp = new String();
+        int l = str.length();
 
-        for (int j=0; j<=l-1; j++){
-            temp=str.substring(j);
+        for (int j = 0; j <= l - 1; j++) {
+            temp = str.substring(j);
             int b = temp.length();
-            String palindromCheck = temp.substring(b-1);
-            for (int i = b-1; i >= 1; i--){
-                palindromCheck=palindromCheck+temp.substring(i-1,i);
+            String palindromCheck = temp.substring(b - 1);
+            for (int i = b - 1; i >= 1; i--) {
+                palindromCheck = palindromCheck + temp.substring(i - 1, i);
             }
 
-            if (palindromCheck.equals(temp)){
+            if (palindromCheck.equals(temp)) {
                 System.out.println("Subsirul [" + temp + "] este cel mai mare palindrom gasit in sirul [" + str + "]");
                 break;
             }
         }
 
 
-
-
         return bigestPalindrome;
-        }
+    }
 
-        private static String removeUnnecesarySpaces (String str8){
+    private static String removeUnnecesarySpaces(String str8) {
         String strWithoutSpaces = new String();
         int count = 0;
-        strWithoutSpaces=str8.trim();
-        int l=strWithoutSpaces.length();
-        for (int i=0; i<=l-1;i++){
-            if (strWithoutSpaces.charAt(i) == ' '){
-                count+=1;
+        strWithoutSpaces = str8.trim();
+        int l = strWithoutSpaces.length();
+        for (int i = 0; i <= l - 1; i++) {
+            if (strWithoutSpaces.charAt(i) == ' ') {
+                count += 1;
             }
         }
-        for (int i=0; i<(count/2); i++){
-            strWithoutSpaces=strWithoutSpaces.replace("  ", " ");
+        for (int i = 0; i < (count / 2); i++) {
+            strWithoutSpaces = strWithoutSpaces.replace("  ", " ");
         }
-            System.out.println("[" + str8 + "] devine dupa scoaterea spatiilor nenecesare \n[" + strWithoutSpaces + "]");
-
+        System.out.println("[" + str8 + "] devine dupa scoaterea spatiilor nenecesare \n[" + strWithoutSpaces + "]");
 
 
         return strWithoutSpaces;
-        }
+    }
 
-        private static String reverseWordsOrder (String str8){
-        String strSpaceRemoved = str8.trim() ;
-        String reversedWords= new String();
-        int count=0;
-        int l=strSpaceRemoved.length();
-        for (int i=0; i<=l-1; i++){
-            if (strSpaceRemoved.charAt(i) == ' '){
-                count=count+1;
+    private static String reverseWordsOrder(String str8) {
+        String strSpaceRemoved = str8.trim();
+        String reversedWords = new String();
+        int count = 0;
+        int l = strSpaceRemoved.length();
+        for (int i = 0; i <= l - 1; i++) {
+            if (strSpaceRemoved.charAt(i) == ' ') {
+                count = count + 1;
             }
         }
 
-        String [] strColector = new String[count+1];
+        String[] strColector = new String[count + 1];
         String temp = strSpaceRemoved;
 
-        for (int j=0; j<=count -1; j++){
-            strColector[j]=temp.substring(temp.lastIndexOf(" "));
-            temp=temp.substring(0,temp.lastIndexOf(" "));
+        for (int j = 0; j <= count - 1; j++) {
+            strColector[j] = temp.substring(temp.lastIndexOf(" "));
+            temp = temp.substring(0, temp.lastIndexOf(" "));
 
 
         }
-        strColector[count]=strSpaceRemoved.substring(0,strSpaceRemoved.indexOf(" "));
+        strColector[count] = strSpaceRemoved.substring(0, strSpaceRemoved.indexOf(" "));
 
 
-
-            for (int i =0; i<=count-1; i++){
-                reversedWords = reversedWords +strColector[i] ;
-
-            }
-            reversedWords=reversedWords + " " + strColector[count];
-            reversedWords=reversedWords.trim();
-
-            System.out.println("[" + str8 + "] in urma inversarii cuvintelor devine \n[" + reversedWords + "]");
-
-
-
-
-            return reversedWords;
+        for (int i = 0; i <= count - 1; i++) {
+            reversedWords = reversedWords + strColector[i];
 
         }
+        reversedWords = reversedWords + " " + strColector[count];
+        reversedWords = reversedWords.trim();
 
-        private static void findFirstNonRepetedCharacter (String str){
+        System.out.println("[" + str8 + "] in urma inversarii cuvintelor devine \n[" + reversedWords + "]");
+
+
+        return reversedWords;
+
+    }
+
+    private static void findFirstNonRepetedCharacter(String str) {
 
         int l = str.length();
-        for (int i=1; i<=l-1; i++){
-            if (str.indexOf(str.charAt(i))==str.lastIndexOf(str.charAt(i))){
+        for (int i = 1; i <= l - 1; i++) {
+            if (str.indexOf(str.charAt(i)) == str.lastIndexOf(str.charAt(i))) {
                 System.out.println("primul caracter unic din sirul [" + str + "] este " + "\"" + str.charAt(i) + "\"");
                 break;
             }
@@ -231,46 +255,48 @@ public class StringManipulation {
         }
 
 
-        }
-        private static String removeDuplicates (String str){
+    }
+
+    private static String removeDuplicates(String str) {
         String withoutDuplicates = new String();
-        char [] wihDuplicates = str.toCharArray();
+        char[] wihDuplicates = str.toCharArray();
         Arrays.sort(wihDuplicates);
         int l = wihDuplicates.length;
 
 
-       for (int i = 0; i<=l-2; i++){
-           if (wihDuplicates[i]!= wihDuplicates[i+1]){
-               withoutDuplicates = withoutDuplicates + wihDuplicates[i];
-           }
+        for (int i = 0; i <= l - 2; i++) {
+            if (wihDuplicates[i] != wihDuplicates[i + 1]) {
+                withoutDuplicates = withoutDuplicates + wihDuplicates[i];
+            }
 
-       }
-            withoutDuplicates = withoutDuplicates + wihDuplicates[l-1];
-            System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
-        return withoutDuplicates;
         }
+        withoutDuplicates = withoutDuplicates + wihDuplicates[l - 1];
+        System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
+        return withoutDuplicates;
+    }
 
-    private static String findPrintDuplicates (String str){
-        char [] withDuplicates=str.toCharArray();
-       Arrays.sort(withDuplicates);
-       int l = withDuplicates.length;
-       String onlyDuplicates=new String();
-       for (int i=0; i<=l-2;i++){
-           if (withDuplicates[i] == withDuplicates[i+1] ){
-               onlyDuplicates=onlyDuplicates+withDuplicates[i];
-           }
+    private static String findPrintDuplicates(String str) {
+        char[] withDuplicates = str.toCharArray();
+        Arrays.sort(withDuplicates);
+        int l = withDuplicates.length;
+        String onlyDuplicates = new String();
+        for (int i = 0; i <= l - 2; i++) {
+            if (withDuplicates[i] == withDuplicates[i + 1]) {
+                onlyDuplicates = onlyDuplicates + withDuplicates[i];
+            }
 
-       }
-       System.out.println("duplicatele din sirul [" +str + "] sunt " + onlyDuplicates);
-       return onlyDuplicates;
+        }
+        System.out.println("duplicatele din sirul [" + str + "] sunt " + onlyDuplicates);
+        return onlyDuplicates;
 
     }
-    private static void checkIfOnlyDigits (String str) {
+
+    private static void checkIfOnlyDigits(String str) {
         int l = str.length();
         System.out.println("l este " + l);
         int count = 0;
         String digitArray = "1234567890";
-        if (digitArray.contains(str.substring(l-1))) {
+        if (digitArray.contains(str.substring(l - 1))) {
             for (int i = 0; i <= l - 2; i++) {
                 if (digitArray.contains(str.substring(i, i + 1))) {
 
@@ -285,74 +311,71 @@ public class StringManipulation {
 
         if (count == l - 1) {
             System.out.println("sirul [" + str + "] contine doar cifre");
-        }
-
-        else {
+        } else {
             System.out.println("sirul [" + str + "] NU contine doar cifre");
         }
 
-        }
+    }
 
-        private static String removeChar (String str,char givenChar){
-            String strRemoveChar = new String();
-            int l = str.length();
-            for (int i = 0; i <= l - 1; i++) {
-                if (givenChar != str.charAt(i)) {
-                    strRemoveChar = strRemoveChar + str.charAt(i);
-                }
+    private static String removeChar(String str, char givenChar) {
+        String strRemoveChar = new String();
+        int l = str.length();
+        for (int i = 0; i <= l - 1; i++) {
+            if (givenChar != str.charAt(i)) {
+                strRemoveChar = strRemoveChar + str.charAt(i);
             }
-            System.out.println("Prin eliminarea caracterului \"" + givenChar + "\" sirul [" + str + "] a devenit [" + strRemoveChar + "]");
-
-            return strRemoveChar;
         }
+        System.out.println("Prin eliminarea caracterului \"" + givenChar + "\" sirul [" + str + "] a devenit [" + strRemoveChar + "]");
+
+        return strRemoveChar;
+    }
 
 
-     private static int countChar (String str, char givenChar){
+    private static int countChar(String str, char givenChar) {
         int l = str.length();
         int count = 0;
-        for (int j =0; j<= l-1; j++){
-            if (givenChar == str.charAt(j)){
-                count +=1;
-               }
+        for (int j = 0; j <= l - 1; j++) {
+            if (givenChar == str.charAt(j)) {
+                count += 1;
+            }
         }
-         System.out.println("caracterul \"" + givenChar + "\" apare de " + count + " ori in sirul [" + str + "]");
+        System.out.println("caracterul \"" + givenChar + "\" apare de " + count + " ori in sirul [" + str + "]");
         return count;
 
-     }
+    }
 
-    private static void checkIfAnagram (String str, String str1){
-        char [] char1= str.toLowerCase().toCharArray();
-        char [] char2 = str1.toLowerCase().toCharArray();
+    private static void checkIfAnagram(String str, String str1) {
+        char[] char1 = str.toLowerCase().toCharArray();
+        char[] char2 = str1.toLowerCase().toCharArray();
         Arrays.sort(char1);
         Arrays.sort(char2);
         int l1 = char1.length;
         int l2 = char2.length;
         String string1 = new String();
         String string2 = new String();
-        for (int i=0; i<=l1-1; i++){
-            string1 = string1+ char1[i];
-            }
+        for (int i = 0; i <= l1 - 1; i++) {
+            string1 = string1 + char1[i];
+        }
 
-        for (int i=0; i<=l2-1; i++) {
+        for (int i = 0; i <= l2 - 1; i++) {
             string2 = string2 + char2[i];
         }
-        if (string1.equals(string2)){
+        if (string1.equals(string2)) {
             System.out.println("Sirul " + str + " este o anagrama a sirului " + str1);
-        }
-        else {
+        } else {
             System.out.println("Sirul " + str + " nu este o anagrama a sirului " + str1);
         }
     }
 
-    private static String checkPalindrome (String str){
+    private static String checkPalindrome(String str) {
 
         int b = str.length();
-        String palindromCheck = str.substring(b-1);
-        for (int i = b-1; i >= 1; i--){
-            palindromCheck=palindromCheck+str.substring(i-1,i);
+        String palindromCheck = str.substring(b - 1);
+        for (int i = b - 1; i >= 1; i--) {
+            palindromCheck = palindromCheck + str.substring(i - 1, i);
         }
 
-        if (palindromCheck.equals(str)){
+        if (palindromCheck.equals(str)) {
             System.out.println("Sirul [" + str + "] este un palindrom");
         }
 
@@ -378,15 +401,15 @@ public class StringManipulation {
         }
         */
 
-    private static String reverseString (String str){
+    private static String reverseString(String str) {
         int b = str.length();
         String strrev = str.substring(b - 1);
 
-        for (int i = b - 1; i >0; i--) {
-            strrev = strrev + str.substring(i - 1, i );
+        for (int i = b - 1; i > 0; i--) {
+            strrev = strrev + str.substring(i - 1, i);
         }
         System.out.println("Inversul sirului [" + str + "] este [" + strrev + "]");
 
         return strrev;
-            }
+    }
 }
