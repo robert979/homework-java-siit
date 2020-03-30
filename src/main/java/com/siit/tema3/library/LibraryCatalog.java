@@ -58,7 +58,7 @@ public class LibraryCatalog {
                         "; tiparit in anul " + Books.get(i).getYearOfRelease());
             } else {
                 System.out.println("Cartea numarul " + (i + 1) + " este un album si se numeste " + Books.get(i).getName() + " si are " + Books.get(i).getPageNumbers() + " de pagini " +
-                        "; tiparit in anul " + Books.get(i).getYearOfRelease() +Books.get(i).
+                        "; tiparit in anul " + Books.get(i).getYearOfRelease() +Books.get(i));
 
             }
             //System.out.println("Toate cartile sunt :" + toateCartile[i] + ", ");
