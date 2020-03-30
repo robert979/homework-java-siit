@@ -31,6 +31,7 @@ public class StringManipulation {
         //checkLongestPalindrom(str);
         //findAllSubstrings(str);
         findBiggestPalindrom(str);
+
         }
         private static void findBiggestPalindrom (String str) {
             ArrayList<String> newString = new ArrayList();
