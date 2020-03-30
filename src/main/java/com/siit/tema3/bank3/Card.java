@@ -34,14 +34,26 @@ public class Card extends BankAcount {
         return exp;
     }
 
-    public BigDecimal withdraw(BigDecimal sumaDeRetras) {
+    public BigDecimal withdraw(BigDecimal withdrawAmount) {
         if (checkExpirationDate()) {
-            withdrawOperation(sumaDeRetras);
+            withdrawOperation(withdrawAmount);
         } else {
-            System.out.println("Card expirat - cererea nu a putut fi procesata");
+            System.out.println("Card expirat - cererea dumneavoastra de a retrage bani, nu a putut fi procesata");
         }
 
-        return sumaDeRetras;
+        return withdrawAmount;
+    }
+
+    public BigDecimal deposit(BigDecimal depositAmount) {
+        if (checkExpirationDate()) {
+            depositOperation(depositAmount);
+
+
+        } else {
+            System.out.println("Card expirat - cererea dumneavoastra de a alimenta contul cu bani, nu a putut fi procesata");
+        }
+
+        return depositAmount;
     }
 
 

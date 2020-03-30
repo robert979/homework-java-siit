@@ -67,5 +67,15 @@ public class BankAcount extends User {
         }
     }
 
+    public void depositOperation(BigDecimal moneyAmount) {
+        if (checkIBAN(getIBAN())) {
+            System.out.println("Domnule " + getName() + " contul dumneavoastra a fost alimentat cu suma de " + moneyAmount + " de LEI\nsold nou :" + ballance.add(moneyAmount) + " LEI");
+            ballance = ballance.add(moneyAmount);
+        } else {
+            System.out.println("IBAN Incorect - Operatia nu a fost efectuata");
 
+        }
+
+
+    }
 }

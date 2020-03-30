@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Pos extends Card {
-    int expirationDate = getExpirationDate();
+    int expirationDate=getExpirationDate();
+
 
     public Pos(String name, String CNP, String IBAN, BigDecimal ballance, int expirationDate, String cardNumber) {
         super(name, CNP, IBAN, ballance, expirationDate, cardNumber);
@@ -67,6 +68,8 @@ public class Pos extends Card {
         card1.withdraw(BigDecimal.valueOf(20));
         card5.withdraw(BigDecimal.valueOf(10));
         card6.withdraw(BigDecimal.valueOf(10));
+        card1.deposit(BigDecimal.valueOf(50));
+
 
     }
 
