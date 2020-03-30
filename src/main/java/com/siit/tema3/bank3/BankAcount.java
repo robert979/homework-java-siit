@@ -49,8 +49,8 @@ public class BankAcount extends User {
         return ballance;
     }
 
-    public  void withdrawOperation (BigDecimal moneyAmount){
-        if (moneyAmount.compareTo(ballance) <0 ){
+    public void withdrawOperation(BigDecimal moneyAmount) {
+        if (moneyAmount.compareTo(ballance) < 0) {
             if ((moneyAmount.remainder(BigDecimal.valueOf(5))).compareTo(BigDecimal.valueOf(0)) == 0) {
                 if (checkIBAN(getIBAN())) {
                     System.out.println("Domnule " + getName() + " cererea dumneavoastra de a retrage suma de " + moneyAmount + " de LEI a fost procesata\nsold nou :" + ballance.subtract(moneyAmount) + " LEI");
@@ -59,13 +59,10 @@ public class BankAcount extends User {
                 } else {
                     System.out.println("IBAN Incorect - Operatia nu a fost efectuata");
                 }
-            }
-            else {
+            } else {
                 System.out.println("Domnule " + getName() + " cererea dumneavoastra nu a fost procesata\nSuma introdusa trebuie sa fie multiplu de 5");
             }
-        }
-
-        else {
+        } else {
             System.out.println("Fonduri insuficiente - cererea nu a putut fi procesata");
         }
     }

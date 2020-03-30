@@ -14,29 +14,30 @@ public class Card extends BankAcount {
     }
 
 
-    public int getExpirationDate (){
+    public int getExpirationDate() {
         return expirationDate;
     }
-    public String getCardNumber (){
+
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public boolean checkExpirationDate (){
+    public boolean checkExpirationDate() {
         boolean exp = false;
-        if (expirationDate>20200330){
+        if (expirationDate > 20200330) {
             exp = true;
 
-        }
-        else {;
+        } else {
+            ;
             exp = false;
         }
         return exp;
     }
-    public  BigDecimal withdraw (BigDecimal sumaDeRetras){
-        if ( checkExpirationDate()){
+
+    public BigDecimal withdraw(BigDecimal sumaDeRetras) {
+        if (checkExpirationDate()) {
             withdrawOperation(sumaDeRetras);
-        }
-        else {
+        } else {
             System.out.println("Card expirat - cererea nu a putut fi procesata");
         }
 

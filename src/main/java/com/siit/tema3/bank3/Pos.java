@@ -45,7 +45,7 @@ public class Pos extends Card {
         Card card5 = new Card(bankAccountList.get(2).getName(), bankAccountList.get(1).getCNP(), bankAccountList.get(1).getIBAN(), bankAccountList.get(2).getBallance(), 20190601, "12345681");
         cardList.add(card5);
 
-        Card card6= new Card("Alexandru Stan", "1809096546454", "RO686978", BigDecimal.valueOf(90), 20220314, "12345699");
+        Card card6 = new Card("Alexandru Stan", "1809096546454", "RO686978", BigDecimal.valueOf(90), 20220314, "12345699");
         cardList.add(card6);
 
 
@@ -69,13 +69,6 @@ public class Pos extends Card {
         card6.withdraw(BigDecimal.valueOf(10));
 
     }
-    
-    
-    
-
-
-
-
 
 
 }
