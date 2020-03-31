@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = "qwertyuiopasdfghjklmnbvcxzQWERTYUIOPASDFGHJKLZXCVBNM";
+        String str = "qwertuiopasdfghjklmnbvcxz";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
@@ -72,10 +72,10 @@ public class StringManipulation {
         if ((c + v + y) > 0) {
             System.out.println("Sirul [" + str + "] contine :");
             if (c > 0) {
-                System.out.println("-" + c + " de consoane si acestea sunt [" + consoane + "]" );
+                System.out.println("-" + c + " consoane si acestea sunt [" + consoane + "]" );
             }
             if (v > 0) {
-                System.out.println("-" +v + " de vocale si acestea sunt [" + vocale + "]");
+                System.out.println("-" +v + " vocale si acestea sunt [" + vocale + "]");
             }
             if (y > 0) {
                 System.out.println( "-litera y de " + y + " ori");
