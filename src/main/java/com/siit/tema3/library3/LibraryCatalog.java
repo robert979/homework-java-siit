@@ -25,37 +25,44 @@ public class LibraryCatalog {
         albums.add(album2);
 
         addNovelsAndAlbumsToBooks(books, novels, albums); //se adauga automat in "books" toate "novels" si "albums"
-        books.remove(books.get(0));
+
+        printAll(books, novels, albums);
+        removeBooks(books, 1);
+        printAll(books, novels, albums);
+        // books.remove(1);
+        //printAll(books, novels, albums);
 
 
-        for (int i = 0; i <= size(books) - 1; i++) { //se printeaza automat toata colectia de "books" identificand ID astfel incat sa poata fi scoasa orice carte apoi, cu usurinta
+    }
 
-
+    public static void printAll(ArrayList<Book> books, ArrayList<Novel> novels, ArrayList<Album> albums) {
+        int l = books.size();
+        for (int i = 0; i <= l - 1; i++) {
             if (books.get(i) instanceof Novel) {
-                System.out.println("The book " + books.get(i).getnewName() + " it's a novel by type " + ((Novel) books.get(i)).getType() + " ID = " + i);
+                System.out.println("The book " + books.get(i).getnewName() + " it's a novel by type " + ((Novel) books.get(i)).getType() + " ID = " + (i + 1));
 
             } else if (books.get(i) instanceof Album) {
-                System.out.println("The book " + books.get(i).getnewName() + " it's an album, and the paper quality is " + ((Album) books.get(i)).getPaperQuality() + " ID = " + i);
+                System.out.println("The book " + books.get(i).getnewName() + " it's an album, and the paper quality is " + ((Album) books.get(i)).getPaperQuality() + " ID = " + (i + 1));
+
             }
 
-
         }
-
-
     }
 
 
     public static int addNovelsAndAlbumsToBooks(ArrayList books, ArrayList novels, ArrayList albums) {
         int ln = novels.size();
         int la = albums.size();
-        for (int i = 0; i <= la - 1; i++) {
-            for (int j = 0; j <= ln - 1; j++) {
-                books.add(novels.get(j));
-                System.out.println(j + " " + novels.get(j).getClass());
-            }
-            books.add(albums.get(i));
 
+        for (int j = 0; j <= ln - 1; j++) {
+            books.add(novels.get(j));
         }
+        for (int i = 0; i <= la - 1; i++) {
+
+            books.add(albums.get(i));
+        }
+
+
         return ln;
 
     }
@@ -75,6 +82,15 @@ public class LibraryCatalog {
 
 
         }
+
+    }
+
+    public static void removeBooks(ArrayList<Book> books, int i) {
+
+        books.remove(i-1);
+
+        System.out.println(" The Book " + books.get(i-1).getnewName() + " was removed from the library ");
+
 
     }
 

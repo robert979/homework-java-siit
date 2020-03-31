@@ -23,7 +23,7 @@ public class StringManipulation {
         //reverseString(str);
         //checkPalindrome(str2);
         //checkIfAnagram(str3,str4);
-        countChar(str, givenChar);
+        //countChar(str, givenChar);
         //removeChar(str,givenChar);
         //checkIfOnlyDigits(str6);
         //findPrintDuplicates(removeDuplicates(str5));
@@ -36,6 +36,20 @@ public class StringManipulation {
         //findBiggestPalindrom(str);
         //checkStringsRotation(str9, str10);
 
+
+    }
+
+    private static void countVowelsAndConsonants (String str){
+        int c=0;
+        int v=0;
+        int y=0;
+      String vowels = "AEIOUaeiou";
+      String consonant = "QWRTYSDFGHJKLZXCVBNMqwrtpsdfghjklzxcvbnm";
+      String yy = "Yy";
+      int l=str.length();
+      for (int i=0; i<=l-1; i++){
+          //if ()
+      }
     }
 
     private static void checkStringsRotation(String str1, String str2) {
