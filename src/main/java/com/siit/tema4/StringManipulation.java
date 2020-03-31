@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = "ammmannaaakk";
+        String str = "qwertyuiopasdfghjklmnbvcxzQWERTYUIOPASDFGHJKLZXCVBNM";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
@@ -35,21 +35,55 @@ public class StringManipulation {
         //findAllSubstrings(str);
         //findBiggestPalindrom(str);
         //checkStringsRotation(str9, str10);
+        countVowelsAndConsonants(str);
 
 
     }
 
-    private static void countVowelsAndConsonants (String str){
-        int c=0;
-        int v=0;
-        int y=0;
-      String vowels = "AEIOUaeiou";
-      String consonant = "QWRTYSDFGHJKLZXCVBNMqwrtpsdfghjklzxcvbnm";
-      String yy = "Yy";
-      int l=str.length();
-      for (int i=0; i<=l-1; i++){
-          //if ()
-      }
+    private static void countVowelsAndConsonants(String str) {
+        int c = 0;
+        int v = 0;
+        int y = 0;
+        String consoane=new String();
+        String vocale = new String();
+        String yyy = new String();
+        String str1 = str + " ";
+        char[] strChar = str.toCharArray();
+        String vowels = "AEIOUaeiou";
+        String consonant = "QWRTYSDFGHJKLZXCVBNMqwrtpsdfghjklzxcvbnm";
+        String yy = "Yy";
+        int l = str.length();
+        for (int i = 0; i <= l - 1; i++) {
+            if (vowels.contains(str1.substring(i, i + 1))) {
+                v += 1;
+                vocale=vocale+str1.substring(i,i+1);
+            }
+            if (consonant.contains(str1.substring(i, i + 1))) {
+                c += 1;
+                consoane=consoane+str1.substring(i,i+1);
+            }
+            if (yy.contains(str1.substring(i, i + 1))) {
+                y += 1;
+                yyy=yyy+str1.substring(i,i+1);
+            }
+
+        }
+
+        if ((c + v + y) > 0) {
+            System.out.println("Sirul [" + str + "] contine :");
+            if (c > 0) {
+                System.out.println("-" + c + " de consoane si acestea sunt [" + consoane + "]" );
+            }
+            if (v > 0) {
+                System.out.println("-" +v + " de vocale si acestea sunt [" + vocale + "]");
+            }
+            if (y > 0) {
+                System.out.println( "-litera y de " + y + " ori");
+            }
+        } else {
+            System.out.println("Sirul [" + str + "] nu contine nici vocale, nici consoane nici litera \"y\"");
+        }
+
     }
 
     private static void checkStringsRotation(String str1, String str2) {
