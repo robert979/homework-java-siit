@@ -87,9 +87,9 @@ public class LibraryCatalog {
 
     public static void removeBooks(ArrayList<Book> books, int i) {
 
-        books.remove(i-1);
 
-        System.out.println(" The Book " + books.get(i-1).getnewName() + " was removed from the library ");
+        System.out.println("The Book " + books.get(i - 1).getnewName() + " was removed from the library ");
+        books.remove(i - 1);
 
 
     }
