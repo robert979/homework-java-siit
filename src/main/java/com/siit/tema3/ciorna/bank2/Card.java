@@ -1,10 +1,7 @@
-package com.siit.tema3.bank2;
+package com.siit.tema3.ciorna.bank2;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-
-import java.util.ArrayList;
 
 @Getter
 @Setter

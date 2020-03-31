@@ -35,7 +35,7 @@ public class LibraryCatalog {
                 System.out.println("The book " + books.get(i).getnewName() + " it's a novel by type " + ((Novel) books.get(i)).getType() + " ID = " + i);
 
             } else if (books.get(i) instanceof Album) {
-                System.out.println("The book " + books.get(i).getnewName() + " it's an album, and the paper quality is " + ((Album) books.get(i)).getPaperQuality() + " ID = "  +i);
+                System.out.println("The book " + books.get(i).getnewName() + " it's an album, and the paper quality is " + ((Album) books.get(i)).getPaperQuality() + " ID = " + i);
             }
 
 

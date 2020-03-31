@@ -1,11 +1,6 @@
 package com.siit.tema3.bank3;
 
-import com.siit.tema3.bank2.BankAccount;
-
-import javax.sound.midi.Soundbank;
-import java.lang.annotation.ElementType;
 import java.math.BigDecimal;
-import java.security.PublicKey;
 
 public class BankAcount extends User {
 

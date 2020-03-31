@@ -1,9 +1,9 @@
-package com.siit.tema3.library;
+package com.siit.tema3.ciorna.library;
 
 import lombok.ToString;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 @ToString
 
 public class LibraryCatalog {

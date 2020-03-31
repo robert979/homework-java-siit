@@ -1,4 +1,4 @@
-package com.siit.tema3.bank2;
+package com.siit.tema3.ciorna.bank2;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

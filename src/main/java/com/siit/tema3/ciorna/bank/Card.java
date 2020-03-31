@@ -1,4 +1,4 @@
-package com.siit.tema3.bank;
+package com.siit.tema3.ciorna.bank;
 
 public class Card extends BankAcount {
 

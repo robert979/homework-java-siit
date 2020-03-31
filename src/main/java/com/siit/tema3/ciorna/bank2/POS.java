@@ -1,4 +1,4 @@
-package com.siit.tema3.bank2;
+package com.siit.tema3.ciorna.bank2;
 
 public class POS extends Card {
     public POS(String name, String cnp, String iban, double ballance, long cardNumber, int expirationDate) {

@@ -1,4 +1,4 @@
-package com.siit.tema3.library2;
+package com.siit.tema3.ciorna.library2;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

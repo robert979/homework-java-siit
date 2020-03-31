@@ -1,6 +1,4 @@
-package com.siit.tema3.library;
-
-import java.util.Scanner;
+package com.siit.tema3.ciorna.library;
 
 public class Album extends Book {
     private String paperQuality;

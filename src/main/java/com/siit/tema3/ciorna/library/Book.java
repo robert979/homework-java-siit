@@ -1,4 +1,4 @@
-package com.siit.tema3.library;
+package com.siit.tema3.ciorna.library;
 
 public class Book {
     private String name;
