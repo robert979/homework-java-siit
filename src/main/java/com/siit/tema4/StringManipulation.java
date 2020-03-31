@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = "";
+        String str = "ammmannaaakk";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "aabbcbbaa";
         String str3 = "acacacac";
@@ -17,13 +17,13 @@ public class StringManipulation {
         String str8 = "    astazi e ziua     ta   norocoasa ca asa am zis eu    ";
         char givenChar = 'a';
 
-        String str9 = " ";
-        String str10 = " ";
+        String str9 = "abcdef";
+        String str10 = "efabcd";
 
         //reverseString(str);
         //checkPalindrome(str2);
         //checkIfAnagram(str3,str4);
-        //countChar(str, givenChar);
+        countChar(str, givenChar);
         //removeChar(str,givenChar);
         //checkIfOnlyDigits(str6);
         //findPrintDuplicates(removeDuplicates(str5));
@@ -34,7 +34,7 @@ public class StringManipulation {
         //checkLongestPalindrom(str);
         //findAllSubstrings(str);
         //findBiggestPalindrom(str);
-        checkStringsRotation(str9, str10);
+        //checkStringsRotation(str9, str10);
 
     }
 
