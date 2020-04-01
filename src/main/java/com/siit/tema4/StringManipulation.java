@@ -25,9 +25,9 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = "qwertuiopasdfghjklmnbvcxz";
+        String str = "wertrewff";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
-        String str2 = "aabbcbbaa";
+        String str2 = "3243";
         String str3 = "acacacac";
         String str4 = "CAcacaca";
         String str5 = "123587894454";
@@ -40,21 +40,32 @@ public class StringManipulation {
         String str10 = "efabcd";
 
         //reverseString(str);                                //01
-        //checkPalindrome(str2);
-        //checkIfAnagram(str3,str4);
-        //countChar(str, givenChar);
-        //removeChar(str,givenChar);
-        //checkIfOnlyDigits(str6);
-        //findPrintDuplicates(removeDuplicates(str5));
+        //findPrintDuplicates(removeDuplicates(str5));       //02 - 06
+        //checkIfAnagram(str3,str4);                         //03
+
+        //checkIfOnlyDigits(str6);                           //05
         //removeDuplicates(str3);                            //06
-        //findFirstNonRepetedCharacter(str8);
-        //reverseWordsOrder(str8);
-        //removeUnnecesarySpaces(reverseWordsOrder(str8));
-        //checkLongestPalindrom(str);
-        //findAllSubstrings(str);
-        //findBiggestPalindrom(str);
-        //checkStringsRotation(str9, str10);
-        //countVowelsAndConsonants(str);
+        //countVowelsAndConsonants(str);                     //07
+        //countChar(str, givenChar);                         //08
+        //findFirstNonRepetedCharacter(str8);                //09
+
+        //reverseWordsOrder(str8);                             //11
+        //checkStringsRotation(str9, str10);                 //12
+        //checkPalindrome(str2);                             //13
+
+
+        //removeChar(str,givenChar);                         //17
+
+
+
+
+
+        //removeUnnecesarySpaces(reverseWordsOrder(str8));   // not given
+        //checkLongestPalindrom(str);                       //
+        findAllSubstrings(str);
+        //findBiggestPalindrom(str);                        //  15
+
+
 
 
     }
@@ -438,12 +449,24 @@ public class StringManipulation {
 
         int b = str.length();
         String palindromCheck = str.substring(b - 1);
+
+
         for (int i = b - 1; i >= 1; i--) {
             palindromCheck = palindromCheck + str.substring(i - 1, i);
         }
 
+        if (palindromCheck.length() >1){
+
         if (palindromCheck.equals(str)) {
             System.out.println("Sirul [" + str + "] este un palindrom");
+        }
+        else {
+            System.out.println("Sirul [" + str + "], nu este un palindrom");
+        }
+
+        }
+        else {
+            System.out.println("Sirul [" + str + "], nu este un palindrom");
         }
 
         return palindromCheck;
