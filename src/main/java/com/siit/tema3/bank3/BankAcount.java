@@ -44,7 +44,7 @@ public class BankAcount extends User {
         return ballance;
     }
 
-    public void withdrawOperation(BigDecimal moneyAmount) {
+    public void atmwithdrawOperation(BigDecimal moneyAmount) {
         if (moneyAmount.compareTo(ballance) < 0) {
             if ((moneyAmount.remainder(BigDecimal.valueOf(5))).compareTo(BigDecimal.valueOf(0)) == 0) {
                 if (checkIBAN(getIBAN())) {

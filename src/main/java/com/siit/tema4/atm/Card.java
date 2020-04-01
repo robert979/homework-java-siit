@@ -16,15 +16,12 @@ public class Card extends BankAccount {
     public int getPin(){
         return pin;
     }
-
-    public void setPin (int pin){
-        this.pin = pin;
-    }
-
     public String getCardNumber (){
         return cardNumber;
     }
-
+    public void setPin (int pin){
+        this.pin = pin;
+    }
     public void setCardNumber (String cardNumber){
         this.cardNumber=cardNumber;
     }
