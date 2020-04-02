@@ -1,7 +1,10 @@
 package com.siit.tema3.bank3;
 
+import lombok.EqualsAndHashCode;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
+@EqualsAndHashCode
 
 public class Pos extends Card {
     int expirationDate=getExpirationDate();

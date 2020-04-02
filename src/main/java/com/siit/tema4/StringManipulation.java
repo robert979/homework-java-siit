@@ -27,14 +27,14 @@ public class StringManipulation {
 
         String str = "wertrewff";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
-        String str2 = "3243";
+        String str2 = "";
         String str3 = "acacacac";
         String str4 = "CAcacaca";
         String str5 = "123587894454";
         String str6 = "a014894548545417";
         String str7 = "aabbcddeffjkjk";
         String str8 = "    astazi e ziua     ta   norocoasa ca asa am zis eu    ";
-        char givenChar = 'a';
+        char givenChar = 'e';
 
         String str9 = "abcdef";
         String str10 = "efabcd";
@@ -50,11 +50,12 @@ public class StringManipulation {
         //findFirstNonRepetedCharacter(str8);                //09
 
         //reverseWordsOrder(str8);                             //11
-        //checkStringsRotation(str9, str10);                 //12
-        //checkPalindrome(str2);                             //13
+        //checkStringsRotation(str9, str10);                   //12
+        //checkPalindrome(str2);                               //13
 
-
-        //removeChar(str,givenChar);                         //17
+        findBiggestPalindrom(str);                        //  15
+        //removeDuplicates(str);                               //16
+        //removeChar(str,givenChar);                          //17
 
 
 
@@ -62,8 +63,8 @@ public class StringManipulation {
 
         //removeUnnecesarySpaces(reverseWordsOrder(str8));   // not given
         //checkLongestPalindrom(str);                       //
-        findAllSubstrings(str);
-        //findBiggestPalindrom(str);                        //  15
+        //findAllSubstrings(str);
+
 
 
 
@@ -210,38 +211,6 @@ public class StringManipulation {
     }
 
 
-    /*int lungime = str.length();
-        String temp = str;
-        String temp1 = str;
-        String temp2 = new String();
-        String temp3 = new String();
-
-        for (int p = 0; p<=lungime-2; p++){
-            temp = temp.substring(0,((lungime-p)-1));
-            temp1 = temp1.substring(1);
-            temp2=temp.substring(1);
-            int lungimeintermediara = temp1.length();
-            if (lungimeintermediara>1){
-                temp3=temp1.substring(0,lungimeintermediara-2);
-               }
-
-            System.out.println("temp  "+temp + " lungimea sirului este " + temp.length() );
-            System.out.println("temp1 "+temp1 + " lungimea sirului este " + temp1.length());
-            System.out.println("temp2 " + temp2 + " lungimea sirului este " + temp2.length());
-            System.out.println("temp3 " + temp3 + " lungimea sirului este " + temp3.length());
-            System.out.println("lungimeintermediara " + lungimeintermediara);
-            //temp1=temp.substring(0,lungime-1);
-           //System.out.println("string initial " + str + "\ntemp " + temp + "\ntemp1 " + temp1);
-
-
-
-
-        }
-
-
-
-    }
- */
     private static String checkLongestPalindrom(String str) {
         String bigestPalindrome = new String();
         String temp = new String();
@@ -448,25 +417,29 @@ public class StringManipulation {
     private static String checkPalindrome(String str) {
 
         int b = str.length();
-        String palindromCheck = str.substring(b - 1);
+        String palindromCheck = new String();
+        if (b >0) {
+            palindromCheck = str.substring(b - 1);
 
 
-        for (int i = b - 1; i >= 1; i--) {
-            palindromCheck = palindromCheck + str.substring(i - 1, i);
-        }
+            for (int i = b - 1; i >= 1; i--) {
+                palindromCheck = palindromCheck + str.substring(i - 1, i);
+            }
 
-        if (palindromCheck.length() >1){
+            if (palindromCheck.length() > 1) {
 
-        if (palindromCheck.equals(str)) {
-            System.out.println("Sirul [" + str + "] este un palindrom");
+                if (palindromCheck.equals(str)) {
+                    System.out.println("Sirul [" + str + "] este un palindrom");
+                } else {
+                    System.out.println("Sirul [" + str + "], nu este un palindrom");
+                }
+
+            } else {
+                System.out.println("Sirul [" + str + "], nu este un palindrom");
+            }
         }
         else {
-            System.out.println("Sirul [" + str + "], nu este un palindrom");
-        }
-
-        }
-        else {
-            System.out.println("Sirul [" + str + "], nu este un palindrom");
+            System.out.println("Sirul [] este gol");
         }
 
         return palindromCheck;

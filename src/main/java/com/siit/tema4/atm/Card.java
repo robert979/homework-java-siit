@@ -9,7 +9,7 @@ public class Card extends BankAccount {
 
     public Card (String name, String cnp, String iban, BigDecimal ballance, int pin, String cardNumber ){
         super(name, cnp, iban, ballance);
-        this.pin=1234;
+        this.pin=pin;
         this.cardNumber=cardNumber;
     }
 

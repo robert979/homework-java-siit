@@ -36,7 +36,7 @@ public class Card extends BankAcount {
 
     public BigDecimal withdraw(BigDecimal withdrawAmount) {
         if (checkExpirationDate()) {
-            withdrawOperation(withdrawAmount);
+            atmwithdrawOperation(withdrawAmount);
         } else {
             System.out.println("Card expirat - cererea dumneavoastra de a retrage bani, nu a putut fi procesata");
         }
