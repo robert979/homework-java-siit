@@ -33,11 +33,18 @@ public class StringManipulation {
         String str5 = "123587894454";
         String str6 = "a014894548545417";
         String str7 = "aabbcddeffjkjk";
-        String str8 = "    astazi e ziua     ta   norocoasa ca asa am zis eu    ";
+        String str8 = "azi este";
         char givenChar = 'e';
 
         String str9 = "abcdef";
         String str10 = "efabcd";
+        String[] strArr = {"aaaaa",
+                "bbbbb",
+                "ccccc",
+                "ddddd",
+                "eeee",
+                "aaaaa"
+        };
 
 
         //reverseString(str);                                //01
@@ -49,7 +56,7 @@ public class StringManipulation {
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
-        convertStringToInt(str);                             //10
+        //convertStringToInt(str);                             //10
         //reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13
@@ -62,6 +69,54 @@ public class StringManipulation {
         //removeUnnecesarySpaces(reverseWordsOrder(str8));   // not given
         //checkLongestPalindrom(str);                       //
         //findAllSubstrings(str);
+        findMostFrequentWord(strArr);
+
+
+    }
+
+    private static char findMostFrequentWord(String[] str) {
+        int verif = 0;
+        String letter = new String();
+
+
+        String strNew = new String();
+        for (int i = 0; i <= str.length - 1; i++) {
+            for (int j = 0; j <= str[i].length() - 1; j++) {
+                strNew = strNew + str[i].charAt(j);
+            }
+        }
+        int lStrnNew = strNew.length();
+        char[] strArr = new char[lStrnNew];
+
+
+        for (int i = 0; i <= lStrnNew - 1; i++) {
+            strArr[i] = strNew.charAt(i);
+        }
+        System.out.println("given the characters\n" + Arrays.toString(strArr));
+        Arrays.sort(strArr);
+
+        String withoutDouble = new String();
+        withoutDouble = withoutDouble + strArr[0];
+        for (int i = 1; i <= strArr.length - 1; i++) {
+            if (strArr[i - 1] != strArr[i]) {
+                withoutDouble = withoutDouble + strArr[i];
+            }
+        }
+        for (int i = 0; i <= withoutDouble.length() - 1; i++) {
+            int ccc = 0;
+            for (int j = 0; j <= strNew.length() - 1; j++) {
+                if (withoutDouble.charAt(i) == strNew.charAt(j)) {
+                    ccc = ccc + 1;
+                }
+            }
+            if (verif < ccc) {
+                verif = ccc;
+                letter = letter + withoutDouble.charAt(i);
+            }
+        }
+
+        System.out.println("the word \"" + letter.charAt(letter.length() - 1) + "\" appears(first) the most, about " + verif + " times");
+        return letter.charAt(letter.length() - 1);
 
 
     }
