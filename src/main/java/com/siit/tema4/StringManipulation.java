@@ -49,7 +49,7 @@ public class StringManipulation {
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
-       convertStringToInt(str);                             //10
+        convertStringToInt(str);                             //10
         //reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13
@@ -86,7 +86,7 @@ public class StringManipulation {
         if (str.length() > 0) {
             if (b > 0) {
 
-                    System.out.println("Sirul [" + str + "] contine int " + a);
+                System.out.println("Sirul [" + str + "] contine int " + a);
 
             } else {
                 System.out.println("Sirul [" + str + "] nu contine niciun int");
