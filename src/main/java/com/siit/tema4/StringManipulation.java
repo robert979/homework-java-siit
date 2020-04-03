@@ -17,7 +17,7 @@
 //17 Write a method to remove a given character from String.
 //18 Given an array of strings, find the most frequent word in a given array, I mean, the string
 
-        package com.siit.tema4;
+package com.siit.tema4;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +25,7 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = "wertrewff";
+        String str = "2 d43we0r2trewff0";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = "";
         String str3 = "acacacac";
@@ -39,6 +39,7 @@ public class StringManipulation {
         String str9 = "abcdef";
         String str10 = "efabcd";
 
+
         //reverseString(str);                                //01
         //findPrintDuplicates(removeDuplicates(str5));       //02 - 06
         //checkIfAnagram(str3,str4);                         //03
@@ -48,17 +49,14 @@ public class StringManipulation {
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
-
+       convertStringToInt(str);
         //reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13
 
-        findBiggestPalindrom(str);                        //  15
+        //findBiggestPalindrom(str);                        //  15
         //removeDuplicates(str);                               //16
         //removeChar(str,givenChar);                          //17
-
-
-
 
 
         //removeUnnecesarySpaces(reverseWordsOrder(str8));   // not given
@@ -66,8 +64,39 @@ public class StringManipulation {
         //findAllSubstrings(str);
 
 
+    }
+
+    private static void convertStringToInt(String str) {
+        String strNumbers = "0123456789";
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i <= str.length() - 1; i++) {
+
+            for (int j = 0; j <= strNumbers.length() - 1; j++) {
+                if (str.charAt(i) == strNumbers.charAt(j)) {
+                    a = (a * 10) + j;
+                    b += 1;
 
 
+                }
+            }
+        }
+        String onlyNumbers = String.valueOf(a);
+
+        if (str.length() > 0) {
+            if (b > 0) {
+                if (b > onlyNumbers.length()) {
+                    System.out.println("Sirul [" + str + "] contine cifrele (in ordinea in care ele apar) " + 0 + a);
+                } else {
+                    System.out.println("Sirul [" + str + "] contine cifrele (in ordinea in care ele apar) " + a);
+                }
+            } else {
+                System.out.println("Sirul [" + str + "] nu contine nicio cifra");
+            }
+
+        } else {
+            System.out.println("Sirul [" + str + "] este nul");
+        }
 
     }
 
@@ -75,7 +104,7 @@ public class StringManipulation {
         int c = 0;
         int v = 0;
         int y = 0;
-        String consoane=new String();
+        String consoane = new String();
         String vocale = new String();
         String yyy = new String();
         String str1 = str + " ";
@@ -87,15 +116,15 @@ public class StringManipulation {
         for (int i = 0; i <= l - 1; i++) {
             if (vowels.contains(str1.substring(i, i + 1))) {
                 v += 1;
-                vocale=vocale+str1.substring(i,i+1);
+                vocale = vocale + str1.substring(i, i + 1);
             }
             if (consonant.contains(str1.substring(i, i + 1))) {
                 c += 1;
-                consoane=consoane+str1.substring(i,i+1);
+                consoane = consoane + str1.substring(i, i + 1);
             }
             if (yy.contains(str1.substring(i, i + 1))) {
                 y += 1;
-                yyy=yyy+str1.substring(i,i+1);
+                yyy = yyy + str1.substring(i, i + 1);
             }
 
         }
@@ -103,13 +132,13 @@ public class StringManipulation {
         if ((c + v + y) > 0) {
             System.out.println("Sirul [" + str + "] contine :");
             if (c > 0) {
-                System.out.println("-" + c + " consoane si acestea sunt [" + consoane + "]" );
+                System.out.println("-" + c + " consoane si acestea sunt [" + consoane + "]");
             }
             if (v > 0) {
-                System.out.println("-" +v + " vocale si acestea sunt [" + vocale + "]");
+                System.out.println("-" + v + " vocale si acestea sunt [" + vocale + "]");
             }
             if (y > 0) {
-                System.out.println( "-litera y de " + y + " ori");
+                System.out.println("-litera y de " + y + " ori");
             }
         } else {
             System.out.println("Sirul [" + str + "] nu contine nici vocale, nici consoane nici litera \"y\"");
@@ -418,7 +447,7 @@ public class StringManipulation {
 
         int b = str.length();
         String palindromCheck = new String();
-        if (b >0) {
+        if (b > 0) {
             palindromCheck = str.substring(b - 1);
 
 
@@ -437,8 +466,7 @@ public class StringManipulation {
             } else {
                 System.out.println("Sirul [" + str + "], nu este un palindrom");
             }
-        }
-        else {
+        } else {
             System.out.println("Sirul [] este gol");
         }
 
