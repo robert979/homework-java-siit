@@ -25,9 +25,9 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = "2 d43we0r2trewff0";
+        String str = " ";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
-        String str2 = "";
+        String str2 = " ";
         String str3 = "acacacac";
         String str4 = "CAcacaca";
         String str5 = "123587894454";
@@ -49,7 +49,7 @@ public class StringManipulation {
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
-       convertStringToInt(str);
+       convertStringToInt(str);                             //10
         //reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13
@@ -85,13 +85,11 @@ public class StringManipulation {
 
         if (str.length() > 0) {
             if (b > 0) {
-                if (b > onlyNumbers.length()) {
-                    System.out.println("Sirul [" + str + "] contine cifrele (in ordinea in care ele apar) " + 0 + a);
-                } else {
-                    System.out.println("Sirul [" + str + "] contine cifrele (in ordinea in care ele apar) " + a);
-                }
+
+                    System.out.println("Sirul [" + str + "] contine int " + a);
+
             } else {
-                System.out.println("Sirul [" + str + "] nu contine nicio cifra");
+                System.out.println("Sirul [" + str + "] nu contine niciun int");
             }
 
         } else {
