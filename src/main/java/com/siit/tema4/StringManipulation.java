@@ -57,19 +57,20 @@ public class StringManipulation {
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
         //convertStringToInt(str);                             //10
-        //reverseWordsOrder(str8);                             //11
+        reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13
 
-        //findBiggestPalindrom(str);                        //  15
+        //findBiggestPalindrom(str);                            //15
         //removeDuplicates(str);                               //16
-        //removeChar(str,givenChar);                          //17
+        //removeChar(str,givenChar);                           //17
+        //findMostFrequentWord(strArr);                        //18
 
 
         //removeUnnecesarySpaces(reverseWordsOrder(str8));   // not given
         //checkLongestPalindrom(str);                       //
         //findAllSubstrings(str);
-        findMostFrequentWord(strArr);
+
 
 
     }

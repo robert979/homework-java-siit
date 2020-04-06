@@ -14,6 +14,7 @@ public class RemoveDuplicates {
         System.out.println("lungime = " + lungime);
         if (lungime == 0 || lungime == 1) {
             System.out.println(Arrays.toString(sir));
+            
         }
         for (int i = 0; i <= lungime - 2; i++) {
             if (sir[i] == sir[i + 1]) {
