@@ -26,7 +26,7 @@ public class ShapeAreaPerimeter {
                 String subOption1 = input.next();
                 if (option1str.contains(subOption1)) {
                     if (subOption1.equals("1")) {
-                        //System.out.println("You pressed 1, this means that you chossed square/n" +
+                        //System.out.println("You pressed 1, this means that you have chosen square/n" +
                         //  "please input the value for square side (mm)");
                         //String sideLengthStr = input.next();
                         calculateSquare();
@@ -35,26 +35,217 @@ public class ShapeAreaPerimeter {
                     } else if (subOption1.equals("2")) {
                         calculateRectangle();
 
+
+                    } else if (subOption1.equals("3")) {
+                        calculateCircle();
+
+                    } else if (subOption1.equals("4")) {
+                        calculateTriangle();
+
                     } else {
-                        System.out.println("Wrong input, please re run the aplication and chose a digit from 1 to 4");
+                        System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
 
 
                     }
                 } else {
-                    System.out.println("Wrong input, please re run the aplication and chose a digit from 1 to 4");
+                    System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
 
                 }
             }
 
 
         } else {
-            System.out.println("Wrong input, please re run the aplication and chose a digit from 1 to 4");
+            System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
 
 
         }
     }
 
+    public static void calculateTriangle() {
+        System.out.println("You pressed 4, this means that you have chosen triangle\n" +
+                "please input the values as follows\n" +
+                "1st side(mm) =  ");
+        String numStr = "0123456789";
+        int countFirstSide = 0;
+        int counSecondSide = 0;
+        int countThirdSide = 0;
+        long firstSide = 0;
+        long secondSide = 0;
+        long thirsSide = 0;
+        String thirdSideStr = "c";
+        Scanner input = new Scanner(System.in);
+
+
+        String firstSideStr = input.next();
+
+        String firstSideStrMod = firstSideStr + "\uF04A";
+        for (int i = 0; i <= firstSideStrMod.length() - 2; i++) {
+            if (numStr.contains(firstSideStrMod.substring(i, i + 1))) {
+                countFirstSide = countFirstSide + 1;
+            } else {
+                System.out.println("Input error - you should use only digits\n" +
+                        "Please rerun the aplication.");
+                break;
+            }
+        }
+        if (countFirstSide == firstSideStr.length()) {
+            for (int j = firstSideStrMod.length() - 1; j >= 1; j--) {
+                firstSide = firstSide + (long) (Math.pow(10, (firstSideStrMod.length() - (j + 1))) * parseInt(firstSideStrMod.substring(j - 1, j)));
+
+            }
+
+
+        }
+        if (countFirstSide == firstSideStr.length()) {
+            System.out.println("2nd side(mm) =  ");
+            String secondSideStr = input.next();
+
+            String secondtSideStrMod = secondSideStr + "\uF04A";
+            for (int i = 0; i <= secondtSideStrMod.length() - 2; i++) {
+                if (numStr.contains(secondtSideStrMod.substring(i, i + 1))) {
+                    counSecondSide = counSecondSide + 1;
+                } else {
+                    System.out.println("Input error - you should use only digits\n" +
+                            "Please rerun the aplication.");
+                    break;
+                }
+            }
+            if (counSecondSide == secondSideStr.length()) {
+                for (int j = secondtSideStrMod.length() - 1; j >= 1; j--) {
+                    secondSide = secondSide + (long) (Math.pow(10, (secondtSideStrMod.length() - (j + 1))) * parseInt(secondtSideStrMod.substring(j - 1, j)));
+
+                }
+
+
+            }
+            if (counSecondSide == secondSideStr.length()) {
+
+
+                System.out.println("3rd side(mm) =  ");
+               thirdSideStr = input.next();
+
+                String thirdSideStrMod = thirdSideStr + "\uF04A";
+                for (int i = 0; i <= thirdSideStrMod.length() - 2; i++) {
+                    if (numStr.contains(thirdSideStrMod.substring(i, i + 1))) {
+                        countThirdSide = countThirdSide + 1;
+                    } else {
+                        System.out.println("Input error - you should use only digits\n" +
+                                "Please rerun the aplication.");
+                        break;
+                    }
+                }
+                if (countThirdSide == thirdSideStr.length()) {
+                    for (int j = thirdSideStrMod.length() - 1; j >= 1; j--) {
+                        thirsSide = thirsSide + (long) (Math.pow(10, (thirdSideStrMod.length() - (j + 1))) * parseInt(thirdSideStrMod.substring(j - 1, j)));
+
+                    }
+
+
+                }
+
+
+
+            }
+
+            if (countThirdSide == thirdSideStr.length()){
+                if (firstSide+secondSide> thirsSide&& firstSide+thirsSide>secondSide){
+                    if (secondSide+thirsSide>firstSide){
+                        calculateTraingleArea(firstSide, secondSide, thirsSide);
+                        calculateTrianglePerimeter(firstSide,secondSide,thirsSide);
+
+                    }
+                    else {
+                        System.out.println("The values you provided can't give a valid triangle.\n" +
+                                "Please rerun the application and assign good values.");
+                    }
+                }
+                else {
+                    System.out.println("The values you provided can't give a valid triangle.\n" +
+                            "Please rerun the application and assign good values");
+                }
+            }
+
+        }
+
+
+
+    }
+    public static long calculateTrianglePerimeter (long firstSide, long secondSide,long thirdSide){
+        long perimeter = firstSide+secondSide+thirdSide;
+        System.out.println("perimeter = " + perimeter + " mm");
+        return perimeter;
+    }
+    public static double calculateTraingleArea(long firstSide, long secondSide,long thirdSide) {
+        System.out.println(("first = " + firstSide +"\n" +
+                "second = " + secondSide + "\n" +
+                "third = " + thirdSide));
+        double p = (firstSide+secondSide+thirdSide);
+        double semiP = p/2;
+        System.out.println("p = " +semiP);
+        double triangleArea =
+                 Math.sqrt(semiP*(semiP-firstSide)*(semiP-secondSide)*(semiP-thirdSide));
+
+        System.out.println("Triangle area = " + triangleArea + " mm");
+        return triangleArea;
+    }
+
+
+    public static void calculateCircle() {
+        System.out.println("You pressed 3, this means that you have chosen circle\n" +
+                "please input the value for circle radius (mm)");
+
+        String numStr = "0123456789";
+        int countRadius = 0;
+        long radius = 0;
+        Scanner input = new Scanner(System.in);
+
+
+        String radiusStr = input.next();
+
+        String radiusStrMod = radiusStr + "\uF04A";
+        for (int i = 0; i <= radiusStrMod.length() - 2; i++) {
+            if (numStr.contains(radiusStrMod.substring(i, i + 1))) {
+                countRadius = countRadius + 1;
+            } else {
+                System.out.println("Input error - you should use only digits\n" +
+                        "Please rerun the aplication.");
+                break;
+            }
+        }
+        if (countRadius == radiusStr.length()) {
+            for (int j = radiusStrMod.length() - 1; j >= 1; j--) {
+                radius = radius + (long) (Math.pow(10, (radiusStrMod.length() - (j + 1))) * parseInt(radiusStrMod.substring(j - 1, j)));
+
+            }
+
+        }
+        if (countRadius == radiusStr.length()) {
+            calculateCircleArea(radius);
+            calculateCirclePerimeter(radius);
+        }
+
+
+
+    }
+
+    public static long calculateCircleArea(long radius) {
+        long circleArea = (long) (Math.PI * radius * radius);
+        System.out.println("for a circle with given radius = " + radius + "mm\n" +
+                "area = " + circleArea + " square mm");
+        return circleArea;
+    }
+
+    public static long calculateCirclePerimeter(long radius) {
+        long perimeter = (long) (Math.PI * 2 * radius);
+        System.out.println("for a circle with given radius = " + radius + "mm\n" +
+                "perimeter = " + perimeter + " square mm");
+        return perimeter;
+
+    }
+
     public static void calculateRectangle() {
+        int countWidth = 0;
+        int countHeight = 0;
         long widthLength = 0;
         long heightLength = 0;
 
@@ -62,95 +253,116 @@ public class ShapeAreaPerimeter {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("You pressed 2, this means that you chossed rectangle\n" +
+        System.out.println("You pressed 2, this means that you have chosen rectangle\n" +
                 "please input the values as follows\n" +
                 "width(mm) =  ");
 
         String widthhStr = input.nextLine();
-        String widthStrMod = widthhStr + " ";
+        String widthStrMod = widthhStr + "\uF04A";
 
         for (int i = 0; i <= widthStrMod.length() - 2; i++) {
             if (numStr.contains(widthStrMod.substring(i, i + 1))) {
-
-                for (int j = widthStrMod.length() - 1; j >= 1; j--) {
-                    widthLength = widthLength + (long) (Math.pow(10, (widthStrMod.length() - (j + 1))) * parseInt(widthStrMod.substring(j - 1, j)));
-                    //se scrie numarul dupa input de String
-
-                }
+                countWidth = countWidth + 1;
 
 
             } else {
 
                 System.out.println("Input error - you should use only digits\n" +
-                        "Please re run the aplication.");
+                        "Please rerun the aplication.");
                 break;
+            }
+            if (countWidth == widthhStr.length()) {
+                for (int j = widthStrMod.length() - 1; j >= 1; j--) {
+                    widthLength = widthLength + (long) (Math.pow(10, (widthStrMod.length() - (j + 1))) * parseInt(widthStrMod.substring(j - 1, j)));
+                    //se scrie numarul dupa input de String
+
+                }
             }
 
 
         }
-        if (widthLength != 0) {
+
+        if (countWidth == widthhStr.length()) {
 
             System.out.println("height(mm) =");
 
             String heightStr = input.next();
 
-            String heightStrMod = heightStr + " ";
+            String heightStrMod = heightStr + "\uF04A";
 
 
             for (int i = 0; i <= heightStrMod.length() - 2; i++) {
                 if (numStr.contains(heightStrMod.substring(i, i + 1))) {
-                    for (int j = heightStrMod.length() - 1; j >= 1; j--) {
-                        heightLength = heightLength + (long) (Math.pow(10, (heightStrMod.length() - (j + 1))) * parseInt(heightStrMod.substring(j - 1, j)));
-                        //se scrie numarul dupa input de String
+                    countHeight = countHeight + 1;
 
-                    }
-                    System.out.println("For the given widtht = " + widthLength + " mm, and height =  " + heightLength + " mm, for a rectangle\n" +
-                            "the area = " + heightLength * widthLength + " square mm\n" +
-                            "the perimeter = " + ((widthLength + heightLength) * 2) + " mm");
 
                 } else {
                     System.out.println("Input error - you should use only digits\n" +
-                            "Please re run the aplication.");
+                            "Please rerun the aplication.");
                     break;
                 }
 
             }
+            if (countHeight == heightStr.length()) {
+                for (int j = heightStrMod.length() - 1; j >= 1; j--) {
+                    heightLength = heightLength + (long) (Math.pow(10, (heightStrMod.length() - (j + 1))) * parseInt(heightStrMod.substring(j - 1, j)));
+                    //se scrie numarul dupa input de String
 
-
+                }
+                System.out.println("For the given widtht = " + widthLength + " mm, and height =  " + heightLength + " mm, for a rectangle\n" +
+                        "the area = " + calculateRectangleArea(widthLength, heightLength) + " square mm\n" +
+                        "the perimeter = " + calculateRectanglePerimeter(widthLength, heightLength) + " mm");
+            }
         }
 
 
     }
 
+    public static long calculateRectanglePerimeter(long width, long height) {
+        long perimeterRectangle = 2 * (width + height);
+        return perimeterRectangle;
+    }
+
+    public static long calculateRectangleArea(long width, long height) {
+        long areaRectnagle = width * height;
+        return areaRectnagle;
+    }
+
 
     public static void calculateSquare() {
+        int countSide = 0;
         long sideLength = 0;
         String numStr = "0123456789";
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("You pressed 1, this means that you chossed square\n" +
+        System.out.println("You pressed 1, this means that you have chosen square\n" +
                 "please input the value for square side (mm)");
 
         String sideLengthStr = input.nextLine();
 
-        String sideLengthStrmod = sideLengthStr + " ";
+        String sideLengthStrmod = sideLengthStr + "\uF04A";
         for (int i = 0; i <= sideLengthStrmod.length() - 2; i++) {
-            if (!numStr.contains(sideLengthStrmod.substring(i, i + 1))) {
+            if (numStr.contains(sideLengthStrmod.substring(i, i + 1))) {
+                countSide = countSide + 1;
+
+            } else {
                 System.out.println("Input error - you should use only digits\n" +
-                        "Please re run the aplication.");
+                        "Please rerun the aplication.");
                 break;
             }
 
 
         }
+        if (countSide == sideLengthStr.length()) {
 
-        for (int j = sideLengthStrmod.length() - 1; j >= 1; j--) {
-            sideLength = sideLength + (long) (Math.pow(10, (sideLengthStrmod.length() - (j + 1))) * parseInt(sideLengthStrmod.substring(j - 1, j)));
+            for (int j = sideLengthStrmod.length() - 1; j >= 1; j--) {
+                sideLength = sideLength + (long) (Math.pow(10, (sideLengthStrmod.length() - (j + 1))) * parseInt(sideLengthStrmod.substring(j - 1, j)));
 
+            }
+            calculateSquareArea(sideLength);
+            calculateSqurePerimeter(sideLength);
         }
-        calculateSquareArea(sideLength);
-        calculateSqurePerimeter(sideLength);
 
     }
 
