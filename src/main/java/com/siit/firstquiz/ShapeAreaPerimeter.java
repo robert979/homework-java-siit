@@ -32,13 +32,15 @@ public class ShapeAreaPerimeter {
                         calculateSquare();
 
 
-                    }
-                    else if (subOption1.equals("2")){
+                    } else if (subOption1.equals("2")) {
                         calculateRectangle();
 
+                    } else {
+                        System.out.println("Wrong input, please re run the aplication and chose a digit from 1 to 4");
+
+
                     }
-                }
-                else {
+                } else {
                     System.out.println("Wrong input, please re run the aplication and chose a digit from 1 to 4");
 
                 }
@@ -51,7 +53,8 @@ public class ShapeAreaPerimeter {
 
         }
     }
-    public static void calculateRectangle(){
+
+    public static void calculateRectangle() {
         long widthLength = 0;
         long heightLength = 0;
 
@@ -67,7 +70,17 @@ public class ShapeAreaPerimeter {
         String widthStrMod = widthhStr + " ";
 
         for (int i = 0; i <= widthStrMod.length() - 2; i++) {
-            if (!numStr.contains(widthStrMod.substring(i, i + 1))) {
+            if (numStr.contains(widthStrMod.substring(i, i + 1))) {
+
+                for (int j = widthStrMod.length() - 1; j >= 1; j--) {
+                    widthLength = widthLength + (long) (Math.pow(10, (widthStrMod.length() - (j + 1))) * parseInt(widthStrMod.substring(j - 1, j)));
+                    //se scrie numarul dupa input de String
+
+                }
+
+
+            } else {
+
                 System.out.println("Input error - you should use only digits\n" +
                         "Please re run the aplication.");
                 break;
@@ -75,39 +88,39 @@ public class ShapeAreaPerimeter {
 
 
         }
-        for (int j = widthStrMod.length() - 1; j >= 1; j--) {
-            widthLength =widthLength + (long) (Math.pow(10, (widthStrMod.length() - (j + 1))) * parseInt(widthStrMod.substring(j - 1, j)));
+        if (widthLength != 0) {
 
-        }
+            System.out.println("height(mm) =");
 
-        System.out.println("height(mm) =");
+            String heightStr = input.next();
 
-        String heightStr = input.next();
+            String heightStrMod = heightStr + " ";
 
-        String heightStrMod = heightStr + "M";
-        System.out.println( "height str " + heightStr);
-        System.out.println("height mod "  + heightStrMod);
 
-        for (int i = 0; i <= heightStrMod.length() - 2; i++) {
-            if (!numStr.contains(heightStrMod.substring(i, i + 1))) {
-                System.out.println("Input error - you should use only digits\n" +
-                        "Please re run the aplication.");
-                break;
+            for (int i = 0; i <= heightStrMod.length() - 2; i++) {
+                if (numStr.contains(heightStrMod.substring(i, i + 1))) {
+                    for (int j = heightStrMod.length() - 1; j >= 1; j--) {
+                        heightLength = heightLength + (long) (Math.pow(10, (heightStrMod.length() - (j + 1))) * parseInt(heightStrMod.substring(j - 1, j)));
+                        //se scrie numarul dupa input de String
+
+                    }
+                    System.out.println("For the given widtht = " + widthLength + " mm, and height =  " + heightLength + " mm, for a rectangle\n" +
+                            "the area = " + heightLength * widthLength + " square mm\n" +
+                            "the perimeter = " + ((widthLength + heightLength) * 2) + " mm");
+
+                } else {
+                    System.out.println("Input error - you should use only digits\n" +
+                            "Please re run the aplication.");
+                    break;
+                }
+
             }
 
-        }
-        for (int j = heightStrMod.length() - 1; j >= 1; j--) {
-            heightLength =heightLength + (long) (Math.pow(10, (heightStrMod.length() - (j + 1))) * parseInt(heightStrMod.substring(j - 1, j)));
 
         }
-        System.out.println("For the given widtht = " + widthLength + " mm, and height =  " + heightLength + " mm, for a rectangle\n" +
-                "the are = " + heightLength*widthLength + " square mm\n" +
-                "the perimeter = " + ((widthLength+heightLength)*2) + " mm");
-
 
 
     }
-
 
 
     public static void calculateSquare() {
@@ -123,7 +136,7 @@ public class ShapeAreaPerimeter {
 
         String sideLengthStrmod = sideLengthStr + " ";
         for (int i = 0; i <= sideLengthStrmod.length() - 2; i++) {
-            if (!numStr.contains(sideLengthStr.substring(i, i + 1))) {
+            if (!numStr.contains(sideLengthStrmod.substring(i, i + 1))) {
                 System.out.println("Input error - you should use only digits\n" +
                         "Please re run the aplication.");
                 break;

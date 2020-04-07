@@ -51,13 +51,13 @@ public class StringManipulation {
         //findPrintDuplicates(removeDuplicates(str5));       //02 - 06
         //checkIfAnagram(str3,str4);                         //03
 
-        //checkIfOnlyDigits(str6);                           //05
+        checkIfOnlyDigits(str6);                           //05
         //removeDuplicates(str3);                            //06
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
         //convertStringToInt(str);                             //10
-        reverseWordsOrder(str8);                             //11
+        //reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13
 
