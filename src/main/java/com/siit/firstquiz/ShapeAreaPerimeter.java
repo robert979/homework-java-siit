@@ -6,6 +6,12 @@ import static java.lang.Integer.parseInt;
 
 public class ShapeAreaPerimeter {
 
+{
+            System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
+
+
+        }
+        else
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -54,10 +60,20 @@ public class ShapeAreaPerimeter {
             }
 
 
-        } else {
-            System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
+        }
+        if (numberOption.equals("2")) {
 
+            System.out.println("You pressed 2, this means that you will have to chose only two shape.\n" +
+                    "-please chose the digit coressponding to your first option\n" +
+                    "1 - square\n" +
+                    "2 - rectangle\n" +
+                    "3 - circle\n" +
+                    "4 - triangle");
+            String subOption2 = input.next();
+            if (subOption2.equals("1")) {
 
+            }
+            }
         }
     }
 
