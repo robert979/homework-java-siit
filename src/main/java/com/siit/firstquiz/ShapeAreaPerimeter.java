@@ -63,7 +63,7 @@ public class ShapeAreaPerimeter {
 
     public static void calculateTriangle() {
         System.out.println("You pressed 4, this means that you have chosen triangle\n" +
-                "please input the values as follows\n" +
+                "-please input the values as follows\n" +
                 "1st side(mm) =  ");
         String numStr = "0123456789";
         int countFirstSide = 0;
@@ -176,16 +176,16 @@ public class ShapeAreaPerimeter {
         return perimeter;
     }
     public static double calculateTraingleArea(long firstSide, long secondSide,long thirdSide) {
-        System.out.println(("first = " + firstSide +"\n" +
-                "second = " + secondSide + "\n" +
-                "third = " + thirdSide));
+
         double p = (firstSide+secondSide+thirdSide);
         double semiP = p/2;
         System.out.println("p = " +semiP);
         double triangleArea =
                  Math.sqrt(semiP*(semiP-firstSide)*(semiP-secondSide)*(semiP-thirdSide));
 
-        System.out.println("Triangle area = " + triangleArea + " mm");
+        System.out.println("For a triangle with the given sides, as follows: side1 = " + firstSide + " mm, side2 = " +secondSide + " mm, side3 = "
+                + thirdSide + " mm,\n" +
+                "area = " + triangleArea + " mm");
         return triangleArea;
     }
 
