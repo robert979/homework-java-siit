@@ -281,7 +281,7 @@ public class ShapeAreaPerimeter {
                         }
                     }//setermina31
                     //incepe32
-                    if (subOption3.equals("2")) {
+                   else if (subOption3.equals("2")) {
                         calculateRectangle();
                         System.out.println("Now please chose the digit coresponding to your second option\n" +
                                 "1-square\n" +
@@ -355,10 +355,98 @@ public class ShapeAreaPerimeter {
 
                     }
 
+                        //incepe33
+                       else if (subOption3.equals("3")) {
+                            calculateCircle();
+                            System.out.println("Now please chose the digit coresponding to your second option\n" +
+                                "1-square\n" +
+                                "2-rectangle\n" +
+                                "3-triangle");
+                        String option2 = "123";
+                        String option31 = input.next();
+                        if (option2.contains(option31)) {
+                            if (option31.equals("1")){
+                                calculateSquare();
+                                //aici
+                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        "1-rectangle\n" +
+                                        "2-triangle");
+                                String option23 = "12";
+                                String option321 = input.next();
+                                if (option23.contains(option321)) {
+                                    if (option321.equals("1")){
+                                        calculateRectangle();
+                                    }
+                                    else {
+                                        calculateTriangle();
+                                    }
+                            }
+                                else {
+                                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
+                                }
+
+
+                        }
+                            else if (option31.equals("2")) {
+                                calculateRectangle();
+                                //aici
+                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        "1-square\n" +
+                                        "2-triangle");
+                                String option23 = "12";
+                                String option321 = input.next();
+                                if (option23.contains(option321)) {
+                                    if (option321.equals("1")){
+                                        calculateSquare();
+                                    }
+                                    else {
+                                        calculateTriangle();
+                                    }
+                                }
+                                else {
+                                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
+                                }
+                            }
+                            else    if (option31.equals("3")){
+                                calculateTriangle();
+                                //aici
+                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        "1-square\n" +
+                                        "2-rectangle");
+                                String option23 = "12";
+                                String option321 = input.next();
+                                if (option23.contains(option321)) {
+                                    if(option321)
+
+                                }
+
+
+                            }
+
+                                    else {
+                            System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
+                        }
+
+                        }
+
+
+                        }
+
+
 
                 } else {
                     System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
-                }
+                }//aicisetermina3
+
+
+
+
+
+
+
+
+
+
             } else {
                 System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
 
