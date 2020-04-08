@@ -20,7 +20,7 @@ public class ShapeAreaPerimeter {
             //incepe 1
             if (numberOption.equals("1")) {
 
-                System.out.println("You pressed 1, this means that you will have to chose only ony shape.\n" +
+                System.out.println("You pressed 1, this means that you will have to chose only one shape.\n" +
                         "-please chose the digit coressponding to your option\n" +
                         "1 - square\n" +
                         "2 - rectangle\n" +
@@ -51,11 +51,27 @@ public class ShapeAreaPerimeter {
 
                     }
                 } else {
-                    System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
+                    System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4 ");
 
                 }
             }
             //se termina 1
+            //incepe 4
+            if (numberOption.equals("4")) {
+
+                System.out.println("You pressed 4, this means that you have chosen all sthe shapes as folows.\n" +
+                        "1 - square\n" +
+                        "2 - rectangle\n" +
+                        "3 - circle\n" +
+                        "4 - triangle");
+                calculateSquare();
+                calculateRectangle();
+                calculateCircle();
+                calculateTriangle();
+            }
+
+
+            //se termina 4
 
 
             //incepe 2
@@ -499,16 +515,12 @@ public class ShapeAreaPerimeter {
                     } else {
                         System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
                     }
+                } else {
+                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
+
                 }
 
-
-            } else {
-                System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
-            }//aicisetermina3
-
-
-        } else {
-            System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
+            }
 
         }
 
@@ -516,8 +528,8 @@ public class ShapeAreaPerimeter {
 
 
     public static void calculateTriangle() {
-        System.out.println("You have chosen triangle\n" +
-                "-please input the values as follows\n" +
+        System.out.println("For the triangle\n" +
+                "please input the values as follows\n" +
                 "1st side(mm) =  ");
         String numStr = "0123456789";
         int countFirstSide = 0;
@@ -643,8 +655,7 @@ public class ShapeAreaPerimeter {
 
 
     public static void calculateCircle() {
-        System.out.println("You have chosen circle\n" +
-                "please input the value for circle radius (mm)");
+        System.out.println("For the circle please input the radius value (mm)");
 
         String numStr = "0123456789";
         int countRadius = 0;
@@ -703,7 +714,7 @@ public class ShapeAreaPerimeter {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("You have chosen rectangle\n" +
+        System.out.println("For the rectangle\n" +
                 "please input the values as follows\n" +
                 "width(mm) =  ");
 
@@ -786,8 +797,8 @@ public class ShapeAreaPerimeter {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("You pressed 1, this means that you have chosen square\n" +
-                "please input the value for square side (mm)");
+        System.out.println("For the square please input the side value (mm) ");
+
 
         String sideLengthStr = input.nextLine();
 
