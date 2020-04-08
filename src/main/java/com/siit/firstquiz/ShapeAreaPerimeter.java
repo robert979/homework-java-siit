@@ -281,7 +281,7 @@ public class ShapeAreaPerimeter {
                         }
                     }//setermina31
                     //incepe32
-                   else if (subOption3.equals("2")) {
+                    else if (subOption3.equals("2")) {
                         calculateRectangle();
                         System.out.println("Now please chose the digit coresponding to your second option\n" +
                                 "1-square\n" +
@@ -355,17 +355,17 @@ public class ShapeAreaPerimeter {
 
                     }
 
-                        //incepe33
-                       else if (subOption3.equals("3")) {
-                            calculateCircle();
-                            System.out.println("Now please chose the digit coresponding to your second option\n" +
+                    //incepe33
+                    else if (subOption3.equals("3")) {
+                        calculateCircle();
+                        System.out.println("Now please chose the digit coresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-rectangle\n" +
                                 "3-triangle");
                         String option2 = "123";
                         String option31 = input.next();
                         if (option2.contains(option31)) {
-                            if (option31.equals("1")){
+                            if (option31.equals("1")) {
                                 calculateSquare();
                                 //aici
                                 System.out.println("Now please chose the digit coresponding to your third option\n" +
@@ -374,20 +374,17 @@ public class ShapeAreaPerimeter {
                                 String option23 = "12";
                                 String option321 = input.next();
                                 if (option23.contains(option321)) {
-                                    if (option321.equals("1")){
+                                    if (option321.equals("1")) {
                                         calculateRectangle();
-                                    }
-                                    else {
+                                    } else {
                                         calculateTriangle();
                                     }
-                            }
-                                else {
+                                } else {
                                     System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
                                 }
 
 
-                        }
-                            else if (option31.equals("2")) {
+                            } else if (option31.equals("2")) {
                                 calculateRectangle();
                                 //aici
                                 System.out.println("Now please chose the digit coresponding to your third option\n" +
@@ -396,18 +393,15 @@ public class ShapeAreaPerimeter {
                                 String option23 = "12";
                                 String option321 = input.next();
                                 if (option23.contains(option321)) {
-                                    if (option321.equals("1")){
+                                    if (option321.equals("1")) {
                                         calculateSquare();
-                                    }
-                                    else {
+                                    } else {
                                         calculateTriangle();
                                     }
-                                }
-                                else {
+                                } else {
                                     System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
                                 }
-                            }
-                            else    if (option31.equals("3")){
+                            } else if (option31.equals("3")) {
                                 calculateTriangle();
                                 //aici
                                 System.out.println("Now please chose the digit coresponding to your third option\n" +
@@ -416,80 +410,108 @@ public class ShapeAreaPerimeter {
                                 String option23 = "12";
                                 String option321 = input.next();
                                 if (option23.contains(option321)) {
-                                    if(option321)
+                                    if (option321.equals(1)) {
+                                        calculateSquare();
+                                    } else {
+                                        calculateRectangle();
+                                    }
 
+                                } else {
+                                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
                                 }
 
 
+                            } else {
+                                System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
                             }
 
-                                    else {
-                            System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
-                        }
-
                         }
 
 
+                    } else if (subOption3.equals("4")) {
+                        calculateTriangle();
+                        System.out.println("Now please chose the digit coresponding to your second option\n" +
+                                "1-square\n" +
+                                "2-rectangle\n" +
+                                "3-circle");
+                        String option2 = "123";
+                        String option31 = input.next();
+                        if (option2.contains(option31)) {
+                            if (option31.equals("1")) {
+                                calculateSquare();
+                                ///aici34
+                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        "1-rectangle\n" +
+                                        "2-circle");
+                                String option23 = "12";
+                                String option321 = input.next();
+                                if (option23.contains(option321)) {
+                                    if (option321.equals(1)) {
+                                        calculateRectangle();
+                                    } else {
+                                        calculateCircle();
+                                    }
+
+                                } else {
+                                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
+                                }
+                            } else if (option31.equals("2")) {
+                                calculateRectangle();
+                                ///aici34
+                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        "1-square\n" +
+                                        "2-circle");
+                                String option23 = "12";
+                                String option321 = input.next();
+                                if (option23.contains(option321)) {
+                                    if (option321.equals("1")) {
+                                        calculateSquare();
+                                    } else {
+                                        calculateCircle();
+                                    }
+                                } else {
+                                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
+                                }
+                            }
+
+                            if (option31.equals("3")) {
+                                calculateCircle();
+                                ///aici34
+                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        "1-square\n" +
+                                        "2-rectangle");
+                                String option23 = "12";
+                                String option321 = input.next();
+                                if (option23.contains(option321)) {
+                                    if (option321.equals("1")) {
+                                        calculateSquare();
+                                    } else {
+                                        calculateRectangle();
+                                    }
+
+                                } else {
+                                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 2");
+                                }
+
+                            }
+
                         }
-
-
-
-                } else {
-                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
-                }//aicisetermina3
-
-
-
-
-
-
-
-
-
-
-            } else {
-                System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
-
-            }
-            /*System.out.println("Now please chose the digit coressponding to your second option.\n" +
-
-                    "1 - square\n" +
-                    "2 - rectangle\n" +
-                    "3 - circle\n" +
-                    "4 - triangle");
-            String subOption22 = input.next();
-
-            if (option1str.contains(subOption22)) {
-
-                if (subOption22.equals("1")) {
-                    //System.out.println("You pressed 1, this means that you have chosen square/n" +
-                    //  "please input the value for square side (mm)");
-                    //String sideLengthStr = input.next();
-                    calculateSquare();
-
-
-                } else if (subOption22.equals("2")) {
-                    calculateRectangle();
-
-
-                } else if (subOption22.equals("3")) {
-                    calculateCircle();
-
-                } else if (subOption22.equals("4")) {
-                    calculateTriangle();
-
-                } else {
-                    System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
-
-
+                    } else {
+                        System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
+                    }
                 }
 
 
             } else {
-                System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
-            }
-            */
+                System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
+            }//aicisetermina3
+
+
+        } else {
+            System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
+
         }
+
     }
 
 
