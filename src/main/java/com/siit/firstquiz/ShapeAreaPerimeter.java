@@ -46,12 +46,12 @@ public class ShapeAreaPerimeter {
                         calculateTriangle();
 
                     } else {
-                        System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4");
+                        System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
 
 
                     }
                 } else {
-                    System.out.println("Wrong input, please rerun the aplication and chose a digit from 1 to 4 ");
+                    System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4 ");
 
                 }
             }
@@ -94,7 +94,7 @@ public class ShapeAreaPerimeter {
                         //  "please input the value for square side (mm)");
                         //String sideLengthStr = input.next();
                         calculateSquare();
-                        System.out.println("Now please hose the digit coresponding to your second option\n" +
+                        System.out.println("Now please hose the digit corresponding to your second option\n" +
                                 "1-rectangle\n" +
                                 "2-circle\n" +
                                 "3-triangles");
@@ -119,7 +119,7 @@ public class ShapeAreaPerimeter {
 
                     else if (subOption21.equals("2")) {
                         calculateRectangle();
-                        System.out.println("Now please hose the digit coresponding to your second option\n" +
+                        System.out.println("Now please hose the digit corresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-circle\n" +
                                 "3-triangle");
@@ -146,7 +146,7 @@ public class ShapeAreaPerimeter {
                     //incepe23
                     else if (subOption21.equals("3")) {
                         calculateCircle();
-                        System.out.println("Now please hose the digit coresponding to your second option\n" +
+                        System.out.println("Now please hose the digit corresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-rectangle\n" +
                                 "3-triangle");
@@ -172,7 +172,7 @@ public class ShapeAreaPerimeter {
                     //incepe 24
                     else if (subOption21.equals("4")) {
                         calculateTriangle();
-                        System.out.println("Now please hose the digit coresponding to your second option\n" +
+                        System.out.println("Now please hose the digit corresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-rectangle\n" +
                                 "3-circle");
@@ -218,7 +218,7 @@ public class ShapeAreaPerimeter {
                         calculateSquare();
                         {
                             //incepe311
-                            System.out.println("Now please hose the digit coresponding to your second option\n" +
+                            System.out.println("Now please hose the digit corresponding to your second option\n" +
                                     "1-rectangle\n" +
                                     "2-circle\n" +
                                     "3-triangle");
@@ -229,7 +229,7 @@ public class ShapeAreaPerimeter {
                                     //incepe311
                                     if (option31.equals("1")) {
                                         calculateRectangle();
-                                        System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        System.out.println("Now please chose the digit corresponding to your third option\n" +
                                                 "1-circle\n" +
                                                 "2-triangle");
                                         String option3 = "12";
@@ -249,7 +249,7 @@ public class ShapeAreaPerimeter {
                                     }//incepe312
                                     if (option31.equals("2")) {
                                         calculateCircle();
-                                        System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        System.out.println("Now please chose the digit corresponding to your third option\n" +
                                                 "1-rectangle\n" +
                                                 "2-triangle");
                                         String option3 = "12";
@@ -271,7 +271,7 @@ public class ShapeAreaPerimeter {
                                     //incepe313
                                     if (option31.equals("3")) {
                                         calculateTriangle();
-                                        System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                        System.out.println("Now please chose the digit corresponding to your third option\n" +
                                                 "1-rectangle\n" +
                                                 "2-circle");
                                         String option3 = "12";
@@ -299,7 +299,7 @@ public class ShapeAreaPerimeter {
                     //incepe32
                     else if (subOption3.equals("2")) {
                         calculateRectangle();
-                        System.out.println("Now please chose the digit coresponding to your second option\n" +
+                        System.out.println("Now please chose the digit corresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-circle\n" +
                                 "3-triangle");
@@ -309,7 +309,7 @@ public class ShapeAreaPerimeter {
                             //incepe321
                             if (option31.equals("1")) {
                                 calculateSquare();
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-circle\n" +
                                         "2-triangle");
                                 String option23 = "12";
@@ -328,7 +328,7 @@ public class ShapeAreaPerimeter {
                             }//incepe322
                             else if (option31.equals("2")) {
                                 calculateCircle();
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-square\n" +
                                         "2-triangle");
                                 String option23 = "12";
@@ -346,7 +346,7 @@ public class ShapeAreaPerimeter {
 
                             } else if (option31.equals("3")) {
                                 calculateTriangle();
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-square\n" +
                                         "2-circle");
                                 String option23 = "12";
@@ -374,7 +374,7 @@ public class ShapeAreaPerimeter {
                     //incepe33
                     else if (subOption3.equals("3")) {
                         calculateCircle();
-                        System.out.println("Now please chose the digit coresponding to your second option\n" +
+                        System.out.println("Now please chose the digit corresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-rectangle\n" +
                                 "3-triangle");
@@ -384,7 +384,7 @@ public class ShapeAreaPerimeter {
                             if (option31.equals("1")) {
                                 calculateSquare();
                                 //aici
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-rectangle\n" +
                                         "2-triangle");
                                 String option23 = "12";
@@ -403,7 +403,7 @@ public class ShapeAreaPerimeter {
                             } else if (option31.equals("2")) {
                                 calculateRectangle();
                                 //aici
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-square\n" +
                                         "2-triangle");
                                 String option23 = "12";
@@ -420,7 +420,7 @@ public class ShapeAreaPerimeter {
                             } else if (option31.equals("3")) {
                                 calculateTriangle();
                                 //aici
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-square\n" +
                                         "2-rectangle");
                                 String option23 = "12";
@@ -446,7 +446,7 @@ public class ShapeAreaPerimeter {
 
                     } else if (subOption3.equals("4")) {
                         calculateTriangle();
-                        System.out.println("Now please chose the digit coresponding to your second option\n" +
+                        System.out.println("Now please chose the digit corresponding to your second option\n" +
                                 "1-square\n" +
                                 "2-rectangle\n" +
                                 "3-circle");
@@ -456,7 +456,7 @@ public class ShapeAreaPerimeter {
                             if (option31.equals("1")) {
                                 calculateSquare();
                                 ///aici34
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-rectangle\n" +
                                         "2-circle");
                                 String option23 = "12";
@@ -474,7 +474,7 @@ public class ShapeAreaPerimeter {
                             } else if (option31.equals("2")) {
                                 calculateRectangle();
                                 ///aici34
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-square\n" +
                                         "2-circle");
                                 String option23 = "12";
@@ -493,7 +493,7 @@ public class ShapeAreaPerimeter {
                             if (option31.equals("3")) {
                                 calculateCircle();
                                 ///aici34
-                                System.out.println("Now please chose the digit coresponding to your third option\n" +
+                                System.out.println("Now please chose the digit corresponding to your third option\n" +
                                         "1-square\n" +
                                         "2-rectangle");
                                 String option23 = "12";
@@ -512,9 +512,13 @@ public class ShapeAreaPerimeter {
                             }
 
                         }
-                    } else {
+                        else {
+                            System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
+                        }
+                    }/* else {
                         System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
                     }
+                    */ //am comentat aici
                 } else {
                     System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
 
@@ -546,11 +550,11 @@ public class ShapeAreaPerimeter {
 
         String firstSideStrMod = firstSideStr + "\uF04A";
         for (int i = 0; i <= firstSideStrMod.length() - 2; i++) {
-            if (numStr.contains(firstSideStrMod.substring(i, i + 1))) {
+            if (numStr.contains(firstSideStrMod.substring(i, i + 1))&&!firstSideStr.equals("0")) {
                 countFirstSide = countFirstSide + 1;
             } else {
-                System.out.println("Input error - you should use only digits\n" +
-                        "Please rerun the aplication.");
+                System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
+                        "Please rerun the application.");
                 break;
             }
         }
@@ -568,11 +572,11 @@ public class ShapeAreaPerimeter {
 
             String secondtSideStrMod = secondSideStr + "\uF04A";
             for (int i = 0; i <= secondtSideStrMod.length() - 2; i++) {
-                if (numStr.contains(secondtSideStrMod.substring(i, i + 1))) {
+                if (numStr.contains(secondtSideStrMod.substring(i, i + 1))&&!secondSideStr.equals("0")) {
                     counSecondSide = counSecondSide + 1;
                 } else {
-                    System.out.println("Input error - you should use only digits\n" +
-                            "Please rerun the aplication.");
+                    System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
+                            "Please rerun the application.");
                     break;
                 }
             }
@@ -592,11 +596,11 @@ public class ShapeAreaPerimeter {
 
                 String thirdSideStrMod = thirdSideStr + "\uF04A";
                 for (int i = 0; i <= thirdSideStrMod.length() - 2; i++) {
-                    if (numStr.contains(thirdSideStrMod.substring(i, i + 1))) {
+                    if (numStr.contains(thirdSideStrMod.substring(i, i + 1))&&!thirdSideStr.equals("")) {
                         countThirdSide = countThirdSide + 1;
                     } else {
-                        System.out.println("Input error - you should use only digits\n" +
-                                "Please rerun the aplication.");
+                        System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
+                                "Please rerun the application.");
                         break;
                     }
                 }
@@ -667,11 +671,11 @@ public class ShapeAreaPerimeter {
 
         String radiusStrMod = radiusStr + "\uF04A";
         for (int i = 0; i <= radiusStrMod.length() - 2; i++) {
-            if (numStr.contains(radiusStrMod.substring(i, i + 1))) {
+            if (numStr.contains(radiusStrMod.substring(i, i + 1))&&!radiusStr.equals("0")) {
                 countRadius = countRadius + 1;
             } else {
-                System.out.println("Input error - you should use only digits\n" +
-                        "Please rerun the aplication.");
+                System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
+                        "Please rerun the application.");
                 break;
             }
         }
@@ -722,14 +726,14 @@ public class ShapeAreaPerimeter {
         String widthStrMod = widthhStr + "\uF04A";
 
         for (int i = 0; i <= widthStrMod.length() - 2; i++) {
-            if (numStr.contains(widthStrMod.substring(i, i + 1))) {
+            if (numStr.contains(widthStrMod.substring(i, i + 1))&&!widthhStr.equals("0")) {
                 countWidth = countWidth + 1;
 
 
             } else {
 
-                System.out.println("Input error - you should use only digits\n" +
-                        "Please rerun the aplication.");
+                System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
+                        "Please rerun the application.");
                 break;
             }
             if (countWidth == widthhStr.length()) {
@@ -753,13 +757,13 @@ public class ShapeAreaPerimeter {
 
 
             for (int i = 0; i <= heightStrMod.length() - 2; i++) {
-                if (numStr.contains(heightStrMod.substring(i, i + 1))) {
+                if (numStr.contains(heightStrMod.substring(i, i + 1))&&!heightStr.equals("0")) {
                     countHeight = countHeight + 1;
 
 
                 } else {
-                    System.out.println("Input error - you should use only digits\n" +
-                            "Please rerun the aplication.");
+                    System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
+                            "Please rerun the application.");
                     break;
                 }
 
@@ -804,12 +808,12 @@ public class ShapeAreaPerimeter {
 
         String sideLengthStrmod = sideLengthStr + "\uF04A";
         for (int i = 0; i <= sideLengthStrmod.length() - 2; i++) {
-            if (numStr.contains(sideLengthStrmod.substring(i, i + 1))) {
+            if (numStr.contains(sideLengthStrmod.substring(i, i + 1))&&!sideLengthStr.equals("0")) {
                 countSide = countSide + 1;
 
             } else {
-                System.out.println("Input error - you should use only digits\n" +
-                        "Please rerun the aplication.");
+                System.out.println("Input error - you should use only digits, with the value greater then zero.\n" +
+                        "Please rerun the application.");
                 break;
             }
 
