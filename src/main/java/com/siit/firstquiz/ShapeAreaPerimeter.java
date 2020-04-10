@@ -511,8 +511,7 @@ public class ShapeAreaPerimeter {
 
                             }
 
-                        }
-                        else {
+                        } else {
                             System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 3");
                         }
                     }/* else {
@@ -550,7 +549,7 @@ public class ShapeAreaPerimeter {
 
         String firstSideStrMod = firstSideStr + "\uF04A";
         for (int i = 0; i <= firstSideStrMod.length() - 2; i++) {
-            if (numStr.contains(firstSideStrMod.substring(i, i + 1))&&!firstSideStr.equals("0")) {
+            if (numStr.contains(firstSideStrMod.substring(i, i + 1)) && !firstSideStr.equals("0")) {
                 countFirstSide = countFirstSide + 1;
             } else {
                 System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
@@ -572,7 +571,7 @@ public class ShapeAreaPerimeter {
 
             String secondtSideStrMod = secondSideStr + "\uF04A";
             for (int i = 0; i <= secondtSideStrMod.length() - 2; i++) {
-                if (numStr.contains(secondtSideStrMod.substring(i, i + 1))&&!secondSideStr.equals("0")) {
+                if (numStr.contains(secondtSideStrMod.substring(i, i + 1)) && !secondSideStr.equals("0")) {
                     counSecondSide = counSecondSide + 1;
                 } else {
                     System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
@@ -596,7 +595,7 @@ public class ShapeAreaPerimeter {
 
                 String thirdSideStrMod = thirdSideStr + "\uF04A";
                 for (int i = 0; i <= thirdSideStrMod.length() - 2; i++) {
-                    if (numStr.contains(thirdSideStrMod.substring(i, i + 1))&&!thirdSideStr.equals("")) {
+                    if (numStr.contains(thirdSideStrMod.substring(i, i + 1)) && !thirdSideStr.equals("")) {
                         countThirdSide = countThirdSide + 1;
                     } else {
                         System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
@@ -671,7 +670,7 @@ public class ShapeAreaPerimeter {
 
         String radiusStrMod = radiusStr + "\uF04A";
         for (int i = 0; i <= radiusStrMod.length() - 2; i++) {
-            if (numStr.contains(radiusStrMod.substring(i, i + 1))&&!radiusStr.equals("0")) {
+            if (numStr.contains(radiusStrMod.substring(i, i + 1)) && !radiusStr.equals("0")) {
                 countRadius = countRadius + 1;
             } else {
                 System.out.println("Input error - you should use only digits, with the value greater than zero.\n" +
@@ -726,7 +725,7 @@ public class ShapeAreaPerimeter {
         String widthStrMod = widthhStr + "\uF04A";
 
         for (int i = 0; i <= widthStrMod.length() - 2; i++) {
-            if (numStr.contains(widthStrMod.substring(i, i + 1))&&!widthhStr.equals("0")) {
+            if (numStr.contains(widthStrMod.substring(i, i + 1)) && !widthhStr.equals("0")) {
                 countWidth = countWidth + 1;
 
 
@@ -757,7 +756,7 @@ public class ShapeAreaPerimeter {
 
 
             for (int i = 0; i <= heightStrMod.length() - 2; i++) {
-                if (numStr.contains(heightStrMod.substring(i, i + 1))&&!heightStr.equals("0")) {
+                if (numStr.contains(heightStrMod.substring(i, i + 1)) && !heightStr.equals("0")) {
                     countHeight = countHeight + 1;
 
 
@@ -808,7 +807,7 @@ public class ShapeAreaPerimeter {
 
         String sideLengthStrmod = sideLengthStr + "\uF04A";
         for (int i = 0; i <= sideLengthStrmod.length() - 2; i++) {
-            if (numStr.contains(sideLengthStrmod.substring(i, i + 1))&&!sideLengthStr.equals("0")) {
+            if (numStr.contains(sideLengthStrmod.substring(i, i + 1)) && !sideLengthStr.equals("0")) {
                 countSide = countSide + 1;
 
             } else {

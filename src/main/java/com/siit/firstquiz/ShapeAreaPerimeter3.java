@@ -7,12 +7,12 @@ import java.util.Scanner;
 import static java.lang.Integer.parseInt;
 
 public class ShapeAreaPerimeter3 {
-    public static void main (String[] args){
+    public static void main(String[] args) {
         ArrayList<String> squareArrList = new ArrayList<>();
         String answerGen = "yes";
         String allOptions = "1234";
-        String digitsOnly ="0123456789";
-        boolean onlyDigits=true;
+        String digitsOnly = "0123456789";
+        boolean onlyDigits = true;
 
 
         Scanner input = new Scanner(System.in);
@@ -23,37 +23,37 @@ public class ShapeAreaPerimeter3 {
                 "4 - triangle\n" +
                 "So please chose for which of the described shapes you want to run the app");
         String answer = input.next().toLowerCase();
-        if (allOptions.contains(answer)){
-            if (answer.equals("1")){
+        if (allOptions.contains(answer)) {
+            if (answer.equals("1")) {
                 System.out.println("For the square please input the side value (mm) ");
                 String squareSide = input.next();
                 String squareSideMod = squareSide + "\uF04A";
-                for (int i =0; i<=squareSide.length()-2; i++){
-                    if (digitsOnly.contains(squareSideMod.substring(i, i+1))){
+                for (int i = 0; i <= squareSide.length() - 2; i++) {
+                    if (digitsOnly.contains(squareSideMod.substring(i, i + 1))) {
                         onlyDigits = true;
-                    }
-                    else {
+                    } else {
                         onlyDigits = false;
                         break;
                     }
                 }
-                if (onlyDigits == true){
+                if (onlyDigits == true) {
                     calculateSquare(squareSide);
                     squareArrList.add(squareSide);
 
 
+                } else {
+                    System.out.println("Input error, please rerun the app and use only digits");
+                    answerGen = "not";
                 }
-                else{
-                    System.out.println("Wrong, please rerun the app and use only digits");
-                    answerGen = "";
-                }
+                if (!answerGen.equals("not")) {
+                    System.out.println("Do you want to add a new square ?\n" +
+                            "Please type\"yes\" if you do, otherwise the app will close.");
+                    answerGen = input.next().toLowerCase();
+                    while (answerGen.equals("yes")) {
 
-                while (answerGen.equals("yes")) {
-                    System.out.println("Do you want to add a new square ?");
-                    answer = input.next().toLowerCase();
-                    if (answer.equals("yes")) {
+
                         System.out.println("For the square please input the side value (mm) ");
-                         squareSide = input.next();
+                        squareSide = input.next();
                         squareSideMod = squareSide + "\uF04A";
                         for (int i = 0; i <= squareSide.length() - 2; i++) {
                             if (digitsOnly.contains(squareSideMod.substring(i, i + 1))) {
@@ -63,32 +63,33 @@ public class ShapeAreaPerimeter3 {
                                 break;
                             }
                         }
+
                         if (onlyDigits == true) {
                             if (squareArrList.contains(squareSide)) {
-                                System.out.println("This square was already checked, do you want to check another ?");
-                                answerGen = input.next();}
-                                else{
+                                System.out.println("This square was already checked, do you want to check another ?\n" +
+                                        "Please type \"yes\" if you do, otherwise the app will close.");
+                                answerGen = input.next();
+                            } else {
 
                                 calculateSquare(squareSide);
                                 squareArrList.add(squareSide);
+                                System.out.println("Do you want to add a new square ?\n" +
+                                        "Please type \"yes\" if you do, otherwise the app will close.");
+                                answerGen = input.next().toLowerCase();
                             }
-                            }
-
-
                         } else {
-                            System.out.println("Wrong, please rerun the app and use only digits");
-                            answerGen = "";
-
+                            System.out.println("Please rerun the aplication and use only digits");
+                            answerGen = "notYES";
                         }
+
+
                     }
                 }
+            }
 
 
-
-
-            }//if1
-        }//ifalloption
-
+        }//if1
+    }//ifalloption
 
 
     public static String calculateSquare(String sideLengthStr) {
@@ -97,15 +98,9 @@ public class ShapeAreaPerimeter3 {
         String numStr = "0123456789";
 
 
-
-
-
-
-
-
         String sideLengthStrmod = sideLengthStr + "\uF04A";
         for (int i = 0; i <= sideLengthStrmod.length() - 2; i++) {
-            if (numStr.contains(sideLengthStrmod.substring(i, i + 1))&&!sideLengthStr.equals("0")) {
+            if (numStr.contains(sideLengthStrmod.substring(i, i + 1)) && !sideLengthStr.equals("0")) {
                 countSide = countSide + 1;
 
             } else {
