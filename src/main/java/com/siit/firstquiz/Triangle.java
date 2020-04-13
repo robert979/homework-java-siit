@@ -38,7 +38,7 @@ public class Triangle implements IShape {
         return trianglePerimeter;
     }
     public  double calculteAplusPerimeter(long side, long side1, long side2){
-        double areaPlusPerimeter =  Math.sqrt(((side+side1+side2)/3)*(((side+side1+side2)/3)-side)*(((side+side1+side2)/3)-side1)*(((side+side1+side2)/3)-side2))+
+        double areaPlusPerimeter =1000*  Math.sqrt(((side+side1+side2)/3)*(((side+side1+side2)/3)-side)*(((side+side1+side2)/3)-side1)*(((side+side1+side2)/3)-side2))+
                 (side+side1+side2);
         return areaPlusPerimeter;
     }

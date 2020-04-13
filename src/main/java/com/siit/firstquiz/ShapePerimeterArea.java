@@ -14,6 +14,8 @@ public class ShapePerimeterArea {
         Square square = new Square();
         ArrayList<Long> rectangleList = new ArrayList<>();
         Rectangle rectangle = new Rectangle();
+        ArrayList<Long> circleList = new ArrayList<>();
+        Circle circle = new Circle();
         String genericAnswer = new String();
         String bigGenericAnswer = "yes";
 
@@ -72,12 +74,20 @@ public class ShapePerimeterArea {
                                         System.out.println("side3(mm) =");
                                         String side3Triangle=input.next();
                                         if (checkIfDigits(side3Triangle)){
-                                            if (!triangleList.contains((triangle.calculteAplusPerimeter(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle))))){
-                                                triangleList.add(triangle.calculteAplusPerimeter(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle)));
-                                                triangle.calculateArea(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle));
-                                                triangle.calculatePerimeter(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle));
+                                            double p =((transformStringIndigits(side1trianlge))+(transformStringIndigits(side2Triangle))+(transformStringIndigits(side3Triangle)))/2;
+                                            double a= transformStringIndigits(side1trianlge);
+                                            double b = transformStringIndigits(side2Triangle);
+                                            double c = transformStringIndigits(side3Triangle);
+                                            if ((Math.sqrt(p*(p-a)*(p-b)*(p-c)))>0) {
+                                                if (!triangleList.contains((triangle.calculteAplusPerimeter(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle))))) {
+                                                    triangleList.add(triangle.calculteAplusPerimeter(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle)));
+                                                    triangle.calculateArea(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle));
+                                                    triangle.calculatePerimeter(transformStringIndigits(side1trianlge), transformStringIndigits(side2Triangle), transformStringIndigits(side3Triangle));
+                                                } else {
+                                                    System.out.println("This triangle was already checked");
+                                                }
                                             }else {
-                                                System.out.println("This triangle was already checked");
+                                                System.out.println("The values you gave can't give a valid triangle");
                                             }
 
 
@@ -98,7 +108,7 @@ public class ShapePerimeterArea {
                 }
                 if (choseOption.equals("3")) {
                     while (genericAnswer.equals("yes")) {
-                        System.out.println("For the rectangle\n" +
+                        System.out.println("For the rectangle " +
                                 "please input the values as follows\n" +
                                 "width(mm) =  ");
                         String width = input.next();
@@ -135,9 +145,37 @@ public class ShapePerimeterArea {
                     }
 
                 }
+                if (choseOption.equals("2")) {
+                    while (genericAnswer.equals("yes")) {
+                        System.out.println("For the circle " +
+                                "please input the radius(mm)\n" );
+                        String radius = input.next();
+                        if (checkIfDigits(radius)){
+                            if (!circleList.contains(transformStringIndigits(radius))){
+                                circleList.add(transformStringIndigits(radius));
+                                circle.calculateArea(transformStringIndigits(radius), 0,0 );
+                                circle.calculatePerimeter(transformStringIndigits(radius), 0, 0);
+
+                            }else {
+                                System.out.println("This circle was already checked");
+                            }
 
 
-            } else {
+
+                        }
+                        System.out.println("Do you want to add a new circle?\n" +
+                                "Please type \"yes\" if do.");
+                        String localAnswer = input.next();
+                        genericAnswer = localAnswer.toLowerCase();
+
+
+                    }
+
+                    }
+
+
+
+                    } else {
                 System.out.println("Wrong input, please rerun the application and chose a digit from 1 to 4");
             }
             System.out.println("Do you want to rerun the app?\n" +
