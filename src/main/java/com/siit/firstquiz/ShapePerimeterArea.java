@@ -203,12 +203,11 @@ public class ShapePerimeterArea {
         String numStr = "0123456789";
         String strMod = str + "\uF04A";
         for (int i = 0; i<= strMod.length()-2; i++){
-            if (numStr.contains(strMod.substring(i, i+1)) && !str.equals("0")){
+            if (numStr.contains(strMod.substring(i, i+1)) && transformStringIndigits(str)>0){
                 countSide+=1;
             }
             else {
-                System.out.println("Input error - you should use only digits, with the value greater then zero.\n" +
-                        "Please rerun the application.");
+                System.out.println("Input error - you should use only digits, with the value greater then zero.");
                 break;
             }
         }
