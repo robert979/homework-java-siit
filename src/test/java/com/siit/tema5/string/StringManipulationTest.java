@@ -34,6 +34,30 @@ public class StringManipulationTest {
 
 
     }
+    @Test
+    public void return_null(){
+        //given
+        String input="";
+
+        //When
+        String returnedString = sut.reverseWordsOrder(input);
+
+        //Then
+        assertThat(returnedString).isEqualTo("");
+
+    }
+    @Test
+    public void return_break (){
+        //Given
+        String input = " ";
+
+        //When
+        String reurnedString = sut.reverseWordsOrder(input);
+
+
+        //Then
+        assertThat(reurnedString).isEqualTo(" ");
+    }
 
 
 }

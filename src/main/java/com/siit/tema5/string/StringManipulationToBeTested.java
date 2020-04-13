@@ -24,16 +24,19 @@ import java.util.Arrays;
 
 public class StringManipulationToBeTested {
 
-    private static void findFirstNonRepetedCharacter(String str) {
+    private static char findFirstNonRepetedCharacter(String str) {
 
         int l = str.length();
+        int j =0;
         for (int i = 1; i <= l - 1; i++) {
             if (str.indexOf(str.charAt(i)) == str.lastIndexOf(str.charAt(i))) {
                 System.out.println("primul caracter unic din sirul [" + str + "] este " + "\"" + str.charAt(i) + "\"");
+                j=i;
                 break;
             }
 
         }
+        return str.charAt(j);
 
 
     }
@@ -189,7 +192,7 @@ public class StringManipulationToBeTested {
         return strrev;
     }
 
-  void convertStringToInt(String str) {
+    void convertStringToInt(String str) {
         String strNumbers = "0123456789";
         int a = 0;
         int b = 0;
@@ -267,7 +270,7 @@ public class StringManipulationToBeTested {
 
     }
 
-     void checkStringsRotation(String str1, String str2) {
+    void checkStringsRotation(String str1, String str2) {
         int l1 = str1.length();
         int l2 = str2.length();
 
@@ -342,7 +345,7 @@ public class StringManipulationToBeTested {
 
     }
 
-   void findAllSubstrings(String str) {
+    void findAllSubstrings(String str) {
 
         int l = str.length();
         if (l > 1) {
@@ -359,7 +362,7 @@ public class StringManipulationToBeTested {
 
     }
 
-   String checkLongestPalindrom(String str) {
+    String checkLongestPalindrom(String str) {
         String bigestPalindrome = new String();
         String temp = new String();
         int l = str.length();
@@ -420,40 +423,46 @@ public class StringManipulationToBeTested {
         }
         */
 
-   String reverseWordsOrder(String str8) {
-        String strSpaceRemoved = str8.trim();
+    String reverseWordsOrder(String str8) {
         String reversedWords = new String();
-        int count = 0;
-        int l = strSpaceRemoved.length();
-        for (int i = 0; i <= l - 1; i++) {
-            if (strSpaceRemoved.charAt(i) == ' ') {
-                count = count + 1;
+        if (str8.length() != 0) {
+            String strSpaceRemoved = str8.trim();
+
+            int count = 0;
+            int l = strSpaceRemoved.length();
+            for (int i = 0; i <= l - 1; i++) {
+                if (strSpaceRemoved.charAt(i) == ' ') {
+                    count = count + 1;
+                }
             }
+
+            String[] strColector = new String[count + 1];
+            String temp = strSpaceRemoved;
+
+            for (int j = 0; j <= count - 1; j++) {
+                strColector[j] = temp.substring(temp.lastIndexOf(" "));
+                temp = temp.substring(0, temp.lastIndexOf(" "));
+
+
+            }
+            strColector[count] = strSpaceRemoved.substring(0, strSpaceRemoved.indexOf(" "));
+
+
+            for (int i = 0; i <= count - 1; i++) {
+                reversedWords = reversedWords + strColector[i];
+
+            }
+            reversedWords = reversedWords + " " + strColector[count];
+            reversedWords = reversedWords.trim();
+
+            System.out.println("[" + str8 + "] in urma inversarii cuvintelor devine \n[" + reversedWords + "]");
+        }else {
+            System.out.println("Sirul este nul - nu contine niciun caracter");
+            reversedWords="";
         }
 
-        String[] strColector = new String[count + 1];
-        String temp = strSpaceRemoved;
-
-        for (int j = 0; j <= count - 1; j++) {
-            strColector[j] = temp.substring(temp.lastIndexOf(" "));
-            temp = temp.substring(0, temp.lastIndexOf(" "));
-
-
-        }
-        strColector[count] = strSpaceRemoved.substring(0, strSpaceRemoved.indexOf(" "));
-
-
-        for (int i = 0; i <= count - 1; i++) {
-            reversedWords = reversedWords + strColector[i];
-
-        }
-        reversedWords = reversedWords + " " + strColector[count];
-        reversedWords = reversedWords.trim();
-
-        System.out.println("[" + str8 + "] in urma inversarii cuvintelor devine \n[" + reversedWords + "]");
 
 
         return reversedWords;
-
     }
 }
