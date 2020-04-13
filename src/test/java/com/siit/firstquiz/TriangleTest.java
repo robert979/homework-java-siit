@@ -46,7 +46,7 @@ public class TriangleTest {
 
         //When
         double area = sut.calculateArea(side1, side2, side3);
-        System.out.println("For given sides 3,4 and 5 mm the arrea = 6  --> " + sut.calculateArea(side1, side2, side3));
+        System.out.println("For given sides 3,4 and 5 mm the area = 6  --> " + sut.calculateArea(side1, side2, side3));
 
         //Then
         assertThat(area).isEqualTo(6);
