@@ -1,4 +1,4 @@
-package com.siit.firstquiz;
+package com.siit.firstquiz.ciorna;
 
 import java.util.Scanner;
 

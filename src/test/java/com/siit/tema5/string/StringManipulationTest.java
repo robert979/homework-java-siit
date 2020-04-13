@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class StringManipulationTest {
 
-    private StringManipulationToBeTested sut = new StringManipulationToBeTested();
+    private StringManipulationToBeTested sut; //= new StringManipulationToBeTested();
 
     @Before
     public void setup() {

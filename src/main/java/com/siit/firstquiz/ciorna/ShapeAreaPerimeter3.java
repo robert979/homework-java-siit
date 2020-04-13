@@ -1,4 +1,4 @@
-package com.siit.firstquiz;
+package com.siit.firstquiz.ciorna;
 
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
