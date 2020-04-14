@@ -76,9 +76,36 @@ public class StringManipulationTest {
         String input = "";
         //When
         String withoutDuplicates = StringManipulationToBeTested.removeDuplicates(input);
+        System.out.println("For null the output is  \"" + StringManipulationToBeTested.removeDuplicates(input) + "\"");
 
         //Then
         assertThat(withoutDuplicates).isEqualTo("");
+    }
+
+    @Test
+    public void remove_duplicates_for_space() {
+        //Given
+        String input = "         ";
+
+        //When
+        String withoutDuplicates = StringManipulationToBeTested.removeDuplicates(input);
+        System.out.println("For one space/or more the result is  --> \"" + StringManipulationToBeTested.removeDuplicates(input) + "\"");
+
+
+        //Then
+        assertThat(withoutDuplicates).isEqualTo(" ");
+    }
+
+    @Test
+    public void find_duplicates_only_spaces() {
+        //Given
+        String input = "           ";
+
+        //When
+        String onlyDuplicates = sut.findPrintDuplicates(StringManipulationToBeTested.removeDuplicates(input));
+
+        //Then
+        assertThat(onlyDuplicates).isEqualTo("");
     }
 
 

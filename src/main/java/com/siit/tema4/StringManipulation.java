@@ -48,11 +48,12 @@ public class StringManipulation {
 
 
         //reverseString(str);                                //01
-        //findPrintDuplicates(removeDuplicates(str5));       //02 - 06
+        //
+        // findPrintDuplicates(removeDuplicates(str5));       //02 - 06
         //checkIfAnagram(str3,str4);                         //03
 
         //checkIfOnlyDigits(str6);                           //05
-        removeDuplicates(str3);                            //06
+        //removeDuplicates(str3);                            //06
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09

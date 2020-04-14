@@ -61,7 +61,7 @@ public class StringManipulationToBeTested {
         return withoutDuplicates;
     }
 
-    static String findPrintDuplicates(String str) {
+    String findPrintDuplicates(String str) {
         char[] withDuplicates = str.toCharArray();
         Arrays.sort(withDuplicates);
         int l = withDuplicates.length;
@@ -72,7 +72,7 @@ public class StringManipulationToBeTested {
             }
 
         }
-        System.out.println("duplicatele din sirul [" + str + "] sunt " + onlyDuplicates);
+        System.out.println("duplicatele din sirul [" + str + "] sunt [" + onlyDuplicates + "]");
         return onlyDuplicates;
 
     }
