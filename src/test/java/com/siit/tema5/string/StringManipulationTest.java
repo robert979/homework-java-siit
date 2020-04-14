@@ -64,7 +64,21 @@ public class StringManipulationTest {
         String input = "ab  cd";
 
         //When
-        String withoutDuplicates =
+        String withoutDuplicates = StringManipulationToBeTested.removeDuplicates(input);
+
+        //Then
+        assertThat(withoutDuplicates).isEqualTo(" abcd");
+    }
+
+    @Test
+    public void remove_duplicates_for_null() {
+        //Given
+        String input = "";
+        //When
+        String withoutDuplicates = StringManipulationToBeTested.removeDuplicates(input);
+
+        //Then
+        assertThat(withoutDuplicates).isEqualTo("");
     }
 
 

@@ -28,7 +28,7 @@ public class StringManipulation {
         String str = " ";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = " ";
-        String str3 = "acacacac";
+        String str3 = "";
         String str4 = "CAcacaca";
         String str5 = "123587894454";
         String str6 = "a014894548545417";
@@ -51,8 +51,8 @@ public class StringManipulation {
         //findPrintDuplicates(removeDuplicates(str5));       //02 - 06
         //checkIfAnagram(str3,str4);                         //03
 
-        checkIfOnlyDigits(str6);                           //05
-        //removeDuplicates(str3);                            //06
+        //checkIfOnlyDigits(str6);                           //05
+        removeDuplicates(str3);                            //06
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
@@ -70,7 +70,6 @@ public class StringManipulation {
         //removeUnnecesarySpaces(reverseWordsOrder(str8));   // not given
         //checkLongestPalindrom(str);                       //
         //findAllSubstrings(str);
-
 
 
     }
@@ -389,20 +388,25 @@ public class StringManipulation {
 
     private static String removeDuplicates(String str) {
         String withoutDuplicates = new String();
-        char[] wihDuplicates = str.toCharArray();
-        Arrays.sort(wihDuplicates);
-        int l = wihDuplicates.length;
+        if (str.length() != 0) {
+
+            char[] wihDuplicates = str.toCharArray();
+            Arrays.sort(wihDuplicates);
+            int l = wihDuplicates.length;
 
 
-        for (int i = 0; i <= l - 2; i++) {
-            if (wihDuplicates[i] != wihDuplicates[i + 1]) {
-                withoutDuplicates = withoutDuplicates + wihDuplicates[i];
+            for (int i = 0; i <= l - 2; i++) {
+                if (wihDuplicates[i] != wihDuplicates[i + 1]) {
+                    withoutDuplicates = withoutDuplicates + wihDuplicates[i];
+                }
+
             }
-
+            withoutDuplicates = withoutDuplicates + wihDuplicates[l - 1];
+            System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
         }
-        withoutDuplicates = withoutDuplicates + wihDuplicates[l - 1];
-        System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
+
         return withoutDuplicates;
+
     }
 
     private static String findPrintDuplicates(String str) {

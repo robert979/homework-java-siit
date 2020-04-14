@@ -24,16 +24,16 @@ import java.util.Arrays;
 
 public class StringManipulationToBeTested {
 
-    private static char findFirstNonRepetedCharacter(String str) {
+     static char findFirstNonRepetedCharacter(String str) {
 
-        int l = str.length();
-        int j =0;
-        for (int i = 1; i <= l - 1; i++) {
-            if (str.indexOf(str.charAt(i)) == str.lastIndexOf(str.charAt(i))) {
-                System.out.println("primul caracter unic din sirul [" + str + "] este " + "\"" + str.charAt(i) + "\"");
-                j=i;
-                break;
-            }
+         int l = str.length();
+         int j = 0;
+         for (int i = 1; i <= l - 1; i++) {
+             if (str.indexOf(str.charAt(i)) == str.lastIndexOf(str.charAt(i))) {
+                 System.out.println("primul caracter unic din sirul [" + str + "] este " + "\"" + str.charAt(i) + "\"");
+                 j = i;
+                 break;
+             }
 
         }
         return str.charAt(j);
@@ -43,23 +43,25 @@ public class StringManipulationToBeTested {
 
     public static String removeDuplicates(String str) {
         String withoutDuplicates = new String();
-        char[] wihDuplicates = str.toCharArray();
-        Arrays.sort(wihDuplicates);
-        int l = wihDuplicates.length;
+        if (str.length() != 0) {
+            char[] wihDuplicates = str.toCharArray();
+            Arrays.sort(wihDuplicates);
+            int l = wihDuplicates.length;
 
 
-        for (int i = 0; i <= l - 2; i++) {
-            if (wihDuplicates[i] != wihDuplicates[i + 1]) {
-                withoutDuplicates = withoutDuplicates + wihDuplicates[i];
+            for (int i = 0; i <= l - 2; i++) {
+                if (wihDuplicates[i] != wihDuplicates[i + 1]) {
+                    withoutDuplicates = withoutDuplicates + wihDuplicates[i];
+                }
+
             }
-
+            withoutDuplicates = withoutDuplicates + wihDuplicates[l - 1];
+            System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
         }
-        withoutDuplicates = withoutDuplicates + wihDuplicates[l - 1];
-        System.out.println("Sirul [" + str + "] din care s-au scos duplicatele, a devenit [" + withoutDuplicates + "]");
         return withoutDuplicates;
     }
 
-    private static String findPrintDuplicates(String str) {
+    static String findPrintDuplicates(String str) {
         char[] withDuplicates = str.toCharArray();
         Arrays.sort(withDuplicates);
         int l = withDuplicates.length;
@@ -75,7 +77,7 @@ public class StringManipulationToBeTested {
 
     }
 
-    private static void checkIfOnlyDigits(String str) {
+    static void checkIfOnlyDigits(String str) {
         int l = str.length();
         System.out.println("l este " + l);
         int count = 0;
@@ -101,7 +103,7 @@ public class StringManipulationToBeTested {
 
     }
 
-    private static String removeChar(String str, char givenChar) {
+    static String removeChar(String str, char givenChar) {
         String strRemoveChar = new String();
         int l = str.length();
         for (int i = 0; i <= l - 1; i++) {
@@ -114,7 +116,7 @@ public class StringManipulationToBeTested {
         return strRemoveChar;
     }
 
-    private static int countChar(String str, char givenChar) {
+    static int countChar(String str, char givenChar) {
         int l = str.length();
         int count = 0;
         for (int j = 0; j <= l - 1; j++) {
@@ -127,7 +129,7 @@ public class StringManipulationToBeTested {
 
     }
 
-    private static void checkIfAnagram(String str, String str1) {
+    static void checkIfAnagram(String str, String str1) {
         char[] char1 = str.toLowerCase().toCharArray();
         char[] char2 = str1.toLowerCase().toCharArray();
         Arrays.sort(char1);
@@ -150,7 +152,7 @@ public class StringManipulationToBeTested {
         }
     }
 
-    private static String checkPalindrome(String str) {
+    static String checkPalindrome(String str) {
 
         int b = str.length();
         String palindromCheck = new String();
@@ -180,7 +182,7 @@ public class StringManipulationToBeTested {
         return palindromCheck;
     }
 
-    private static String reverseString(String str) {
+    static String reverseString(String str) {
         int b = str.length();
         String strrev = str.substring(b - 1);
 
@@ -404,7 +406,7 @@ public class StringManipulationToBeTested {
         return strWithoutSpaces;
     }
     /*
-    private static String printDuplicates(String str){
+     static String printDuplicates(String str){
         String duplicates = new String();
         int b = str.length();
         for (int i =0; i<=b-3;i++ ){
