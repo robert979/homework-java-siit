@@ -41,7 +41,7 @@ public class StringManipulationToBeTested {
 
     }
 
-    private static String removeDuplicates(String str) {
+    public static String removeDuplicates(String str) {
         String withoutDuplicates = new String();
         char[] wihDuplicates = str.toCharArray();
         Arrays.sort(wihDuplicates);

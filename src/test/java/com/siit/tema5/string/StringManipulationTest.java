@@ -1,12 +1,11 @@
 package com.siit.tema5.string;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(MockitoJUnitRunner.class)
 
@@ -57,6 +56,15 @@ public class StringManipulationTest {
 
         //Then
         assertThat(reurnedString).isEqualTo(" ");
+    }
+
+    @Test
+    public void remove_duplicates() {
+        //Given
+        String input = "ab  cd";
+
+        //When
+        String withoutDuplicates =
     }
 
 
