@@ -1,4 +1,9 @@
-package com.siit.firstquiz.ciorna;
+//Fara interfata
+//Fara metode in alte clase
+//Fara posibilitatea de a executa, la acelasi "run", aceeasi forma geometrica de doua ori.
+
+package com.siit.firstquiz;
+
 
 import java.util.Scanner;
 
