@@ -25,7 +25,7 @@ import java.util.Arrays;
 public class StringManipulation {
     public static void main(String... args) {
 
-        String str = " ";
+        String str = "";
         String str1 = "cikedhvrnvkfjeknkndncdolfjeerlkc";
         String str2 = " ";
         String str3 = "";
@@ -57,7 +57,7 @@ public class StringManipulation {
         //countVowelsAndConsonants(str);                     //07
         //countChar(str, givenChar);                         //08
         //findFirstNonRepetedCharacter(str8);                //09
-        //convertStringToInt(str);                             //10
+        convertStringToInt(str);                             //10
         //reverseWordsOrder(str8);                             //11
         //checkStringsRotation(str9, str10);                   //12
         //checkPalindrome(str2);                               //13

@@ -7,6 +7,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+//org.assertj.core.api.Assertions
+
 @RunWith(MockitoJUnitRunner.class)
 
 public class StringManipulationTest {
@@ -106,6 +108,19 @@ public class StringManipulationTest {
 
         //Then
         assertThat(onlyDuplicates).isEqualTo("");
+    }
+
+    @Test
+    public void remove_char() {
+        //Given
+        String input = "astazi";
+        char in = 's';
+
+        //When
+        String returnStr = StringManipulationToBeTested.removeChar(input, in);
+
+        //Then
+        assertThat(returnStr).isEqualTo("atazi");
     }
 
 

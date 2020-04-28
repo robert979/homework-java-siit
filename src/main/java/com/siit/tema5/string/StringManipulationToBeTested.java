@@ -195,6 +195,7 @@ public class StringManipulationToBeTested {
     }
 
     void convertStringToInt(String str) {
+
         String strNumbers = "0123456789";
         int a = 0;
         int b = 0;
@@ -273,6 +274,7 @@ public class StringManipulationToBeTested {
     }
 
     void checkStringsRotation(String str1, String str2) {
+
         int l1 = str1.length();
         int l2 = str2.length();
 
