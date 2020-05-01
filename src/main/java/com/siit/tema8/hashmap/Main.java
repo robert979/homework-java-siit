@@ -1,16 +1,18 @@
 package com.siit.tema8.hashmap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        HashMap<Persoana, List<Hobby>> hobbyList = new HashMap<>();
+
+        List<Adresa> adresaSwiming = new ArrayList<>();
+        List<Adresa> adresaCycling = new ArrayList<>();
+
         Persoana mihai1 = new Persoana("Mihai");
         Persoana florin = new Persoana("Florin");
         Persoana mihai2 = new Persoana("Mihai");
-
-        List<Adresa> adresaSwiming = new ArrayList<>();
 
 
         Adresa swimingPool1 = Adresa.builder()
@@ -35,7 +37,7 @@ public class Main {
         adresaSwiming.add(swimingPool1);
         adresaSwiming.add(complexSport);
 
-        List<Adresa> adresaCycling = new ArrayList<>();
+
         adresaCycling.add(cyclingArena);
         adresaCycling.add(complexSport);
         List<Hobby> hobbies = new ArrayList<>();
@@ -50,29 +52,41 @@ public class Main {
                 .frequency(2)
                 .adresa(adresaCycling)
                 .build();
-        Hobby joking = Hobby.builder()
-                .hobyName("joking")
+        Hobby jogging = Hobby.builder()
+                .hobyName(" jogging")
                 .frequency(5)
                 .build();
 
         hobbies.add(swiming);
         hobbies.add(cycling);
-        hobbies.add(joking);
+        hobbies.add(jogging);
 
         hobbies.add(null);
 
 
-        HashMap<Persoana, List<Hobby>> hobbyList = new HashMap<>();
         hobbyList.put(mihai1, hobbies.subList(0, 2));
         hobbyList.put(florin, hobbies.subList(1, 2));
         hobbyList.put(mihai2, hobbies.subList(2, 3));
+        hobbyList.put(mihai2, hobbies.subList(1, 2));
 
-        hobbyList.forEach((key, value) -> System.out.println("\n" + key.name + ": " + "\n" + value));
+        hobbyList.forEach((key, value) -> System.out.println(key.name + "::" + hobbyList.get(key)));
 
-        System.out.println("aici" + hobbyList.remove(mihai1, hobbies.subList(0, 1)));
+        Set iteratorSet = hobbyList.entrySet();
+        Iterator iteratorMeu = iteratorSet.iterator();
+
+        while (iteratorMeu.hasNext()) {
+            Map.Entry print = (Map.Entry) iteratorMeu.next();
+            System.out.println(print.getKey() + " ::" + print.getValue());
+        }
 
 
-        /*while (iterator.hasNext()) {
+        //System.out.println("aici " + hobbyList.remove(mihai1, hobbyList.get(mihai1)));
+
+
+        /*
+
+
+        while (iterator.hasNext()) {
             Map.Entry me = (Map.Entry) iterator.next();
             System.out.println("Key: " + me.getKey() + " & Value: " + me.getValue());
         }
@@ -81,7 +95,7 @@ public class Main {
          */
 
 
-        hobbyList.forEach((key, value) -> System.out.println(key.name + ": " + value));
+        //hobbyList.forEach((key, value) -> System.out.println(key.name + ": " + value));
 
         // System.out.println(mihai);
         //System.out.println(florin);
