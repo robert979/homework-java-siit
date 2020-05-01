@@ -1,14 +1,13 @@
-package com.siit.tema8;
+package com.siit.tema8.treeset;
 
-import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 public class Persoana {
     private String nume;
-    @EqualsAndHashCode.Include
+    //@EqualsAndHashCode.Include
     private int varsta;
 
 
@@ -18,6 +17,7 @@ public class Persoana {
 
 
     }
+
 
     public String getNume() {
         return nume;

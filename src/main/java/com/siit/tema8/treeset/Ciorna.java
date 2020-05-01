@@ -1,4 +1,4 @@
-package com.siit.tema8;
+package com.siit.tema8.treeset;
 
 import java.util.HashSet;
 import java.util.Set;
