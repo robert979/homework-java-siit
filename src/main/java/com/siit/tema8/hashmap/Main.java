@@ -1,6 +1,7 @@
 package com.siit.tema8.hashmap;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Main {
     public static void main(String[] args) {
@@ -64,18 +65,20 @@ public class Main {
         hobbies.add(null);
 
 
-        hobbyList.put(mihai1, hobbies.subList(0, 2));
+        hobbyList.put(mihai1, List.of(jogging, swiming)); //more readable
         hobbyList.put(florin, hobbies.subList(1, 2));
         hobbyList.put(mihai2, hobbies.subList(2, 3));
         hobbyList.put(mihai2, hobbies.subList(1, 2));
 
+        hobbyList.remove(new Persoana("Mihai")); //o sa caute un obiect egal cu arg in cheile HashMap
+
         hobbyList.forEach((key, value) -> System.out.println(key.name + "::" + hobbyList.get(key)));
 
-        Set iteratorSet = hobbyList.entrySet();
-        Iterator iteratorMeu = iteratorSet.iterator();
+        Set<Entry<Persoana, List<Hobby>>> iteratorSet = hobbyList.entrySet();
+        Iterator<Entry<Persoana, List<Hobby>>> iteratorMeu = iteratorSet.iterator();
 
         while (iteratorMeu.hasNext()) {
-            Map.Entry print = (Map.Entry) iteratorMeu.next();
+            Entry<Persoana, List<Hobby>> print = iteratorMeu.next();
             System.out.println(print.getKey() + " ::" + print.getValue());
         }
 
