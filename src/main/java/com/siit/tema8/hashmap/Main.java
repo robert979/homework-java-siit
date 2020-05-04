@@ -66,7 +66,7 @@ public class Main {
 
 
         hobbyList.put(mihai1, List.of(jogging, swiming)); //more readable
-        hobbyList.put(florin, hobbies.subList(1, 2));
+        hobbyList.put(florin, hobbies);
         hobbyList.put(mihai2, hobbies.subList(2, 3));
         hobbyList.put(mihai2, hobbies.subList(1, 2));
 
