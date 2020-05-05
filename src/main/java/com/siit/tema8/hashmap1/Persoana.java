@@ -26,5 +26,10 @@ public class Persoana {
         return Objects.hash(name);
     }
 
-
+    @Override
+    public String toString() {
+        return "Persoana{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

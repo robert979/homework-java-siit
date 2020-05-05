@@ -1,7 +1,6 @@
 package com.siit.tema8.hashmap1;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,7 +9,7 @@ public class Hobby {
     private int frequency;
     private List<Adresa> adresa;
 
-    public Hobby(String hobby, int frequency, ArrayList<Adresa> adresa) {
+    public Hobby(String hobby, int frequency, List<Adresa> adresa) {
         this.hobby = hobby;
         this.frequency = frequency;
         this.adresa = adresa;

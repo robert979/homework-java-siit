@@ -1,22 +1,19 @@
 package com.siit.tema8.hashmap1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Test {
 
  public static void main(String[] args) {
-  Map<Persoana, List<Hobby>> hobies = new HashMap<>();
+  Map<Persoana, List<Hobby>> hobies = new HashMap<>(); //Map
 
-  ArrayList<Adresa> adresaCycling = new ArrayList<>();
-  ArrayList<Adresa> adresaswiming = new ArrayList<>();
-  ArrayList<Adresa> adresaJogging = new ArrayList<>();
+  List<Adresa> adresaCycling = new ArrayList<>();
+  List<Adresa> adresaswiming = new ArrayList<>();
+  List<Adresa> adresaJogging = new ArrayList<>();
 
   List<Hobby> swimingList = new ArrayList<>();
-  ArrayList<Hobby> cyclingList = new ArrayList<>();
-  ArrayList<Hobby> joggingList = new ArrayList<>();
+  List<Hobby> cyclingList = new ArrayList<>();
+  List<Hobby> joggingList = new ArrayList<>();
 
 
   Adresa romania = new Adresa("Romania");
@@ -38,6 +35,7 @@ public class Test {
   Hobby cycling = new Hobby("cycling", 2, adresaCycling);
   Hobby jogging = new Hobby("jogging", 4, adresaJogging);
 
+
   swimingList.add(swiming);
   cyclingList.add(cycling);
   joggingList.add(jogging);
@@ -50,11 +48,36 @@ public class Test {
   hobies.put(mihai, swimingList);
   hobies.put(florin, List.of(swiming, cycling));
   hobies.put(calin, List.of(jogging));
-  hobies.put(mihai1, joggingList);
+  hobies.putIfAbsent(mihai1, joggingList);
+
+
+  //hobies.put(new Persoana("Valentin"), List.of(new Hobby("skating",2,adresaCycling )));
+  hobies.put(new Persoana("Valentin"), List.of(new Hobby("skating", 2, List.of(new Adresa("Egipt")))));
+  hobies.forEach((key, value) -> System.out.println(key.getName() + "::" + hobies.get(key)));
+  System.out.println("===BREAK===");
+  hobies.remove(new Persoana("Calin"));
+
 
   hobies.forEach((key, value) -> System.out.println(key.getName() + "::" + hobies.get(key)));
+  //hobies.remove(List.of(swiming));
+  //System.out.println("===BREAK===");
+  //hobies.forEach((key, value) -> System.out.println(key.getName() + "::" + hobies.get(key)));
+  Set<Map.Entry<Persoana, List<Hobby>>> iteratorSet = hobies.entrySet();
+  Iterator<Map.Entry<Persoana, List<Hobby>>> myIterator = iteratorSet.iterator();
+  while (myIterator.hasNext()) {
+   Map.Entry<Persoana, List<Hobby>> print = myIterator.next();
+   System.out.println(print.getKey() + " :::: " + print.getValue());
+  }
+/*  System.out.println("===BREAK=== 2 ===");
 
-// Hobby("fising", 1, adresaCycling));
+  while (myIterator.hasNext()){
+   if (hobies.containsValue(swimingList)){
+    hobies.remove( new List<Hobby>());
+   }
+
+
+  }*/
+  hobies.forEach((key, value) -> System.out.println(key.getName() + "::" + hobies.get(key)));
 
  }
 }

@@ -80,6 +80,7 @@ public class Main {
         while (iteratorMeu.hasNext()) {
             Entry<Persoana, List<Hobby>> print = iteratorMeu.next();
             System.out.println(print.getKey() + " ::" + print.getValue());
+
         }
 
 
