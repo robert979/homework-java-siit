@@ -1,0 +1,10 @@
+Name: Popescu Ion         CNP: 1800306040735  Adresa: Str Valea Lunga
+Name: Georgescu Mihai     CNP: 1800306040736  Adresa: Bdul Iuliu Maniu
+Name: Flutur George       CNP: 1800306040737  Adresa: Soseaua Stefan cel Mare
+Name: Ghorghe Hagi        CNP: 1800306040738  Adresa: Calea Giulesti
+Name: Nicolae Dobrin      CNP: 1800306040739  Adresa: Calea Victoriei
+Name: Adrina Mutu         CNP: 1800306040739  Adresa: Bdul Nicolae Grigorescu
+Name: Marius Lacatus      CNP: 1800306040740  Adresa: Bdul Th. Palady
+Name: Helmuth Duckadam    CNP: 1800306040741  Adresa: Aleea cu Maci
+Name: Ilie Dumitrescu     CNP: 1800306040742  Adresa: Str Mohorului
+Name: Nicolae Panduru     CNP: 1800306040743  Adresa: Str Exercitiu
