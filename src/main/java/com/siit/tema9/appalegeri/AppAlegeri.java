@@ -6,11 +6,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-//allCNPs
+//list with all CNP
 //1800306040735
 //1800306040736
 //1800306040737
@@ -26,16 +24,43 @@ public class AppAlegeri {
         Scanner input = new Scanner(System.in);
         Path path = Paths.get("CNP_List.txt");
         String allInformation = Files.readString(path, StandardCharsets.US_ASCII);
-        System.out.println(allInformation);
+        //System.out.println(allInformation);
         List<String> cnpList = new ArrayList<>();
         List<String> cnpListVoted = new ArrayList<>();
         List<String> cnpListNonvoted = cnpList;
-        BigDecimal Ionescu = BigDecimal.valueOf(0);
-        BigDecimal Popescu = BigDecimal.valueOf(0);
-        BigDecimal Costache = BigDecimal.valueOf(0);
-        BigDecimal Voicu = BigDecimal.valueOf(0);
-        BigDecimal Protopopescu = BigDecimal.valueOf(0);
-        BigDecimal canceledVotes = BigDecimal.valueOf(0);
+        int counterVote = 0;
+        Comparator<Candidat> comparatorulMeu = new Comparator<Candidat>() {
+            @Override
+            public int compare(Candidat o1, Candidat o2) {
+                int i = 0;
+                if (Integer.parseInt(o1.getVotes().toString()) > Integer.parseInt(o2.getVotes().toString())) {
+                    i = -1;
+                } else if (Integer.parseInt(o1.getVotes().toString()) < Integer.parseInt(o2.getVotes().toString())) {
+                    i = 1;
+                } else {
+                    i = o1.getName().compareTo(o2.getName());
+                }
+                return i;
+            }
+        };
+
+        Candidat ionescu = new Candidat("Ionescu", BigDecimal.valueOf(0));
+        Candidat popescu = new Candidat("Popescu", BigDecimal.valueOf(0));
+        Candidat costache = new Candidat("Costache", BigDecimal.valueOf(0));
+        Candidat voicu = new Candidat("Voicu", BigDecimal.valueOf(0));
+        Candidat canceledVotes = new Candidat("Canceled", BigDecimal.valueOf(0));
+        TreeSet<Candidat> candidats = new TreeSet<>(comparatorulMeu);
+        candidats.add(ionescu);
+        candidats.add(popescu);
+        candidats.add(costache);
+        candidats.add(voicu);
+
+
+        //candidats.forEach(candidat -> System.out.println("suntem aici" + candidat.getName()));
+        // for (Object candidat : candidats) {
+        //     System.out.println("a doua incercare" + candidat);
+        // }
+
         String strAnswer = "yes";
         for (int i = 0; i <= allInformation.length() - 22; i++) {
             if (allInformation.substring(i, i + 3).equals("CNP")) {
@@ -44,12 +69,13 @@ public class AppAlegeri {
             }
 
         }
-        System.out.println(cnpList.contains("1800306040735"));
+        System.out.println("The ist with all CNP is: ");
+
         for (String str : cnpListNonvoted) {
             System.out.println(str);
         }
-        while (strAnswer.equals("yes")) {
-            System.out.println("Please chose your action\n" +
+        while (strAnswer.equals("yes") && counterVote != 10) {
+            System.out.println("Please chose your action:\n" +
                     "1) Vote\n" +
                     "2) Check intermediate pool\n" +
                     "3) End vote.");
@@ -65,43 +91,86 @@ public class AppAlegeri {
                                 "2) Popescu\n" +
                                 "3) Costache\n" +
                                 "4) Voicu\n" +
-                                "5) Protopoescu\n" +
-                                "6) Vote for no one");
+                                "5) Vote for no one");
                         String choiceStr = input.nextLine();
                         if (choiceStr.equals("1")) {
                             cnpListVoted.add(cnpReader);
                             cnpListNonvoted.remove(cnpReader);
-                            Ionescu = Ionescu.add(BigDecimal.valueOf(1));
+                            ionescu.setVotes(ionescu.getVotes().add(BigDecimal.valueOf(1)));
+                            System.out.println(ionescu.getVotes());
+                            counterVote = counterVote + 1;
+                            System.out.println("So far " + counterVote + " people voted");
                         } else if (choiceStr.equals("2")) {
                             cnpListVoted.add(cnpReader);
                             cnpListNonvoted.remove(cnpReader);
-                            Popescu = Popescu.add(BigDecimal.valueOf(1));
+                            popescu.setVotes(popescu.getVotes().add(BigDecimal.valueOf(1)));
+                            counterVote = counterVote + 1;
+                            System.out.println("So far " + counterVote + " people voted");
+
                         } else if (choiceStr.equals("3")) {
                             cnpListVoted.add(cnpReader);
                             cnpListNonvoted.remove(cnpReader);
-                            Costache.add(BigDecimal.valueOf(1));
+                            costache.setVotes(costache.getVotes().add(BigDecimal.valueOf(1)));
+                            counterVote = counterVote + 1;
+                            System.out.println("So far " + counterVote + " people voted");
+
                         } else if (choiceStr.equals("4")) {
                             cnpListVoted.add(cnpReader);
                             cnpListNonvoted.remove(cnpReader);
-                            Voicu.add(BigDecimal.valueOf(1));
+                            voicu.setVotes(voicu.getVotes().add(BigDecimal.valueOf(1)));
+                            counterVote = counterVote + 1;
+                            System.out.println("So far " + counterVote + " people voted");
+
                         } else if (choiceStr.equals("5")) {
                             cnpListVoted.add(cnpReader);
                             cnpListNonvoted.remove(cnpReader);
-                            Protopopescu.add(BigDecimal.valueOf(1));
-                        } else if (choiceStr.equals("6")) {
-                            cnpListVoted.add(cnpReader);
-                            cnpListNonvoted.remove(cnpReader);
-                            canceledVotes.add(BigDecimal.valueOf(0));
+                            canceledVotes.setVotes(canceledVotes.getVotes().add(BigDecimal.valueOf(1)));
+                            counterVote = counterVote + 1;
+                            System.out.println("So far " + counterVote + " people voted");
+
                         } else {
                             System.out.println("Your choice doen't match the option");
-                            System.out.println("Do you want to continue elections, please type \"yes\" if you do ");
+                            System.out.println("Do you want to continue elections, please type \"yes\" if you do,\n" +
+                                    "or type anything else in order to finish the elections ");
                             strAnswer = input.nextLine();
                         }
                     }
                 }
+            } else if (actionStr.equals("2")) {
+                checkStatus(candidats);
             }
 
         }
+    }
+
+    public static void checkStatus(Set<Candidat> candidats) {
+        Comparator<Candidat> comparatorulMeu = new Comparator<Candidat>() {
+            //Comparator<Candidat> comparatorulMeu = (o1, o2) ->
+            @Override
+            public int compare(Candidat o1, Candidat o2) {
+                int i = 0;
+                if (Integer.parseInt(o1.getVotes().toString()) > Integer.parseInt(o2.getVotes().toString())) {
+                    i = -1;
+                } else if (Integer.parseInt(o1.getVotes().toString()) < Integer.parseInt(o2.getVotes().toString())) {
+                    i = 1;
+                } else {
+                    i = o1.getName().compareTo(o2.getName());
+                }
+                return i;
+            }
+        };
+        Set<Candidat> candidatArrList1 = new TreeSet<>(comparatorulMeu);
+        candidatArrList1.addAll(candidats);
+        List<Candidat> candidatArrList = new ArrayList<>();
+        candidatArrList.addAll(candidatArrList1);
+
+        for (int i = 0; i <= candidatArrList.size() - 1; i++) {
+
+            System.out.println("on position " + (i + 1) + " we have the candidate " + candidatArrList.get(i).getName() + " which has " + candidatArrList.get(i).getVotes() + " votes");
+        }
+        //candidats.forEach(candidat -> System.out.println("suntem aici" + candidat));
+
+
     }
 
 }
