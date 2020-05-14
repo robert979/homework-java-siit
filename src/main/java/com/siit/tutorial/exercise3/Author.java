@@ -15,7 +15,6 @@ public final class Author {
 
     /**
      * Return the firstName and LastName
-     *
      * @return Full name
      */
     public String fullName() {

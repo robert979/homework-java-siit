@@ -20,6 +20,14 @@ public final class Ballot {
         return new Ballot(party);
     }
 
+    @Override
+    public String toString() {
+        return "Ballot{" +
+                "isSpoiled=" + isSpoiled +
+                ", party=" + party +
+                '}';
+    }
+
     /**
      * Indicate a spoiled Ballot (one that has no Party)
      *
@@ -27,14 +35,6 @@ public final class Ballot {
      */
     public static Ballot spoiled() {
         return new Ballot(null);
-    }
-
-    @Override
-    public String toString() {
-        return "Ballot{" +
-                "isSpoiled=" + isSpoiled +
-                ", party=" + party +
-                '}';
     }
 
     public boolean isSpoiled() {

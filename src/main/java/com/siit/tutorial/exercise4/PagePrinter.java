@@ -1,6 +1,6 @@
 package com.siit.tutorial.exercise4;
 
-import com.ibm.streams.tutorial.exercise4.Document.Page;
+import com.siit.tutorial.exercise4.Document.Page;
 
 import static java.lang.String.format;
 

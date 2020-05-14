@@ -1,5 +1,4 @@
 package com.siit.tutorial.exercise1;
-
 /*
  * A simple shape, whose only attribute is a Color, which can be changed.
  *

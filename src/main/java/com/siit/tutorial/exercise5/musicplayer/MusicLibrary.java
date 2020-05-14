@@ -14,7 +14,7 @@ public interface MusicLibrary {
 
     /**
      * Provides a rating for this song, between 1-100, inclusive.
-     * <p>
+     *
      * Default implementation takes a rating by normalising the play count for the given song with the play count for
      * all songs in this MusicLibrary.
      */
@@ -23,8 +23,6 @@ public interface MusicLibrary {
         float score = (timesPlayed(song) / totalPlayCount) * 100.0f;
         return new Rating(Math.round(score));
     }
-
-    int timesPlayed(Song song);
 
     /**
      * Will sort a given collection of Songs by artist.
@@ -35,4 +33,6 @@ public interface MusicLibrary {
                     .collect(toList());
         }
     }
+
+    int timesPlayed(Song song);
 }

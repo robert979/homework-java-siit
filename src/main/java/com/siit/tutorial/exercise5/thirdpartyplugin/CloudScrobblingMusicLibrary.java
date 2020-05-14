@@ -1,7 +1,7 @@
 package com.siit.tutorial.exercise5.thirdpartyplugin;
 
-import com.ibm.streams.tutorial.exercise5.musicplayer.MusicLibrary;
-import com.ibm.streams.tutorial.exercise5.musicplayer.Song;
+import com.siit.tutorial.exercise5.musicplayer.MusicLibrary;
+import com.siit.tutorial.exercise5.musicplayer.Song;
 
 import java.util.Arrays;
 import java.util.Collection;

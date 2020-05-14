@@ -1,6 +1,6 @@
 package com.siit.tutorial.exercise4;
 
-import com.ibm.streams.tutorial.exercise4.Document.Page;
+import com.siit.tutorial.exercise4.Document.Page;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,11 +32,14 @@ public class Documents {
     public static String print(Document document, PagePrinter pagePrinter) {
         StringBuilder output = new StringBuilder();
 
-        output.append(pagePrinter.printTitlePage(document));
+        /*output.append(pagePrinter.printTitlePage(document));
         document.getPages().stream()
                 .map(p -> pagePrinter.printPage(p))
                 .forEach(s -> output.append(s));
 
+
+
+         */
         return output.toString();
     }
 
