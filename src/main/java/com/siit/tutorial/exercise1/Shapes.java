@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Shapes {
     public static final List<Shape> shapeList = new ArrayList<>();
+    public static final StringBuilder stringBuilder = new StringBuilder();
 
     static {
         Shape shape1 = new Shape(Color.RED);
@@ -30,10 +31,14 @@ public class Shapes {
 
     public static void main(String[] args) {
 
-        colorAll(shapeList, Color.RED);
+        /*colorAll(shapeList, Color.RED);
         for (Shape s : shapeList) {
             System.out.println(shapeList);
         }
+
+         */
+        makeStringOfAllColors(shapeList, stringBuilder);
+        System.out.println(stringBuilder.toString());
 
     }
 
@@ -72,6 +77,7 @@ public class Shapes {
      * @see Shape#toString()
      */
     public static void makeStringOfAllColors(List<Shape> shapes, StringBuilder stringBuilder) {
+        shapes.forEach(shape -> stringBuilder.append(shape.toString()));
         // [your code here]
     }
 
@@ -97,6 +103,8 @@ public class Shapes {
      * @see Shape#toString()
      */
     public static void changeColorAndMakeStringOfOldColors(List<Shape> shapes, Color newColor, StringBuilder stringBuilder) {
+        makeStringOfAllColors(shapes, stringBuilder);
+        colorAll(shapes, newColor);
         // [your code here]
     }
 }
