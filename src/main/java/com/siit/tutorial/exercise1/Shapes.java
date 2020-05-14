@@ -37,8 +37,12 @@ public class Shapes {
         }
 
          */
-        makeStringOfAllColors(shapeList, stringBuilder);
+        /*makeStringOfAllColors(shapeList, stringBuilder);
+
+         */
+        changeColorAndMakeStringOfOldColors(shapeList, Color.RED, stringBuilder);
         System.out.println(stringBuilder.toString());
+        System.out.println(shapeList.toString());
 
     }
 
