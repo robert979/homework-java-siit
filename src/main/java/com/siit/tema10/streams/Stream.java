@@ -100,7 +100,7 @@ public class Stream {
         ArrayList<Integer> transactionsValue = transactions.stream()
                 .filter(transaction -> transaction.getTrader().getCity() == city)
                 .map(transaction -> transaction.getValue())
-                .collect(Collectors.toCollection(ArrayList::new));
+                .collect(Collectors.<Integer, ArrayList<Integer>>toCollection(ArrayList::new));
         System.out.println("All transaction's value from " + city + " are:");
         transactionsValue.forEach(s -> System.out.println(s));
     }
