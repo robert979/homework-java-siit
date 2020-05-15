@@ -1,19 +1,44 @@
 package com.siit.tutorial;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Streams {
+    static final List<User> userList = new ArrayList<>();
+
+    static {
+        User user1 = new User(15);
+        User user2 = new User(14);
+        User user3 = new User(19);
+        User user4 = new User(20);
+        User user5 = new User(21);
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+        userList.add(user4);
+        userList.add(user5);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getLimitedUserList(userList, 2).size());
+    }
 
     public static List<Integer> returnSquareRoot(List<Integer> numbers) {
-        throw new NotImplementedException();
+
+        return numbers.stream()
+                .map(n -> (int) Math.sqrt(n))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user) {
-        throw new NotImplementedException();
+        return user.stream()
+                .map(n -> n.getAge())
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static List<Integer> getDistinctAges(List<User> users) {
@@ -21,15 +46,26 @@ public class Streams {
     }
 
     public static List<User> getLimitedUserList(List<User> users, int limit) {
-        throw new NotImplementedException();
+
+        return users.stream()
+                .limit(limit)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static Integer countUsersOlderThen25(List<User> users) {
-        throw new NotImplementedException();
+
+        return users.stream()
+                .filter(n -> n.getAge() > 25)
+
+                .collect(Collectors.toCollection(ArrayList::new)).size();
     }
 
     public static List<String> mapToUpperCase(List<String> strings) {
-        throw new NotImplementedException();
+
+        return strings.stream()
+                .map(n -> n.toUpperCase())
+                .collect(Collectors.toCollection(ArrayList::new));
+
     }
 
     public static Integer sum(List<Integer> integers) {
