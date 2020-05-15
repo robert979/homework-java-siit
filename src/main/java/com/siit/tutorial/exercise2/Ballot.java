@@ -10,6 +10,17 @@ public final class Ballot {
         this.isSpoiled = party == null;
     }
 
+    static {
+        Ballot ballot1 = new Ballot(Party.GREEN_PARTY);
+        Ballot ballot2 = new Ballot(Party.MONSTER_RAVING_LOONY_PARTY);
+        Ballot ballot3 = new Ballot(null);
+        ElectoralDistrict.ballotList.add(ballot1);
+        ElectoralDistrict.ballotList.add(ballot2);
+        ElectoralDistrict.ballotList.add(ballot3);
+
+    }
+
+
     /**
      * Vote for a particular party on a Ballot
      *

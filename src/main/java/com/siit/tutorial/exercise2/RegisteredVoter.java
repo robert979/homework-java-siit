@@ -8,6 +8,7 @@ public final class RegisteredVoter {
 
     private final String electorId;
 
+
     public RegisteredVoter(String electorId) {
         this.electorId = electorId;
     }
