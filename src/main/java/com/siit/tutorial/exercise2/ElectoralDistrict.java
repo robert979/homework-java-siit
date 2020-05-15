@@ -85,9 +85,12 @@ public enum ElectoralDistrict {
      * @return filtered set of unspoiled ballots
      */
     public static Set<Ballot> unspoiledBallots(Set<Ballot> ballots) {
+        return ballots.stream()
+                .filter(n -> n.getParty() != null)
+                .collect(Collectors.toCollection(HashSet::new));
         // [your code here]
 
-        return Collections.emptySet();
+
     }
 
     public String getPrefix() {

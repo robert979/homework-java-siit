@@ -186,6 +186,7 @@ public class Exercise_2_Test {
 
         assertThat(votersInHackney, hasSize(2));
         assertThat(votersInHackney, containsInAnyOrder(aVoterWithId("HA7654"), aVoterWithId("HA2213")));
+
     }
 
     /**
@@ -212,6 +213,7 @@ public class Exercise_2_Test {
 
         assertThat(unspoiledBallots, hasSize(6));
         assertThat(unspoiledBallots, everyItem(is(not(spoiled()))));
+
     }
 
     /**
@@ -239,8 +241,8 @@ public class Exercise_2_Test {
         ));
 
         Set<RegisteredVoter> votersInHackney = ElectoralDistrict.votersIn(HACKNEY, allVoters);
-
         assertThat(votersInHackney, instanceOf(Class.forName("java.util.Collections$UnmodifiableSet")));
+        //assertThat(votersInHackney, instanceOf(Class.forName("java.util.Collections$UnmodifiableSet")));
     }
 
 }
