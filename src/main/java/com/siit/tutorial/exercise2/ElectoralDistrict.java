@@ -1,5 +1,6 @@
 package com.siit.tutorial.exercise2;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
@@ -12,6 +13,18 @@ public enum ElectoralDistrict {
     EDMONTON("ED");
 
     private final String prefix;
+    static final Collection<RegisteredVoter> votersList = new ArrayList<>();
+
+    static {
+        RegisteredVoter croydonVoters = new RegisteredVoter(CROYDON.prefix);
+        RegisteredVoter barkingVoters = new RegisteredVoter(BARKING.prefix);
+        RegisteredVoter hackneyVoters = new RegisteredVoter(HACKNEY.prefix);
+        RegisteredVoter edmontonVoters = new RegisteredVoter(EDMONTON.prefix);
+        votersList.add(croydonVoters);
+        votersList.add(barkingVoters);
+        votersList.add(hackneyVoters);
+        votersList.add(edmontonVoters);
+    }
 
     ElectoralDistrict(String prefix) {
         this.prefix = prefix;
