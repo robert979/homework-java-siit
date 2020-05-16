@@ -205,17 +205,12 @@ public class Streams {
     }
 
     public static Optional<User> findAny(List<User> users, String name) {
-        throw new NotImplementedException();
-        /*
-          return users.stream()
-                .sorted((a,b) ->a.getAge()-b.getAge())
-                .map(n->User.getUsersWithAge())
-                .findFirst()
 
 
-                .collect()
+        return users.stream()
+                .filter(n -> n.getName().equals(name))
+                .findFirst();
 
-         */
 
     }
 
@@ -234,15 +229,25 @@ public class Streams {
     }
 
     public static List<Integer> generateFirst10PrimeNumbers() {
-        throw new NotImplementedException();
+
+        return Stream.iterate(2, n -> n + 1)
+                .filter(n -> isPrime(n))
+                .limit(10)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static boolean isPrime(int number) {
-        return IntStream.rangeClosed(2, number / 2).noneMatch(i -> number % i == 0);
+        return IntStream
+                .rangeClosed(2, number / 2)
+                .noneMatch(i -> number % i == 0);
     }
 
     public static List<Integer> generate10RandomNumbers() {
-        throw new NotImplementedException();
+        return Stream.generate(Math::random)
+                .mapToInt(n -> (int) (n * 10))
+                .boxed()
+                .limit(10)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static User findOldest(List<User> users) {
