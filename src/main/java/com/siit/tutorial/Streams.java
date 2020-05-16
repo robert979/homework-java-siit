@@ -199,19 +199,38 @@ public class Streams {
     }
 
     public static boolean noneMatch(List<User> users, int age) {
-        throw new NotImplementedException();
+        return users.stream()
+                .map(s -> s.getAge())
+                .anyMatch(s -> s != age);
     }
 
     public static Optional<User> findAny(List<User> users, String name) {
         throw new NotImplementedException();
+        /*
+          return users.stream()
+                .sorted((a,b) ->a.getAge()-b.getAge())
+                .map(n->User.getUsersWithAge())
+                .findFirst()
+
+
+                .collect()
+
+         */
+
     }
 
     public static List<User> sortByAge(List<User> users) {
-        throw new NotImplementedException();
+        return users.stream()
+                .sorted((a, b) -> a.getAge() - b.getAge())
+                .collect(Collectors.toCollection(ArrayList::new));
+
     }
 
     public static Stream<Integer> getBoxedStream(IntStream stream) {
-        throw new NotImplementedException();
+        return stream
+                .boxed();
+
+
     }
 
     public static List<Integer> generateFirst10PrimeNumbers() {
@@ -227,11 +246,18 @@ public class Streams {
     }
 
     public static User findOldest(List<User> users) {
-        throw new NotImplementedException();
+        return users.stream()
+                .sorted((a, b) -> b.getAge() - a.getAge())
+                .findFirst().get();
+
+
     }
 
     public static int sumAge(List<User> users) {
-        throw new NotImplementedException();
+        return users.stream()
+                .mapToInt(n -> n.getAge())
+                .sum();
+
     }
 
     public static class NotImplementedException extends RuntimeException {
