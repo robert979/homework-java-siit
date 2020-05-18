@@ -13,10 +13,12 @@ public class Documents {
     /**
      * Return the titles from a list of documents.
      */
+
     public static List<String> titlesOf(Document... documents) {
         return Arrays.stream(documents)
-                .map(d -> d.getTitle())
+                .map(Document::getTitle)
                 .collect(toList());
+
     }
 
     public static Integer characterCount(Page page) {
@@ -25,29 +27,27 @@ public class Documents {
 
     public static List<Integer> pageCharacterCounts(Document document) {
         return document.getPages().stream()
-                .map(doc -> Documents.characterCount(doc))
+                .map(Documents::characterCount)
                 .collect(toList());
     }
 
     public static String print(Document document, PagePrinter pagePrinter) {
         StringBuilder output = new StringBuilder();
 
-        /*output.append(pagePrinter.printTitlePage(document));
+        output.append(pagePrinter.printTitlePage(document));
         document.getPages().stream()
-                .map(p -> pagePrinter.printPage(p))
-                .forEach(s -> output.append(s));
+                .map(pagePrinter::printPage)
+                .forEach(output::append);
 
 
-
-         */
         return output.toString();
     }
 
     public static Document translate(Document document, Translator translator) {
         return document.getPages().stream()
-                .map(page -> page.getContent())
-                .map(content -> translator.translate(content))
-                .map(translated -> new Page(translated))
+                .map(Page::getContent)
+                .map(translator::translate)
+                .map(Page::new)
                 .collect(collectingAndThen(toList(),
                         pages -> new Document(translator.translate(document.getTitle()), pages)));
     }
