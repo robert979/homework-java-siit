@@ -8,28 +8,30 @@ import java.util.stream.Collectors;
 
 public class Pairs {
 
-    static int[] socks = {1, 2, 3, 1, 3, 1, 2, 2, 2, 3};
+    static int[] socksUnpaired = {1, 2, 3, 1, 3, 1, 2, 2, 2, 3};
 
-    static int checkPairsNumbers() {
+    static int checkPairsNumbers(int[] socks) {
         int pairs = 0;
-        List<Integer> uniqueSocks = new ArrayList<>();
-        uniqueSocks.add(socks[0]);
-        for (int i = 1; i <= socks.length - 1; i++) {
-            if (!uniqueSocks.contains(socks[i])) {
-                uniqueSocks.add(socks[i]);
-
-            }
-        }
-        for (int i = 0; i <= uniqueSocks.size() - 1; i++) {
-            int counter = 0;
-            for (int j = 0; j <= socks.length - 1; j++) {
-
-                if (uniqueSocks.get(i) == socks[j]) {
-                    counter = counter + 1;
+        if (socks.length != 0) {
+            List<Integer> uniqueSocks = new ArrayList<>();
+            uniqueSocks.add(socks[0]);
+            for (int i = 1; i <= socks.length - 1; i++) {
+                if (!uniqueSocks.contains(socks[i])) {
+                    uniqueSocks.add(socks[i]);
 
                 }
             }
-            pairs = pairs + counter / 2;
+            for (int i = 0; i <= uniqueSocks.size() - 1; i++) {
+                int counter = 0;
+                for (int j = 0; j <= socks.length - 1; j++) {
+
+                    if (uniqueSocks.get(i) == socks[j]) {
+                        counter = counter + 1;
+
+                    }
+                }
+                pairs = pairs + counter / 2;
+            }
         }
         return pairs;
     }
@@ -60,7 +62,7 @@ public class Pairs {
      */
 
     public static void main(String[] args) {
-        System.out.println("fot the given list" + Arrays.toString(socks) + "\n we have " + checkPairsNumbers() + " pairs of socks");
+        System.out.println("fot the given list" + Arrays.toString(socksUnpaired) + "\n we have " + checkPairsNumbers(socksUnpaired) + " pairs of socks");
 
     }
 }
