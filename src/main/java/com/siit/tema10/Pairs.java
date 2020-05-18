@@ -3,6 +3,8 @@ package com.siit.tema10;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Pairs {
 
@@ -31,6 +33,22 @@ public class Pairs {
         }
         return pairs;
     }
+
+    static int checkSocksPairs(int[] socks) {
+        int a = 0;
+
+        Map<Integer, Long> socksMapped = Arrays.stream(socks)
+                .boxed()
+                .collect(Collectors.groupingBy(k -> k, (Collectors.counting())));
+        for (Long k : socksMapped.values()) {
+            a = a + (int) (long) k / 2;
+
+        }
+        return a;
+    }
+
+
+
 
     /*static int checkThePairs() {
         TreeMap<Integer, Integer> list = Arrays.stream(socks)

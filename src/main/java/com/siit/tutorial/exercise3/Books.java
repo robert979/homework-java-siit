@@ -37,7 +37,7 @@ public class Books {
      */
     public static List<String> namesOfAuthorsOf(List<Book> books) {
         return books.stream()
-                .map(n -> n.getAuthor().getFirstName() + n.getAuthor().getLastName())
+                .map(n -> n.getAuthor().getFirstName() + " " + n.getAuthor().getLastName())
                 .collect(Collectors.toCollection(ArrayList::new));
         // [your code here]
 

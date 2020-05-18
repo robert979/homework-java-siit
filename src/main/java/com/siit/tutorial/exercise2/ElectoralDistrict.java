@@ -75,7 +75,7 @@ public enum ElectoralDistrict {
                 .collect(Collectors.toCollection(HashSet::new));
         // [your code here]
 
-        return votersList;
+        return Collections.unmodifiableSet(votersList);
     }
 
     /**
