@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.zip.DeflaterOutputStream;
 
 public class Pairs {
 
@@ -48,21 +49,26 @@ public class Pairs {
         }
         return a;
     }
+    static Map<Integer, List<Integer>> findPairsSocks (int[] socks){
+        return Arrays.stream(socks)
+                .boxed()
+                .collect(Collectors.groupingBy(Integer::intValue ));
 
-
+    }
 
 
     /*static int checkThePairs() {
         TreeMap<Integer, Integer> list = Arrays.stream(socks)
                 .collect(Arrays.to)
-
-
     }
 
      */
 
     public static void main(String[] args) {
-        System.out.println("fot the given list" + Arrays.toString(socksUnpaired) + "\n we have " + checkPairsNumbers(socksUnpaired) + " pairs of socks");
+        //System.out.println("fot the given list" + Arrays.toString(socksUnpaired) + "\n we have " + checkPairsNumbers(socksUnpaired) + " pairs of socks");
+
+        System.out.println(findPairsSocks(socksUnpaired).values());
+        System.out.println(findPairsSocks(socksUnpaired).keySet());
 
     }
 }
