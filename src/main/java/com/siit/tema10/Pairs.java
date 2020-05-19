@@ -38,23 +38,35 @@ public class Pairs {
     }
 
     static int checkSocksPairs(int[] socks) {
-        int a = 0;
 
-        Map<Integer, Long> socksMapped = Arrays.stream(socks)
+
+       return  Arrays.stream(socks)
                 .boxed()
-                .collect(Collectors.groupingBy(k -> k, (Collectors.counting())));
-        for (Long k : socksMapped.values()) {
-            a = a + (int) (long) k / 2;
+                .collect(Collectors.groupingBy(k -> k, (Collectors.counting())))
+                .values()
+                .stream()
+                .mapToInt(aLong -> aLong.intValue()/2)
+                .boxed()
+                .reduce(0,Integer::sum);
 
-        }
-        return a;
+
+
+
     }
-    static Map<Integer, List<Integer>> findPairsSocks (int[] socks){
+    /*static Map<Integer, List<Integer>> findPairsSocks (int[] socks){
         return Arrays.stream(socks)
                 .boxed()
-                .collect(Collectors.groupingBy(Integer::intValue ));
+                .collect(Collectors.groupingBy(Integer::intValue ))
+                .values()
+                .stream()
+                .
+
+                .reduce(1,Integer::sum)
+
 
     }
+
+     */
 
 
     /*static int checkThePairs() {
@@ -67,8 +79,8 @@ public class Pairs {
     public static void main(String[] args) {
         //System.out.println("fot the given list" + Arrays.toString(socksUnpaired) + "\n we have " + checkPairsNumbers(socksUnpaired) + " pairs of socks");
 
-        System.out.println(findPairsSocks(socksUnpaired).values());
-        System.out.println(findPairsSocks(socksUnpaired).keySet());
+       // System.out.println(findPairsSocks(socksUnpaired).values());
+        //System.out.println(findPairsSocks(socksUnpaired).keySet());
 
     }
 }
