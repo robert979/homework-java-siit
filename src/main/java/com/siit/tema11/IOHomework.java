@@ -1,6 +1,8 @@
 package com.siit.tema11;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileStore;
 import java.nio.file.Files;
@@ -9,9 +11,11 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class IOHomework {
+    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) throws IOException {
 
      //displayFolderContent();
@@ -23,11 +27,46 @@ public class IOHomework {
        // System.out.println(checkLastModificationDate("E:\\repartitoare\\Aprilie _2020.pdf"));
        // System.out.println(checkFileSize("E:\\repartitoare\\Aprilie _2020.pdf") + " bytes");
         //System.out.println(checkFileSize("E:\\repartitoare\\Aprilie _2020.pdf")/1024 + " kB");
-        //System.out.println(((checkFileSize("E:\\repartitoare\\Aprilie _2020.pdf")/1024)/1024) + " MB");
+       //System.out.println(((checkFileSize("E:\\repartitoare\\Aprilie _2020.pdf")/1024)/1024) + " MB");
 
-deleteFolder(("E:\\new\\gol\\altgol"));
+//deleteFolder(("E:\\new\\gol\\altgol"));
         //createNewDir("E:\\new\\gol\\altgol");
+        String pathFile ="src\\test_txt\\savedFileFromComsole.txt" ;
+        File fileToBeSaved = new File("C:\\Users\\Scarlat\\Desktop\\home_work\\src\\test_txt\\savedFileFromComsole.txt");
+        String txtToBeAdded= "This is the added text";
+        String txtOnTheNextLine = "This txt will be added on the next line";
+        //writeTxtFromJavaConsole(fileToBeSaved);
+        //appendText(txtToBeAdded, fileToBeSaved);
+        appendTxtOnNexLine(txtOnTheNextLine, fileToBeSaved);
+
     }
+    static void appendTxtOnNexLine (String txtTobeAdded, File file) {
+        try {
+            BufferedWriter newText = new BufferedWriter(new FileWriter(file, true));
+            newText.newLine();
+            newText.append(txtTobeAdded);
+            newText.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    static void appendText (String txttoBeAdded, File file) throws IOException {
+        BufferedWriter newText = new BufferedWriter(new FileWriter(file,true));
+        newText.append(" ");
+        newText.append(txttoBeAdded);
+        newText.flush();
+
+
+    }
+    static String writeTxtFromJavaConsole(File file) throws IOException {
+        System.out.println("Please insert the txt you want to save");
+        String str = scanner.nextLine();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.write(str);
+
+        writer.close();
+
+        return str;}
     static void deleteFolder (String path){
         try {
             Files.delete(new File (path).toPath());
