@@ -31,29 +31,42 @@ public class IOHomework {
 
 //deleteFolder(("E:\\new\\gol\\altgol"));
         //createNewDir("E:\\new\\gol\\altgol");
-        String pathFile ="src\\test_txt\\savedFileFromComsole.txt" ;
+        String pathFile ="E:\\SQL\\mysql-server\\mysql-5.5.62-winx64\\readme" ;
         File fileToBeSaved = new File("C:\\Users\\Scarlat\\Desktop\\home_work\\src\\test_txt\\savedFileFromComsole.txt");
-        String txtToBeAdded= "This is the added text";
+        String txtToBeAdded= "This is the added text on the same line";
         String txtOnTheNextLine = "This txt will be added on the next line";
         //writeTxtFromJavaConsole(fileToBeSaved);
         //appendText(txtToBeAdded, fileToBeSaved);
-        appendTxtOnNexLine(txtOnTheNextLine, fileToBeSaved);
+        //appendTxtOnNextLine(txtOnTheNextLine, fileToBeSaved);
+       // System.out.println("text to string: \n"+convertFileToString(pathFile));
+        appendTxtOnNextLine("This will be a new line", fileToBeSaved);
+
 
     }
-    static void appendTxtOnNexLine (String txtTobeAdded, File file) {
+    static String convertFileToString (String path) throws IOException {
+        Path fileToBeRead = Paths.get(path);
+        String fileCollected = Files.readString(fileToBeRead);
+
+        return fileCollected;
+
+    }
+
+    static void appendTxtOnNextLine (String txtTobeAdded, File file) {
         try {
+            System.out.println("Original text : \n"+Files.readString(Paths.get(file.getPath())));
             BufferedWriter newText = new BufferedWriter(new FileWriter(file, true));
             newText.newLine();
             newText.append(txtTobeAdded);
             newText.close();
+            System.out.println("Modified text :\n" + Files.readString(Paths.get(file.getPath())));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    static void appendText (String txttoBeAdded, File file) throws IOException {
+    static void appendText (String txtToBeAdded, File file) throws IOException {
         BufferedWriter newText = new BufferedWriter(new FileWriter(file,true));
         newText.append(" ");
-        newText.append(txttoBeAdded);
+        newText.append(txtToBeAdded);
         newText.flush();
 
 
