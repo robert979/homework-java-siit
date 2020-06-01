@@ -1,5 +1,7 @@
 package com.siit.tema11;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -31,17 +34,94 @@ public class IOHomework {
 
 //deleteFolder(("E:\\new\\gol\\altgol"));
         //createNewDir("E:\\new\\gol\\altgol");
+        String tema11 = "src\\main\\java\\com\\siit\\tema1\\calculator.java";
+        String tema12 = "src\\main\\java\\com\\siit\\tema1\\calculator.java";
         String pathFile ="E:\\SQL\\mysql-server\\mysql-5.5.62-winx64\\readme" ;
         File fileToBeSaved = new File("C:\\Users\\Scarlat\\Desktop\\home_work\\src\\test_txt\\savedFileFromComsole.txt");
         String txtToBeAdded= "This is the added text on the same line";
         String txtOnTheNextLine = "This txt will be added on the next line";
+        String localpath = "test_txt\\savedFileFromComsole.txt";
         //writeTxtFromJavaConsole(fileToBeSaved);
         //appendText(txtToBeAdded, fileToBeSaved);
         //appendTxtOnNextLine(txtOnTheNextLine, fileToBeSaved);
        // System.out.println("text to string: \n"+convertFileToString(pathFile));
-        appendTxtOnNextLine("This will be a new line", fileToBeSaved);
+        //appendTxtOnNextLine("This will be a new line", fileToBeSaved);
+        //System.out.println(convertFileToString(pathFile));
+        //System.out.println(Arrays.toString(readLineByLineIntoAVariable(pathFile)));
+      /*  for (String strToBePrinted : readLineByLineIntoAVariable(pathFile)){
+            System.out.println(strToBePrinted);
+        }
+
+       */
+       /* for (String lineToBePrinted : keepOnlyTheFirstNLines(pathFile, 0)){
+
+            System.out.println(lineToBePrinted);
+        }
+        */
+/*for (String string:getAllWords(pathFile)){
+    System.out.println(string);
+}
+        System.out.println(getAllWords(pathFile).length);
+
+ */
+       // System.out.println(findTheFirstLongestWord(pathFile));
+       /* for (String string:findAllWordsBiggerThanGivenLength(pathFile, 12)){
+            System.out.println(string);
+        }
+
+        */
+       displayFolderContentWithLinkAsString("src\\test\\java\\com\\siit");
 
 
+    }
+
+    static List<String> findAllWordsBiggerThanGivenLength (String path, int length) throws IOException {
+        return Arrays.asList((Files.readString(Paths.get(path))).split("[^a-zA-Z]+"))
+                .stream()
+                .filter(word->word.length()>length)
+                .distinct() //remove duplicates
+                .collect(Collectors.toList());
+
+    }
+
+
+    static String findTheFirstLongestWord(String path) throws IOException{
+        String word = new String();
+        String str = Files.readString(Paths.get(path));
+        String [] allWords = str.split("[^a-zA-Z]+");
+        for (String wordString:allWords){
+            if (word.length()<wordString.length()){
+                word=wordString;
+            }
+        }
+
+        return word;
+    }
+    static String [] getAllWords(String path) throws IOException {
+        String str = Files.readString(Paths.get(path));
+         String [] allWords = str.split("[^a-zA-Z]+");
+
+        return allWords;
+    }
+
+    static List<String> skipTheFirstNLines (String path, int noLinesToBeSkipped) throws IOException {
+        return Arrays.asList((Files.readString(Paths.get(path)).split("\\n")))
+                .stream()
+                .skip(noLinesToBeSkipped)
+                .collect(Collectors.toList());
+    }
+    static List<String> keepOnlyTheFirstNLines (String path, int noLinesToBeKept) throws IOException {
+       return Arrays.asList((Files.readString(Paths.get(path)).split("\\n")))
+                .stream()
+                .filter(line->line.length()>1) //removing empty lines
+                .limit(noLinesToBeKept)
+                .collect(Collectors.toList());
+
+    }
+    static String [] readLineByLineIntoAVariable (String path) throws IOException {
+        String str = Files.readString((Paths.get(path)));
+        String [] strArray=str.split("\\n");
+        return strArray;
     }
     static String convertFileToString (String path) throws IOException {
         Path fileToBeRead = Paths.get(path);
@@ -170,9 +250,9 @@ public class IOHomework {
             }
 
     }
-    static void displayFolderContentWithlinkAsString (String str){
+    static void displayFolderContentWithLinkAsString (String path){
 
-        File file = new File(str);
+        File file = new File(path);
         if(file.exists()){
         String[]  folderContent = file.list();
         System.out.println(Arrays.toString(folderContent));

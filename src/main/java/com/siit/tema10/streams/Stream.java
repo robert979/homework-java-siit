@@ -64,6 +64,7 @@ public class Stream {
 
     }
 
+
     static TreeSet<String> findTradesFromCity(String city) {
         TreeSet<String> sortedTradersFromCity = transactions.stream()
                 .filter(transaction -> transaction.getTrader().getCity() == city)
