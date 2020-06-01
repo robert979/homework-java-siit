@@ -35,9 +35,10 @@ public class IOHomework {
 //deleteFolder(("E:\\new\\gol\\altgol"));
         //createNewDir("E:\\new\\gol\\altgol");
         String tema11 = "src\\main\\java\\com\\siit\\tema1\\calculator.java";
-        String tema12 = "src\\main\\java\\com\\siit\\tema1\\calculator.java";
+        String tema12 = "src\\main\\java\\com\\siit\\tema1\\calculfactorial.java";
         String pathFile ="E:\\SQL\\mysql-server\\mysql-5.5.62-winx64\\readme" ;
         File fileToBeSaved = new File("C:\\Users\\Scarlat\\Desktop\\home_work\\src\\test_txt\\savedFileFromComsole.txt");
+        getParent(fileToBeSaved);
         String txtToBeAdded= "This is the added text on the same line";
         String txtOnTheNextLine = "This txt will be added on the next line";
         String localpath = "test_txt\\savedFileFromComsole.txt";
@@ -70,10 +71,57 @@ public class IOHomework {
         }
 
         */
-       displayFolderContentWithLinkAsString("src\\test\\java\\com\\siit");
+      //compareFilesLexicography(tema11, tema12);
+        /*for (byte byte1:convertFileToByteArray(tema11)){
+            System.out.print(byte1+", ");
+        }
 
+         */
+       /* for (String string:convertToList(tema11)){
+            System.out.println(string);
+        }
+        System.out.println(convertToList(tema11).size());
+
+        */
 
     }
+    static List<String> convertToList (String path) throws IOException{
+        return Files.readAllLines(Paths.get(path))
+                .stream()
+                .filter(line->line.length()>0)
+                .collect(Collectors.toList());
+    }
+    static byte [] convertFileToByteArray (String path) throws IOException {
+        return  Files.readAllBytes(Paths.get(path));
+    }
+    static void compareFilesLexicography (String path1, String path2) throws IOException {
+        int a=0;
+        int b=0;
+        String str1 = Files.readString(Paths.get(path1 ));
+        String str2 = Files.readString(Paths.get(path2));
+        for (char char1:str1.toCharArray()){
+            a=a+char1;
+        }
+        for (char char2:str2.toCharArray()){
+            b+=char2;
+        }
+
+        if (a>b){
+            System.out.println(path1 +" > " + path2);
+        }else if (a<b){
+            System.out.println(path1 + " < " + path2);
+        }else{
+            if (str1.charAt(0)>str2.charAt(0)){
+                System.out.println(path1 +" > " + path2);
+            }else if(str1.charAt(0)<str2.charAt(0)){
+                System.out.println(path1 + " < " + path2);
+            }else {
+                System.out.println(path1 +" = "+path2);
+            }
+        }
+
+    }
+
 
     static List<String> findAllWordsBiggerThanGivenLength (String path, int length) throws IOException {
         return Arrays.asList((Files.readString(Paths.get(path))).split("[^a-zA-Z]+"))
@@ -260,6 +308,9 @@ public class IOHomework {
             System.out.println("Invalid path");
         }
 
+        }
+        static void getParent(File file){
+            System.out.println(file.getParent());
         }
     }
 
