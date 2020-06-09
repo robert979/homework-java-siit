@@ -13,7 +13,8 @@ import static com.siit.tema11.atm.domain.BankAccount.*;
 
 public class BranchService {
     public static void main(String[] args) throws IOException {
-      addNewBankAccount();
+    String iban = "RO00INGB2015789014";
+    deleteAndUpdatefile(iban);
 
 
 
