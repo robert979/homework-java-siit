@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,27 @@ public class IOCiorna {
         //System.out.println(cdToSpecifiedFile(path,extractFromCommand));
         //mkdir(dirName, path);
 
+        sort(dir(path));
+
+    }
+   static void sort (File[] file){
+        List<String> listFiles = new ArrayList<>();
+        for (File f: file){
+            listFiles.add(f.getName());
+        }
+        listFiles.sort(null);
+        for (String s:listFiles){
+            System.out.println(s);
+        }
+
+    }
+    static File [] dir (String path){
+        File[] file = (new File(path)).listFiles();
+        for (File f: file){
+            System.out.println(f);
+
+        }
+        return file;
     }
     static void mkdir (String dirName,String path){
         new File(path+"\\"+dirName).mkdir();

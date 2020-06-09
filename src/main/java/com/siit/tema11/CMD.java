@@ -19,6 +19,7 @@ public class CMD {
        // System.out.println(cdUp(path));
         //System.out.println(cdToSpecifiedFile(path, "frfr"));
         //displayFileContent(path+"\\calculator.java");
+        System.out.println("Type \"help\" any time during app execution to view help file");
         while (!comand.equals("exit")){
             System.out.println(path);
             comand = scanner.nextLine();
@@ -86,22 +87,23 @@ public class CMD {
 
     }
 
-    static void dir (String path){
+    static File [] dir (String path){
         File[] file = (new File(path)).listFiles();
         for (File f: file){
             System.out.println(f);
-        }
 
+        }
+        return file;
     }
     static void help (){
         System.out.println(
                 "CMD comands :" +
-                        "\ndir                   - list all files under current location" +
-                        "\ncd..                  - change current folder to parent folder" +
-                        "\ncd \"folder name\"    - change to the new \"folder name\" if exists" +
-                        "\nmkdir \"folder name\" - create a new (child) folder with the given name" +
-                        "\ntype \"file name\"    - display file content if exists (data format needed))" +
-                        "\nexit                  - exit the application"
+                        "\ndir                    - list all files under current location" +
+                        "\ncd..                   - change current folder to parent folder" +
+                        "\ncd \"folder name\"       - change to the new \"folder name\" if exists" +
+                        "\nmkdir \"folder name\"    - create a new (child) folder with the given name" +
+                        "\ntype \"file name\"       - display file content if exists (data format needed))" +
+                        "\nexit                   - exit the application"
 
         );
     }

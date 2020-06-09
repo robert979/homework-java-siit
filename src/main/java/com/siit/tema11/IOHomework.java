@@ -34,7 +34,7 @@ public class IOHomework {
 
 //deleteFolder(("E:\\new\\gol\\altgol"));
         //createNewDir("E:\\new\\gol\\altgol");
-        String tema11 = "src\\main\\java\\com\\siit\\tema1\\calculator.java";
+        String tema11 = "src\\main\\java\\com\\siit\\tema1\\";
         String tema12 = "src\\main\\java\\com\\siit\\tema1\\calculfactorial.java";
         String pathFile ="E:\\SQL\\mysql-server\\mysql-5.5.62-winx64\\readme" ;
         File fileToBeSaved = new File("C:\\Users\\Scarlat\\Desktop\\home_work\\src\\test_txt\\savedFileFromComsole.txt");
@@ -83,6 +83,7 @@ public class IOHomework {
         System.out.println(convertToList(tema11).size());
 
         */
+       displayFolderContent(tema11);
 
     }
     static List<String> convertToList (String path) throws IOException{
@@ -190,6 +191,7 @@ public class IOHomework {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
     static void appendText (String txtToBeAdded, File file) throws IOException {
         BufferedWriter newText = new BufferedWriter(new FileWriter(file,true));
@@ -282,9 +284,9 @@ public class IOHomework {
             return null;
         }
     }
-    static void displayFolderContent (){
+    static void displayFolderContent (String path){
 
-            File file = new File("E:");
+            File file = new File(path);
             String[] fileList = file.list();
 
             if(file.exists()){
