@@ -11,4 +11,12 @@ public class User extends BankAccount {
         this.userName = userName;
         this.cnp = cnp;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getCnp() {
+        return cnp;
+    }
 }

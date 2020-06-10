@@ -1,16 +1,24 @@
 package com.siit.tema11.atm.repository;
 
 import com.siit.tema11.atm.domain.User;
-import com.siit.tema11.atm.repository.AccountRepository;
 
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.siit.tema11.atm.repository.AccountRepository.generateAccountsList;
+import static com.siit.tema11.atm.repository.AccountRepository.*;
 
 public class UserRepository {
+    private static File userList = new File("src\\main\\java\\com\\siit\\tema11\\atm\\file\\userList.txt");
+
     private static  Scanner scanner =new Scanner(System.in);
 
     private static List<User> userActiveList = new ArrayList<>();
@@ -22,7 +30,77 @@ public class UserRepository {
         System.out.println("Please insert CNP");
         String cNP = scanner.nextLine();
       User user = new User(generateAccountsList().get(0).getIban(),generateAccountsList().get(0).getBalance(),userName,cNP);
+      addUserToFile(user);
+      deleteAndUpdatefile(user.getIban()); //soerge iban de pe lista de asteptare
+      addIbanInUse(user.getIban()); //pune iban in use
+       addNewBankAccount(); //genereaza un nou iban pe lista de asteptare
+
+    }
+    public static void deposit (String iban){
+
+
+    }
+    private static List<User> getUserActiveList () throws IOException {
+        List<User> usersList = new ArrayList<>();
+        List<Integer> nameIndex = new ArrayList<>();
+        List<Integer> cnpIndex = new ArrayList<>();
+        List<Integer> ibanIndex = new ArrayList<>();
+        List<Integer> balanceIndex=new ArrayList<>();
+        List<Integer> separatorIndex = new ArrayList<>();
+        for (int i=0; i<=getUserListToString().length()-26;i++){
+            if (getUserListToString().substring(i, i+4).equals("Name")){
+                nameIndex.add(i);
+            }if (getUserListToString().substring(i, i+3).equals("CNP")){
+                cnpIndex.add(i);
+            }if(getUserListToString().substring(i, i+4).equals("IBAN")){
+                ibanIndex.add(i);
+            }if(getUserListToString().substring(i,i+7).equals("Balance")){
+                balanceIndex.add(i);
+            }if(getUserListToString().substring(i,i+25).equals("=========================")){
+                separatorIndex.add(i);
+            }
+        }
+        for (int i=0; i<=nameIndex.size()-1;i++){
+            User tempUser = new User(getUserListToString().substring(ibanIndex.get(i)+6,balanceIndex.get(i)-2),
+                    new BigDecimal(getUserListToString().substring(balanceIndex.get(i)+9,separatorIndex.get(i)-2)),
+                           getUserListToString().substring(nameIndex.get(i)+6,cnpIndex.get(i)-2),
+                            getUserListToString().substring(cnpIndex.get(i)+5,ibanIndex.get(i)-2));
+            usersList.add(tempUser);
+
+        }
+        return usersList;
+    }
+    private static String getUserListToString () throws IOException {
+        return Files.readAllLines(Paths.get(userList.getPath())).toString();
+
+
+        //return Files.readAllLines(Paths.get(fileForBankAccount.getPath()))
+    }
+    public static void addUserToFile (User user) throws IOException {
+        BufferedWriter newUser = new BufferedWriter(new FileWriter(userList, true));
+        newUser.newLine();
+        newUser.append("Name :" +user.getUserName()+"\n" +
+                "CNP :"+ user.getCnp()+"\n" +
+                "IBAN :" + user.getIban()+"\n" +
+                "Balance :"+user.getBalance() +"\n" +
+                "=========================");
+        newUser.flush();
+
+    }
+
+    public static void main(String[] args) throws IOException {
+       //addNewUser(); //adauga user nou : CNP si Nume
+        //System.out.println(getUserListToString());
+        System.out.println(getUserActiveList().get(1).getUserName() +"\n"+
+                getUserActiveList().get(1).getBalance());
+        //getUserActiveList();
 
     }
 
 }
+
+/*
+  usersList.add(new User(getUserListToString().substring(nameIndex.get(i)+6,cnpIndex.get(i)-2)
+            , BigDecimal.valueOf(Integer.parseInt(getUserListToString().substring(balanceIndex.get(i)+9,separatorIndex.get(i)-2))),
+                    )
+ */
