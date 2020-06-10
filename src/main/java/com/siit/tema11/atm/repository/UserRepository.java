@@ -36,9 +36,50 @@ public class UserRepository {
        addNewBankAccount(); //genereaza un nou iban pe lista de asteptare
 
     }
-    public static void deposit (String iban){
+    public static void withdraw (String iban, double withdraw) throws IOException {
+        List<User> newupdatedUserList = new ArrayList<>();
+        int count=0;
+        for (User user: getUserActiveList()){
+            if (user.getIban().equals(iban) && user.getBalance().compareTo(BigDecimal.valueOf(withdraw))>0){
+                user.setBalance(user.getBalance().subtract(BigDecimal.valueOf(withdraw)));
+                newupdatedUserList.add(user);
+                System.out.println("Mr. " + user.getUserName()+ " your new ballance is " + user.getBalance() +" $");
+                count=count+1;
+            }else {
+                newupdatedUserList.add(user);
+            }
+        }
+        if (count ==0){
+            System.out.println("Operation aborted, wrong IBAN or insufficient funds ");
+        }
+        updateUserListFile(newupdatedUserList);
+    }
+    public static void deposit (String iban, double deposit) throws IOException {
+        List<User> newUpdatedUseList = new ArrayList<>();
+for (User user: getUserActiveList()){
+    if (user.getIban().equals(iban)){
+        user.setBalance(user.getBalance().add(new BigDecimal(deposit)));
+        newUpdatedUseList.add(user);
+        System.out.println("Mr. " + user.getUserName()+ " your new ballance is " + user.getBalance() +" $");
+    }else {
+        newUpdatedUseList.add(user);
+    }
+    updateUserListFile(newUpdatedUseList);
+}
 
+    }
+    private static void updateUserListFile(List<User> usersLists) throws IOException {
+        BufferedWriter updateUsersList = new BufferedWriter(new FileWriter(userList));
+        for (User user:usersLists){
+            updateUsersList.newLine();
+            updateUsersList.write("Name :" +user.getUserName()+"\n" +
+                    "CNP :"+ user.getCnp()+"\n" +
+                    "IBAN :" + user.getIban()+"\n" +
+                    "Balance :"+user.getBalance() +"\n" +
+                    "=========================");
+            updateUsersList.flush();
 
+        }
     }
     private static List<User> getUserActiveList () throws IOException {
         List<User> usersList = new ArrayList<>();
@@ -91,9 +132,12 @@ public class UserRepository {
     public static void main(String[] args) throws IOException {
        //addNewUser(); //adauga user nou : CNP si Nume
         //System.out.println(getUserListToString());
-        System.out.println(getUserActiveList().get(1).getUserName() +"\n"+
-                getUserActiveList().get(1).getBalance());
+        //System.out.println(getUserActiveList().get(1).getUserName() +"\n"+
+            //    getUserActiveList().get(1).getBalance());
         //getUserActiveList();
+        //updateUserListFile(getUserActiveList());
+        //deposit("RO00INGB2015789010", 15.25);
+        withdraw("RO00INGB2015789010",100);
 
     }
 
