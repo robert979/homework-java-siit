@@ -31,7 +31,7 @@ public class UserRepository {
         String cNP = scanner.nextLine();
       User user = new User(generateAccountsList().get(0).getIban(),generateAccountsList().get(0).getBalance(),userName,cNP);
       addUserToFile(user);
-      deleteAndUpdatefile(user.getIban()); //soerge iban de pe lista de asteptare
+      deleteAndUpdatefile(user.getIban()); //sterge iban de pe lista de asteptare
       addIbanInUse(user.getIban()); //pune iban in use
        addNewBankAccount(); //genereaza un nou iban pe lista de asteptare
 
@@ -50,7 +50,7 @@ public class UserRepository {
             }
         }
         if (count ==0){
-            System.out.println("Operation aborted, wrong IBAN or insufficient funds ");
+            System.out.println("Operation aborted, or insufficient funds ");
         }
         updateUserListFile(newupdatedUserList);
     }
@@ -128,6 +128,22 @@ for (User user: getUserActiveList()){
         newUser.flush();
 
     }
+    public static void deleteUser (String iban) throws IOException {
+        if (checkIfIbanInUse(iban)){
+            deleteAndUpdateIbanInUse(iban);
+            List<User> intermediate=new ArrayList<>();
+            for (User user: getUserActiveList()){
+                if (!user.getIban().equals(iban)){
+                    intermediate.add(user);
+                    updateUserListFile(intermediate);
+                }
+            }
+
+
+        }else {
+            System.out.println("The IBAN " + iban + " is not valid, please try again.");
+        }
+    }
 
     public static void main(String[] args) throws IOException {
        //addNewUser(); //adauga user nou : CNP si Nume
@@ -137,7 +153,14 @@ for (User user: getUserActiveList()){
         //getUserActiveList();
         //updateUserListFile(getUserActiveList());
         //deposit("RO00INGB2015789010", 15.25);
-        withdraw("RO00INGB2015789010",100);
+        //withdraw("RO00INGB2015789010",100);
+        //addNewUser();
+        //deposit("RO00INGB2015789012", 35.15);
+        //withdraw("RO00INGB2015789012", 20);
+        //addNewUser();
+        //deleteUser("nfeinfningifnfi");
+        //addNewUser();
+        deleteUser("RO00INGB2015789014");
 
     }
 

@@ -15,7 +15,7 @@ public class AccountRepository {
 
     private static File fileForBankAccount = new File("src\\main\\java\\com\\siit\\tema11\\atm\\file\\fileBankAccount.txt");
     private static File fileIbanInUse =  new File("src\\main\\java\\com\\siit\\tema11\\atm\\file\\IbanInUse.txt");
-    private static File fileForTest = new File("src\\main\\java\\com\\siit\\tema11\\atm\\file\\fileBankAccount11.txt");
+    private static File fileIbanDeleted = new File("src\\main\\java\\com\\siit\\tema11\\atm\\file\\deletedIban.txt");
     public static List<BankAccount> bankAccountList = Arrays.asList(
             new BankAccount("RO00INGB2015789012", BigDecimal.valueOf(0))
     );
@@ -37,6 +37,43 @@ public class AccountRepository {
 
         }
         newWriter.close();
+
+    }
+    private static void storeDeletedIban (String iban) throws IOException {
+        BufferedWriter storeIban = new BufferedWriter(new FileWriter(fileIbanDeleted, true));
+        storeIban.newLine();
+        storeIban.write(iban );
+        storeIban.close();
+    }
+
+    public static void deleteAndUpdateIbanInUse(String iban) throws IOException { //sterge iban de pe lista iban in asteptare
+        List<String> intermediate=deleteIbanInUse(iban);
+        BufferedWriter newWriter = new BufferedWriter(new FileWriter(fileIbanInUse));
+        newWriter.write("IBAN in use");
+
+
+        for (int i = 0; i <= intermediate.size() - 1; i++) {
+            newWriter.newLine();
+            newWriter.write(intermediate.get(i));
+
+        }
+        storeDeletedIban(iban);
+        newWriter.close();
+
+    }
+
+    private static List<String> deleteIbanInUse (String iban) throws IOException { //aici stergere iban din iban in use
+
+        List<String> listAfterIbanDeleted = new ArrayList<>();
+
+        for (String ibanIterator: convertIbanInUseToList())
+            if (!ibanIterator.equals(iban)){
+                listAfterIbanDeleted.add(ibanIterator);
+
+        }
+        return listAfterIbanDeleted;
+
+
 
     }
     private static List<BankAccount> deleteAccount (String iban) throws IOException {
@@ -71,6 +108,22 @@ public class AccountRepository {
 
     }
 
+    private static List<String> convertIbanInUseToList () throws IOException {
+        return Files.readAllLines(Paths.get(fileIbanInUse.getPath()))
+                .stream()
+                .skip(1)
+                .collect(Collectors.toList());
+    }
+    public static List<BankAccount> generateIbanInUseList () throws IOException {
+        List<BankAccount> allBanckAccounts = new ArrayList<>();
+
+        for (String s : convertIbanInUseToList()) {
+            allBanckAccounts.add(new BankAccount((s.substring(1, 19)), new BigDecimal(s.substring(20, 26).trim())));
+
+        }
+        return allBanckAccounts;
+    }
+
     static List<String> convertFileIntoList() throws IOException {
         return Files.readAllLines(Paths.get(fileForBankAccount.getPath()))
                 .stream()
@@ -83,6 +136,16 @@ public class AccountRepository {
         String nextIban = "RO00INGB"+ (Integer.parseInt(convertFileIntoList().get(convertFileIntoList().size()-1).substring(9, 19))+1);
 
                return nextIban;
+    }
+    public static boolean checkIfIbanInUse (String iban) throws IOException {
+        boolean condition = false;
+        for (String s :convertIbanInUseToList()){
+            if (s.equals(iban)){
+                condition=true;
+                break;
+            }
+        }
+        return condition;
     }
 
     /*
@@ -134,8 +197,15 @@ public class AccountRepository {
         }
 
          */
-       deleteAndUpdatefile("fdfd");
+       //deleteAndUpdatefile("fdfd");
        //addNewBankAccount();
+        //deleteAndUpdateIbanInUse("RO00INGB2015789022");
+        //System.out.println(convertIbanInUseToList().toString());
+        //System.out.println(deleteIbanInUse("RO00INGB2015789023").toString());
+        //deleteAndUpdateIbanInUse("RO00INGB2015789022");
+        //System.out.println(convertIbanInUseToList());
+        //storeDeletedIban("RO00INGB2015789012");
+        System.out.println(checkIfIbanInUse("RO00INGB2015789022"));
 
     }
 }
