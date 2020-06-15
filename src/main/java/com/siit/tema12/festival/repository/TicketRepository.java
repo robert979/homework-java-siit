@@ -1,4 +1,5 @@
 //soldTickets - QUEUE care stocheaza toate biletele
+//returnRandomTicket - genereaza un Ticket
 package com.siit.tema12.festival.repository;
 
 import com.siit.tema12.festival.domain.Ticket;
@@ -7,20 +8,22 @@ import com.siit.tema12.festival.domain.TicketType;
 import java.util.*;
 
 public class TicketRepository {
-    List<Ticket> ticketType = Arrays.asList(
+   private static List<Ticket> ticketType = Arrays.asList(
             new Ticket(TicketType.FREE_PASS),
             new Ticket(TicketType.FULL),
             new Ticket(TicketType.FULL_VIP),
             new Ticket(TicketType.ONE_DAY),
             new Ticket(TicketType.ONE_DAY_VIP)
     );
-    Queue<Ticket> soldTickets = new LinkedList();
+   public static Queue<Ticket> soldTickets = new LinkedList();
 
     public static int allSoldTickets(Queue soldTickets) {
         return soldTickets.size();
     }
 
-    public static void returnStatistics(Queue<Ticket> soldTickets) {
+    public static void returnStatistics() {
+        if (soldTickets.size() > 0) {
+
         int counterFreePass = 0;
         int counterFull = 0;
         int counterFullVip = 0;
@@ -43,25 +46,29 @@ public class TicketRepository {
             if (ticket.getTicketType() == TicketType.ONE_DAY_VIP) {
                 counterOneDayVip += 1;
             }
-            if (soldTickets.size() > 0) {
-                System.out.println("FREE_PASS " + counterFreePass + "%\n" +
-                        "FULL " + counterFull + "%\n" +
-                        "FULL_VIP " + counterFullVip + "%\n" +
-                        "ONE_DAY " + counterOneDay + "%\n" +
-                        "ONE_DAY_VIP " + counterOneDayVip + "%");
 
-            } else {
+                System.out.println("FREE_PASS " + checkPercentage(counterFreePass)+ "%\n" +
+                        "FULL " + checkPercentage(counterFull) + "%\n" +
+                        "FULL_VIP " + checkPercentage(counterFullVip) + "%\n" +
+                        "ONE_DAY " + checkPercentage(counterOneDay) + "%\n" +
+                        "ONE_DAY_VIP " + checkPercentage(counterOneDayVip) + "%");
+            }
+        } else {
                 System.out.println("No tickets sold");
             }
 
         }
+
+
+    private static double checkPercentage(int soldTicketsType) {
+
+            return (100 * soldTicketsType) / allSoldTickets(soldTickets);
+
+
     }
-
-    private static double checkPercentage(int soldTicketsType, int allSoldTickets) {
-
-            return (100 * soldTicketsType) / allSoldTickets;
-
-
+    public static Ticket returnRandomTicket (){
+        Random rand = new Random();
+        return  ticketType.get(rand.nextInt(ticketType.size()));
     }
 }
 
