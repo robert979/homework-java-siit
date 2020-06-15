@@ -2,11 +2,32 @@ package com.siit.tema11.atm;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Ciorna {
+    static List<String> strTest = Arrays.asList(
+            "aaa",
+            "bbb");
+
+    public static void setStrTest(List<String> strTest) {
+        Ciorna.strTest = strTest;
+    }
+
+    static void addInStr(String str) {
+        strTest.add(str);
+
+    }
+
     public static void main(String[] args) {
-        List<Integer> nameIndex = new ArrayList<>();
+       strTest.set(strTest.size()-1, "ccc");
+
+        System.out.println(strTest);
+    }
+}
+
+
+       /* List<Integer> nameIndex = new ArrayList<>();
         List<Integer> cnpIndex = new ArrayList<>();
         List<Integer> ibanIndex = new ArrayList<>();
         List<Integer> balanceIndex=new ArrayList<>();
@@ -37,5 +58,5 @@ public class Ciorna {
         //System.out.println(getUserListToString.substring(ibanIndex.get(0)+6,balanceIndex.get(0)-2));//IBAN
         System.out.println(BigDecimal.valueOf(Integer.parseInt(getUserListToString.substring(balanceIndex.get(0)+9,separatorIndex.get(0)-2))));
 
-    }
-}
+        */
+
