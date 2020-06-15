@@ -14,10 +14,10 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 public class GateRepository {
-    //private final ScheduledExecutorService programBeeper = Executors.newScheduledThreadPool(1);
-    private final ScheduledExecutorService programGate = Executors.newScheduledThreadPool(gatesNumber);
 
-    static private int gatesNumber = 1;
+    private final ScheduledExecutorService programGate = Executors.newScheduledThreadPool(1);
+
+    static private int gatesNumber = 5;
 
 
     public static List<Gate> allGates() {
@@ -27,15 +27,7 @@ public class GateRepository {
         }
         return allGates;
     }
-   /* public static void entryOnAllGates (){
-        GateRepository eachGate =new GateRepository();
-      for (Gate gate: allGates()){
-          eachGate.entryPeople(gate);
 
-      }
-    }
-
-    */
 
     public  void entryPeople() {
 
