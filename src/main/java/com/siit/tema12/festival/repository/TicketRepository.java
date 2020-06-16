@@ -64,7 +64,10 @@ public class TicketRepository {
                 java.time.LocalDateTime.now().toString().substring(0, 19)+
                 "\nand a total of " + allSoldTickets()+" people are attending to this concert"+
                 "\n===================================");
-        }
+
+        System.out.println("Print from STATISTICS " + Thread.currentThread().getName());
+                }
+
 
 
 
@@ -76,17 +79,18 @@ public class TicketRepository {
 
     }
     public static Ticket returnRandomTicket (){
+        //System.out.println("Thread ticket " + Thread.currentThread().getName());
         Random rand = new Random();
         return  ticketType.get(rand.nextInt(ticketType.size()));
     }
    public static Boolean checkCapacity(){
         if (soldTickets.size()<=maxAttends){
-            System.out.println(true);
-            return true;
+            System.out.println(false);
+            return false;
         }
         else{
             System.out.println("False");
-            return false;
+            return true;
         }
     }
 }
