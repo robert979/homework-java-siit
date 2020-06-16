@@ -17,10 +17,7 @@ public class GateRepository /*implements Runnable*/
 
 
     static private int gatesNumber = 5;
-    static private int maxAttends = 20;
-
-
-
+    static private int maxAttends = 100;
 
     public void entryPeople() {
 
@@ -28,6 +25,13 @@ public class GateRepository /*implements Runnable*/
 
             soldTickets.add(returnRandomTicket()); //comanda este de a intra/adauga un om/bilet la lista soldtickets}
             System.out.println("Thread entry  " + Thread.currentThread().getName());
+            if(soldTickets.size() >=maxAttends){
+                    programGate.shutdown();
+                    programStatistic.shutdown();
+                System.out.println("Last Statistic\n" +
+                        "***********************");
+                returnStatistics();
+            }
         };
         ScheduledFuture<?> entryHandle = programGate.scheduleAtFixedRate(entry, 0,341, TimeUnit.MILLISECONDS);
 
