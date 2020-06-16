@@ -6,9 +6,11 @@ package com.siit.tema12.festival.repository;
 import static com.siit.tema12.festival.repository.TicketRepository.*;
 
 
+import java.util.Arrays;
 import java.util.concurrent.*;
 
-public class GateRepository {
+public class GateRepository /*implements Runnable*/
+ {
 
     private final ScheduledExecutorService programGate = Executors.newScheduledThreadPool(gatesNumber);
     private final ScheduledExecutorService programStatistic = Executors.newSingleThreadScheduledExecutor();
@@ -19,33 +21,76 @@ public class GateRepository {
 
 
 
-    public  void entryPeople() {
 
+    public void entryPeople() {
 
-    Runnable entry = () ->{
+        Runnable entry = () -> {
 
             soldTickets.add(returnRandomTicket()); //comanda este de a intra/adauga un om/bilet la lista soldtickets}
-        System.out.println("Thread entry  " + Thread.currentThread().getName());
+            System.out.println("Thread entry  " + Thread.currentThread().getName());
         };
-    ScheduledFuture<?> entryHandle = programGate.scheduleAtFixedRate(entry, 0, 480, TimeUnit.MILLISECONDS);
-    Runnable stopEntry = () -> entryHandle.cancel(checkCapacity());
-    programGate.schedule(stopEntry, 200, TimeUnit.SECONDS);
+        ScheduledFuture<?> entryHandle = programGate.scheduleAtFixedRate(entry, 0,341, TimeUnit.MILLISECONDS);
+
+        Runnable stopEntry = () -> entryHandle.cancel(checkCapacity());
+        Runnable stop = () -> {
+            programGate.shutdown();};
+        programGate.schedule(stop, 34, TimeUnit.SECONDS);
+
 
     }
-    public void checkStatistics (){
-        Runnable checkStatistics = ()-> returnStatistics();
-       ScheduledFuture <?> statisticHandle = programStatistic.scheduleWithFixedDelay(checkStatistics, 5, 5, TimeUnit.SECONDS);
-       Runnable stopStatistics = () -> statisticHandle.cancel(checkCapacity());
-       programStatistic.schedule(stopStatistics, 200, TimeUnit.SECONDS);
-      }
+
+    public void checkStatistics() {
+        Runnable checkStatistics = () -> returnStatistics();
+        ScheduledFuture<?> statisticHandle = programStatistic.scheduleWithFixedDelay(checkStatistics, 5, 5, TimeUnit.SECONDS);
+         Runnable stopStatistics = () -> statisticHandle.cancel(checkCapacity());
+         Runnable stop = () ->programStatistic.shutdown();
+        programStatistic.schedule(stop, 40, TimeUnit.SECONDS);
+
+    }
+}
+
+  /* if (soldTickets.size()>=maxAttends){
+
+            programStatistic.shutdown();
+            System.out.println("Last statistic : \n" +
+                    "****************************");
+            returnStatistics();
+        }
+        */
+
+ /*@Override
+    public void run() {
+        if (soldTickets.size() >= maxAttends) {
+            programGate.shutdown();
+            programStatistic.shutdown();
+
+        }
 
 
 
-    public  void  startEntryPeople(){
+    }*/
+
+/*  if (soldTickets.size()>=maxAttends){
+            programGate.shutdown();
+
+            returnStatistics();
+
+        }
+
+       */
+
+
+
+    /*public  void  startEntryPeople(){
         ScheduledExecutorService entry =new ScheduledThreadPoolExecutor(gatesNumber);
         Runnable myRunnableMethod = ()-> entryPeople();
         entry.scheduleWithFixedDelay(myRunnableMethod, 0, 1, TimeUnit.SECONDS);
     }
+
+     */
+
+
+
 
 /*
     public static void main(String[] args) {
@@ -57,7 +102,7 @@ public class GateRepository {
 
  */
 
-}
+
 
 /*
 for (Gate gate:gateList){
