@@ -24,21 +24,23 @@ public class GateRepository /*implements Runnable*/
         Runnable entry = () -> {
 
             soldTickets.add(returnRandomTicket()); //comanda este de a intra/adauga un om/bilet la lista soldtickets}
-            System.out.println("Thread entry  " + Thread.currentThread().getName());
+            //System.out.println("Thread entry  " + Thread.currentThread().getName()); // pentru a printa Thread Curent
             if(soldTickets.size() >=maxAttends){
                     programGate.shutdown();
                     programStatistic.shutdown();
-                System.out.println("Last Statistic\n" +
-                        "***********************");
+                System.out.println("" +
+                        "The maximum capacity was reached as about " + maxAttends + " attended the event \n" +
+                        "Last statistic\n" +
+                       "===================================");
                 returnStatistics();
             }
         };
-        ScheduledFuture<?> entryHandle = programGate.scheduleAtFixedRate(entry, 0,341, TimeUnit.MILLISECONDS);
+        ScheduledFuture<?> entryHandle = programGate.scheduleAtFixedRate(entry, 0,550, TimeUnit.MILLISECONDS);
 
-        Runnable stopEntry = () -> entryHandle.cancel(checkCapacity());
-        Runnable stop = () -> {
-            programGate.shutdown();};
-        programGate.schedule(stop, 34, TimeUnit.SECONDS);
+        //Runnable stopEntry = () -> entryHandle.cancel(checkCapacity());
+        //Runnable stop = () -> {
+          //  programGate.shutdown();};
+        //programGate.schedule(stop, 34, TimeUnit.SECONDS);
 
 
     }
@@ -46,9 +48,9 @@ public class GateRepository /*implements Runnable*/
     public void checkStatistics() {
         Runnable checkStatistics = () -> returnStatistics();
         ScheduledFuture<?> statisticHandle = programStatistic.scheduleWithFixedDelay(checkStatistics, 5, 5, TimeUnit.SECONDS);
-         Runnable stopStatistics = () -> statisticHandle.cancel(checkCapacity());
-         Runnable stop = () ->programStatistic.shutdown();
-        programStatistic.schedule(stop, 40, TimeUnit.SECONDS);
+        // Runnable stopStatistics = () -> statisticHandle.cancel(checkCapacity());
+        // Runnable stop = () ->programStatistic.shutdown();
+        //programStatistic.schedule(stop, 40, TimeUnit.SECONDS);
 
     }
 }
