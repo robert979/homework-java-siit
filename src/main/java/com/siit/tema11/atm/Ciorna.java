@@ -1,29 +1,24 @@
 package com.siit.tema11.atm;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Ciorna {
-    static List<String> strTest = Arrays.asList(
-            "aaa",
-            "bbb");
-
-    public static void setStrTest(List<String> strTest) {
-        Ciorna.strTest = strTest;
-    }
-
-    static void addInStr(String str) {
-        strTest.add(str);
-
-    }
-
     public static void main(String[] args) {
-       strTest.set(strTest.size()-1, "ccc");
+        int a = Integer.MAX_VALUE;
 
-        System.out.println(strTest);
+        //int c = a- 1234123412311234;
+        long c= Long.MAX_VALUE;
+
+        System.out.println(a +"\n" +
+                ""+ c);
+
     }
+
+
 }
 
 
