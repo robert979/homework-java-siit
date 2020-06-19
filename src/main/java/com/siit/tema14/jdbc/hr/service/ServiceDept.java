@@ -15,6 +15,8 @@ public class ServiceDept {
     public static void create (DEPT dept){
         deptiml.createNewRow(dept);
     }
+    static List<Integer> deptNo = Arrays.asList(
+            10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160);
 
 
    static List<DEPT> listDept = Arrays.asList(
@@ -38,10 +40,17 @@ public class ServiceDept {
         //newDeptIml.updateDeptName(150, "MANUFACTURING");
 
         //newDeptIml.updateDeptName(150, "PRINTING");
-        //newDeptIml.updateCity(150, "IAS");
+        //newDeptIml.updateCity(150, "IASI");
         //newDeptIml.updateDeptNameNew(160, "PRINTING");
 
-        System.out.println(newDeptIml.readCityName(150));
+        //System.out.println(newDeptIml.readCityName(150));
+
+       //for (Integer integer: deptNo){
+       //    System.out.println(newDeptIml.readCityNameAndDepName(integer));
+       //}
+
+        //System.out.println(newDeptIml.findPrimaryKey());
+        System.out.println(newDeptIml.findRowNumbers("deptno", "dept"));
 
 
     }

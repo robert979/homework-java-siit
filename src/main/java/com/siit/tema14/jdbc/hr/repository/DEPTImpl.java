@@ -17,16 +17,58 @@ public class DEPTImpl implements DEPTCommands {
 
 
 @SneakyThrows
-    public String readCityName (int deptno) {
-
-        String query = "select city, dname from dept where deptno=?";
+    public int findRowNumbers (String column_name, String tableName){
+    int a=0;
+        String query = " Select count("+column_name+") from "+tableName+"";
         PreparedStatement statement = getPreparedStatement(query);
 
-        statement.setInt(1, deptno);
+       // statement.setString(1, column_name);
+       // statement.setString(2, tableName);
+
+
 
         ResultSet rs = statement.executeQuery();
 
-      return rs.getString("city");
+        while (rs.next()){
+            a=rs.getInt("count("+column_name+")");
+        }
+            return a;
+    }
+
+
+    @SneakyThrows
+    public String findPrimaryKey(){
+
+        String query = "show columns from dept where `Key` = \"PRI\"";
+        PreparedStatement statement =getPreparedStatement(query);
+        ResultSet rs= statement.executeQuery();
+
+        while (rs.next()){
+        query=rs.getString("Field");}
+
+        return query;
+
+    }
+
+
+@SneakyThrows
+    public String readCityNameAndDepName(int deptno) {
+    String result = null;
+
+    String query = "select city, dname from dept where deptno=?";
+    PreparedStatement statement = getPreparedStatement(query);
+
+    statement.setInt(1, deptno);
+
+    ResultSet rs = statement.executeQuery();
+
+    while (rs.next()) {
+        result= "For Department Number "+ deptno +" the corresponding city is "+rs.getString("city")+" and " +
+            "the Department Name is " +rs.getString("dname");
+    }
+
+
+    return result;
 
 
     }
