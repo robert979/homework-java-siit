@@ -11,24 +11,34 @@ import java.util.List;
 public class ServiceDept {
 
     static DEPTImpl deptiml;
-    public void create (DEPT dept){
+    public static void create (DEPT dept){
         deptiml.createNewRow(dept);
     }
 
 
    static List<DEPT> listDept = Arrays.asList(
-           new DEPT(90,"ENGINEERING","BUCURESTI"),
-           new DEPT(100, "HR","MIOVENI"),
-           new DEPT(110, "LOGISTIC", "BUCURESTI"),
-           new DEPT(120,"ENGINEERING","MIOVENI")
+           new DEPT(130,"ENGINEERING","BUCURESTI"),
+           new DEPT(140, "HR","MIOVENI"),
+           new DEPT(150, "LOGISTIC", "BUCURESTI"),
+           new DEPT(160,"ENGINEERING","MIOVENI")
    );
 
     public static void main(String[] args) {
         DEPTImpl newDeptIml = new DEPTImpl();
 
-
         //newDeptIml.createNewRowByValues(90,"ENGINEERING","BUCURESTI");
-        newDeptIml.deleteRow(90);
+        //newDeptIml.deleteRow(90);
+
+        //for (DEPT dept:listDept){
+        //   newDeptIml.createNewRow(dept);
+        //}
+
+        //newDeptIml.updateCity(160,"CLUJ");
+        //newDeptIml.updateDeptName(150, "MANUFACTURING");
+
+        //newDeptIml.updateDeptName(150, "PRINTING");
+        newDeptIml.updateCity(150, "HR");
+        newDeptIml.updateDeptNameNew(160, "PRINTING");
 
 
     }

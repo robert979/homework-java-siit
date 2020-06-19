@@ -1,5 +1,6 @@
 package com.siit.tema14.jdbc.hr.repository;
 
+import com.siit.tema12.festival.domain.Gate;
 import com.siit.tema14.jdbc.hr.domain.DEPT;
 import com.siit.tema14.jdbc.hr.domain.DEPTCommands;
 import com.siit.tema14.jdbc.hr.myexceptions.MyCustomException;
@@ -15,6 +16,59 @@ import java.sql.SQLException;
 public class DEPTImpl implements DEPTCommands {
 
 
+    @SneakyThrows
+    @Override
+    public void updateDeptNameNew(int deptno, String deptname) {
+        String query = "UPDATE dept SET dname=? WHERE deptno=?";
+        PreparedStatement preparedStatement = getPreparedStatement(query);
+        int modifiedCell=0;
+        preparedStatement.setString(1, deptname);
+        preparedStatement.setInt(2, deptno);
+        modifiedCell=preparedStatement.executeUpdate();
+
+        if (modifiedCell>0){
+            System.out.println("The Department name corresponding to Department Number " +deptno +"" +
+                    " was successfully changed to " + deptname );
+        }else {
+            System.out.println("The department name was not changed, pleas try again");
+        }
+    }
+
+
+    @SneakyThrows
+    @Override
+    public void updateCity(int deptno, String cityName) {
+        String query = "UPDATE dept SET city=? WHERE deptno=?";
+        PreparedStatement preparedStatement = getPreparedStatement(query);
+        int modifiedCell=0;
+        preparedStatement.setString(1, cityName);
+        preparedStatement.setInt(2, deptno);
+        modifiedCell=preparedStatement.executeUpdate();
+
+        if (modifiedCell>0){
+            System.out.println("The City corresponding to Department Number " + deptno + " was changed to " + cityName );
+        }else {
+            System.out.println("The city name was not changed");
+        }
+    }
+    @SneakyThrows
+    @Override
+    public void updateDeptName(int deptno, String deptName) { //nu merge ??????
+        String query = "UPDATE dept SET dname = ? WHERE deptno = ?";
+        PreparedStatement preparedStatement = getPreparedStatement(query);
+        int modifiedCell =0;
+        preparedStatement.setString(1, deptName);
+        preparedStatement.setInt(2, deptno);
+
+        if (modifiedCell>0){
+            System.out.println("The Department name corresponding to Department Number " +deptno +"" +
+                    "was successfully changed to " + deptName);
+        }else {
+            System.out.println("The department name was not changed, pleas try again");
+        }
+    }
+
+
     @Override
     public void createNewRow(DEPT dept) {
         String query ="INSERT INTO dept VALUES(?,?,?)";
@@ -26,7 +80,7 @@ public class DEPTImpl implements DEPTCommands {
         preparedStatement.setString(2, dept.getDNAME());
         preparedStatement.setString(3, dept.getCITY());
 
-        modifiedRows=preparedStatement.executeUpdate();
+        modifiedRows= modifiedRows+preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println("Exception as no new row was created");
