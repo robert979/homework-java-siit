@@ -1,19 +1,35 @@
 package com.siit.tema14.jdbc.hr.repository;
 
-import com.siit.tema12.festival.domain.Gate;
+
+import java.sql.ResultSet;
+
 import com.siit.tema14.jdbc.hr.domain.DEPT;
 import com.siit.tema14.jdbc.hr.domain.DEPTCommands;
 import com.siit.tema14.jdbc.hr.myexceptions.MyCustomException;
+import com.sun.org.apache.bcel.internal.generic.PUSH;
 import lombok.SneakyThrows;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 
 public class DEPTImpl implements DEPTCommands {
+
+
+@SneakyThrows
+    public String readCityName (int deptno) {
+
+        String query = "select city, dname from dept where deptno=?";
+        PreparedStatement statement = getPreparedStatement(query);
+
+        statement.setInt(1, deptno);
+
+        ResultSet rs = statement.executeQuery();
+
+      return rs.getString("city");
+
+
+    }
 
 
     @SneakyThrows

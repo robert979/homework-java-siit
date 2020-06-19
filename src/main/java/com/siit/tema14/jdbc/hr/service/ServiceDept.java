@@ -4,6 +4,7 @@ import com.siit.tema14.jdbc.hr.domain.DEPT;
 import com.siit.tema14.jdbc.hr.repository.DEPTImpl;
 import lombok.AllArgsConstructor;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ServiceDept {
            new DEPT(160,"ENGINEERING","MIOVENI")
    );
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         DEPTImpl newDeptIml = new DEPTImpl();
 
         //newDeptIml.createNewRowByValues(90,"ENGINEERING","BUCURESTI");
@@ -37,8 +38,10 @@ public class ServiceDept {
         //newDeptIml.updateDeptName(150, "MANUFACTURING");
 
         //newDeptIml.updateDeptName(150, "PRINTING");
-        newDeptIml.updateCity(150, "HR");
-        newDeptIml.updateDeptNameNew(160, "PRINTING");
+        //newDeptIml.updateCity(150, "IAS");
+        //newDeptIml.updateDeptNameNew(160, "PRINTING");
+
+        System.out.println(newDeptIml.readCityName(150));
 
 
     }
