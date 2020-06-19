@@ -1,7 +1,8 @@
 package com.siit.tema14.jdbc.cars.repository;
 
 import com.siit.tema14.jdbc.cars.domanin.OrderDAO;
-import com.siit.tema14.jdbc.myexceptions.MyCustomException;
+import com.siit.tema14.jdbc.hr.myexceptions.MyCustomException;
+import lombok.SneakyThrows;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -46,8 +47,21 @@ public class OderDAOImpl implements OrderDAO {
 
 
 
+    @SneakyThrows
     @Override
-    public void delete() {
+    public void delete(int deptno) {
+        String query = "DELETE FROM dept where DEPTNO=?";
+        PreparedStatement preparedStatement = getPreparedStatement(query);
+
+        int modifiedRows =0 ;
+
+        preparedStatement.setInt(1, deptno);
+        modifiedRows=preparedStatement.executeUpdate();
+
+        if(modifiedRows>0){
+            System.out.println("You have successfully deleted one row, corresponding to " +deptno);
+        }
+
 
     }
     private PreparedStatement getPreparedStatement (String query) {

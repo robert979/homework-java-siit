@@ -6,7 +6,7 @@ public interface OrderDAO {
 void update();
 void read();
 void create(int deptno, String dname, String city);
-void delete();
+void delete(int deptno);
 
 
 }
