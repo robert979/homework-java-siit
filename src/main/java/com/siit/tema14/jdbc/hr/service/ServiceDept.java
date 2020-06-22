@@ -50,7 +50,8 @@ public class ServiceDept {
        //}
 
         //System.out.println(newDeptIml.findPrimaryKey());
-        System.out.println(newDeptIml.findRowNumbers("deptno", "dept"));
+        //System.out.println(newDeptIml.findRowNumbers("deptno", "dept"));
+        newDeptIml.updateDeptName(150, "NEWDEPT");
 
 
     }
