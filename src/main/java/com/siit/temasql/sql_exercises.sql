@@ -6,14 +6,14 @@ select *from dept;
 
 # 2. Să se selecteze numele, funcția și salariu pentru angajații care au aceași funcție.
 
-# SELECT group_concat(ENAME separator ', '),
-#        JOB,
-#        group_concat(SAL separator ', ') as salaries,
-#        avg(SAL)
-# FROM EMP e
-# where e.SAL > 1500 #actioneaza pe randuri
-# group by e.JOB #actioneaza pe grupuri
-# having count(e.ENAME) > 1;
+select group_concat(ENAME separator ', '),
+       JOB,
+       group_concat(SAL separator ', ') as salaries,
+       avg(SAL)
+from EMP e
+where e.SAL > 1500 #actioneaza pe randuri
+group by e.JOB #actioneaza pe grupuri
+having count(e.ENAME) > 1;
 
 
 # 3. Să se selecteze numele, funcția și salariul anual pentru toți angajații din același departament.
@@ -98,13 +98,13 @@ select job, mgr from emp order by job;
 select ename from emp where job='manager' order by EMPNO;
 
 # 14. Selectați toate persoanele care s-au angajat intr-o anumită perioadă aleasa de voi.
-select ename from emp where hiredate between ("1982-01-01") and ("1982-01-01");
+select ename from emp where hiredate between '1981-01-01' and '1982-01-01';
 
 # 15. Să se listeze id-ul, numele, funcția, venitul lunar pentru angajații care au următoarele id-uri: 7499,7902, 7876
 select empno, ename, job, sal from emp where empno =7499 or EMPNO= 7902 or empno = 7876;
 
 # 16. Să se selecteze toate persoanele care au fost angajate în anul 1980
-select ename from emp where HIREDATE between ("1980-01-01") and ("1980-12-12");
+select ename from emp where HIREDATE between '1980-01-01' and '1980-12-31';
 
 # 17. Să se selecteze toate persoanele al căror nume începe cu litera F și numele funcției are 7 caractere.
 select e.ENAME from emp e where e.Ename like 'a%'  and length(JOB) = 5;
@@ -125,13 +125,13 @@ where JOB='analyst'
  or (JOB='manager' and SAL>1500);
 
 # 21. Selectați toți angajații care s-au angajat înainte de anul 1982 și nu au primit comision.
-#select e.ename, e.HIREDATE from emp e where HIREDATE <("1982-01-01");
+select e.ename, e.HIREDATE from emp e where HIREDATE < '1982-01-01';
 
 # 22. Selectați toți angajații care au salariul peste 3000 și nu au șefi, ordonați după departament.
 select ename from emp where (JOB='president' or JOB='MANAGER') and SAL>3000 order by DEPTNO;
 
 # 23. Selectați numele, funcția și venitul anual al angajaților care nu au funcția MANAGER pentru un departament ales de voi.
-select e.ENAME, e.JOB, (SAL*12) as 'Anual Income' from emp e where e.job not like 'MANAGER';
+select e.ENAME, e.JOB, (SAL*12) as Anual_Income from emp e where e.job not like 'MANAGER';
 
 
 # 24. Selectați numele, numele, data angajării și
@@ -140,7 +140,7 @@ select e.ENAME, e.JOB, (SAL*12) as 'Anual Income' from emp e where e.job not lik
 
 select ename, hiredate, sal from emp
 where (JOB='salesman' or JOB='manager')
-AND HIREDATE between ("1981-01-01")and ("1981-12-31");
+and HIREDATE between ("1981-01-01")and ("1981-12-31");
 
 # select d.name, e.name, e.hiredate, e.salary
 # from employee e
@@ -179,4 +179,9 @@ select e.*, d.*
 from employee e
          join department d;
 # daca nu pui "ON" obtii produs cartezian
+
+select*  from emp ;
+
+select concat((max(SAL*COMM)),'  ', count(ENAME) )from emp;
+
 
