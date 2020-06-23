@@ -11,7 +11,8 @@ public class TimeDate {
 
         //listAllMondaysWithYear(1979, 2);
         //checkMonthLength(1979);
-        checkFridayThirteen(2020, 4);
+        //checkFridayThirteen(2020, 4);
+        //findDay(2, 19, 1979); //hackerRank
 
 
     }
@@ -70,6 +71,13 @@ public class TimeDate {
         } else {
             System.out.println("Please input a right value between 1 and 12");
         }
+    }
+    public static String findDay(int month, int day, int year) {
+        LocalDate wantedDay= LocalDate.parse(year+"-"+String.format("%02d", month)+"-"+String.format("%02d", day));
+        System.out.println(wantedDay.getDayOfWeek());
+        return wantedDay.getDayOfWeek().toString();
+
+
     }
 
 }
