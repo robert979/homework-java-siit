@@ -7,7 +7,7 @@ public class Orders {
     private LocalDate orderDate;
     private LocalDate requiredDate;
     private LocalDate shippedDate;
-    private String status;
+    private Status status;
     private String comments;
     private int customerNumber;
 
