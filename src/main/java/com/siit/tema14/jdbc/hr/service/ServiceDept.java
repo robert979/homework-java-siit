@@ -1,7 +1,7 @@
 package com.siit.tema14.jdbc.hr.service;
 
 import com.siit.tema14.jdbc.hr.domain.DEPT;
-import com.siit.tema14.jdbc.hr.repository.DEPTImpl;
+import com.siit.tema14.jdbc.hr.repository.DEPTRepositoryImpl;
 import lombok.AllArgsConstructor;
 
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ServiceDept {
 
-    static DEPTImpl deptiml;
+    static DEPTRepositoryImpl deptiml;
     public static void create (DEPT dept){
         deptiml.createNewRow(dept);
     }
@@ -27,7 +27,7 @@ public class ServiceDept {
    );
 
     public static void main(String[] args) throws SQLException {
-        DEPTImpl newDeptIml = new DEPTImpl();
+        DEPTRepositoryImpl newDeptIml = new DEPTRepositoryImpl();
 
         //newDeptIml.createNewRowByValues(90,"ENGINEERING","BUCURESTI");
         //newDeptIml.deleteRow(90);
@@ -51,7 +51,8 @@ public class ServiceDept {
 
         //System.out.println(newDeptIml.findPrimaryKey());
         //System.out.println(newDeptIml.findRowNumbers("deptno", "dept"));
-        newDeptIml.updateDeptName(150, "NEWDEPT");
+        newDeptIml.updateDeptName(150, "LOGISTIC");
+       // deptiml.updateDeptName(150,"LOGISTIC");
 
 
     }

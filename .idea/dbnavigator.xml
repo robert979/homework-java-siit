@@ -23,20 +23,16 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe">
+        <schema name="classicmodels" object-types="table, constraint, index, dataset trigger, procedure, function, view, column" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe">
-      <console name="Connection to local server" type="STANDARD" schema="test" session="Main"><![CDATA[select group_concat(ENAME, concat(':', (SAL + ifnull(COMM, 0)) * 12), concat(':', JOB) separator ',       ') employees
-from EMP e
-group by e.DEPTNO;
-
-select*from students;
-select*from  grades;
-
-select (case grades.grade >=8 when true then students.name else null end),
- grades.grade, students.marks from students inner join grades on students.marks between min_mark and max_mark
- order by grades.grade desc, students.name;]]></console>
+      <console name="Connection to local server" type="STANDARD" schema="classicmodels" session="Main"><![CDATA[select *from orders;
+select  *from products;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -47,6 +43,7 @@ select (case grades.grade >=8 when true then students.name else null end),
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="hr.emp" active-filter-id="" />
+    <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="classicmodels.products" active-filter-id="" />
     <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="test.grades" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
