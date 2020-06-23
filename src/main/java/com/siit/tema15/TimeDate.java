@@ -7,13 +7,35 @@ import java.time.YearMonth;
 
 public class TimeDate {
     public static void main(String[] args) {
-        int maxNumberDays = Month.of(2).maxLength();
-        ///System.out.println(maxNumberDays);
+        // int maxNumberDays = Month.of(2).maxLength();
 
-        //listAllMondays(12);
-        listAllMondaysWithYear(1979, 2);
+        //listAllMondaysWithYear(1979, 2);
+        //checkMonthLength(1979);
+        checkFridayThirteen(2020, 4);
 
 
+    }
+
+    public static boolean checkFridayThirteen(int year, int monthNo) {
+        if ((LocalDate.parse(year + "-" + String.format("%02d", monthNo) + "-13")).getDayOfWeek().toString().equals("FRIDAY")) {
+            System.out.println("the date " + (LocalDate.parse(year + "-" + String.format("%02d", monthNo) + "-13") + " is Friday"));
+            System.out.println(true);
+            return true;
+        } else {
+            System.out.println("the date " + (LocalDate.parse(year + "-" + String.format("%02d", monthNo) + "-13")) + " is " +
+                    (LocalDate.parse(year + "-" + String.format("%02d", monthNo) + "-13").getDayOfWeek().toString()));
+            System.out.println(false);
+            return false;
+        }
+    }
+
+    public static void checkMonthLength(int year) {
+        int i = 1;
+        while (i <= 12) {
+            System.out.println("For the year/month " + year + "/" + YearMonth.of(year, i).getMonth() + " there are " +
+                    YearMonth.of(year, i).lengthOfMonth() + " of days");
+            i++;
+        }
     }
 
     public static void listAllMondays(int monthNo) {
