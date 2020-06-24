@@ -33,7 +33,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         ProductsDAORepositoryImpl productsDAORepository = (ProductsDAORepositoryImpl) applicationContext.getBean("ProductsDAORepositoryImpl");
-        productsDAORepository.create(productsList.get(0));
+        //productsDAORepository.create(productsList.get(0));
 
     }
 }

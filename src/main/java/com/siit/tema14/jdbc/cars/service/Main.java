@@ -6,6 +6,7 @@ import com.siit.tema14.jdbc.cars.repository.ProductsDAORepositoryImpl;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -16,9 +17,13 @@ public class Main {
             new Products("S10_" + new Random().nextInt(10000), "Dacia Sandero", ProductLine.Classic_Cars, "1:50", "Groupe Renault",
                     "Este cea mai buna masina Romaneasca din toate timpurile", 325, BigDecimal.valueOf(15200.50), BigDecimal.valueOf(17350.55)));
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         ProductsDAORepositoryImpl newProduct = new ProductsDAORepositoryImpl(new JdbcTemplate());
-        newProduct.create(productsList.get(0));
+        //newProduct.create(productsList.get(0));
+        //newProduct.read("S10_6485");
+       // newProduct.updatePrice("S10_9729",BigDecimal.valueOf(1677.65));
+        newProduct.setPrice();
     }
+
 }
 
