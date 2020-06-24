@@ -48,7 +48,7 @@ public class ProductsDAORepositoryImpl implements ProductsDAORepository{
         PreparedStatement preparedStatement = getPreparedStatement(query);
         preparedStatement.setString(1, product.getProductCode());
         preparedStatement.setString(2, product.getProductName());
-        preparedStatement.setString(3, product.getProductLine().toString());
+        preparedStatement.setString(3, product.getProductLine().toString().replace("_"," "));
         preparedStatement.setString(4, product.getProductScale());
         preparedStatement.setString(5, product.getProductVendor());
         preparedStatement.setString(6, product.getProductDescription());
@@ -56,16 +56,16 @@ public class ProductsDAORepositoryImpl implements ProductsDAORepository{
         preparedStatement.setBigDecimal(8, product.getBuyPrice());
         preparedStatement.setBigDecimal(9, product.getMSRP());
 
-        int modifiedRow = 0;
-        modifiedRow =preparedStatement.executeUpdate();
+        //int modifiedRow = 0;
+       // modifiedRow =preparedStatement.executeUpdate();
 
-        /*if (modifiedRows > 0) {
-            System.out.println("You have successfully updated " + modifiedRows + " rows");
+        if (preparedStatement.executeUpdate() > 0) {
+            System.out.println("You have successfully updated the product code " +product.getProductCode());
         } else {
             System.out.println("No row was added, please try again");
         }
 
-         */
+
 
     }
 
