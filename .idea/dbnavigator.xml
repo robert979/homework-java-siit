@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe">
-        <schema name="classicmodels" object-types="procedure, view, constraint, column, table, function, dataset trigger, index" />
+        <schema name="classicmodels" object-types="table, column, function, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -48,7 +48,7 @@ select  *from products;
 
  Insert INTO products VALUES ('S10_1685', 'Dacia Duster', 'Motorcycles', '1:50', 'Groupe Renault', 'Este cea mai buna masina Romaneasca din toate timpurile', 325, 15200.50, 17350.55);
 
-select  *from products where `productCode`='S10_9729';
+select  *from products where `productCode`='S10_6485';
 update products SET buyprice=15101.75 where productCode='S10_9729';
 update products SET buyprice=16154.75 where productCode='S10_9729']]></console>
     </connection>

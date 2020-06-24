@@ -75,9 +75,9 @@ public class ProductsDAORepositoryImpl implements ProductsDAORepository {
 
 
             ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 String productLine = rs.getString("productLine");
-                System.out.println("The productLine corresponding to the productCode "+ productCode +" is " + productLine);
+                System.out.println("The productLine corresponding to the productCode " + productCode + " is " + productLine);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,7 +85,8 @@ public class ProductsDAORepositoryImpl implements ProductsDAORepository {
         }
 
     }
-    public ProductLine readProductLine (String productCode){
+
+    public ProductLine readProductLine(String productCode) {
         return null;
 
     }
@@ -102,24 +103,26 @@ public class ProductsDAORepositoryImpl implements ProductsDAORepository {
         statement.setString(2, productCode);
 
         statement.execute();
-        /*if (statement.executeUpdate()>0){
-            System.out.println("The price corresponding  to the productCode " + productCode + "was successfully changed to "+
+        if (statement.executeUpdate() > 0) {
+            System.out.println("The price corresponding  to the productCode " + productCode + " was successfully changed to " +
                     bigDecimal);
         }
 
-         */
-
     }
 
-    public void setPrice () throws SQLException {
-        String query = "update products SET buyprice=15101.75 where productCode='S10_9729'";
-        PreparedStatement preparedStatement = getPreparedStatement(query);
-        preparedStatement.executeUpdate();
-
-    }
-
+    @SneakyThrows
     @Override
-    public void delete() {
+    public void delete(String productCode) {
+        String query = "DELETE FROM products where productCode=?";
+        PreparedStatement statement = getPreparedStatement(query);
+
+        statement.setString(1, productCode);
+
+        if (statement.executeUpdate() > 0) {
+            System.out.println("The row corresponding to the productCode " + productCode + " was successfully deleted");
+        } else {
+            System.out.println("There was an error and the ow corresponding to the productCode " + productCode + " was not deleted");
+        }
 
     }
 

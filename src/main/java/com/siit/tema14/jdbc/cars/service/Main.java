@@ -21,8 +21,9 @@ public class Main {
         ProductsDAORepositoryImpl newProduct = new ProductsDAORepositoryImpl(new JdbcTemplate());
         //newProduct.create(productsList.get(0));
         //newProduct.read("S10_6485");
-       // newProduct.updatePrice("S10_9729",BigDecimal.valueOf(1677.65));
-        newProduct.setPrice();
+        //newProduct.updatePrice("S10_9729",BigDecimal.valueOf(15656.6));
+        //newProduct.setPrice();
+        newProduct.delete("S10_6485");
     }
 
 }

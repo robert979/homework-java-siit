@@ -8,6 +8,6 @@ public interface ProductsDAORepository {
     void create(Products product);
     void read(String productCode);
     void updatePrice(String productCode, BigDecimal bigDecimal);
-    void delete();
+    void delete(String productCode);
 
 }
