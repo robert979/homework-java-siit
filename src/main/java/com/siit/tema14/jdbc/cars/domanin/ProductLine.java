@@ -1,5 +1,9 @@
 package com.siit.tema14.jdbc.cars.domanin;
 
+import lombok.Data;
+
+
+
 public enum ProductLine {
     Classic_Cars,
     Motorcycles,

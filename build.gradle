@@ -15,6 +15,8 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
     annotationProcessor("org.projectlombok:lombok:1.18.12")
 
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0'
+
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8'
 
     testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
