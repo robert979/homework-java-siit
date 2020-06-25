@@ -52,7 +52,8 @@ public class Main {
         //newOrder.update(1, LocalDate.of(2020, 05, 15));
 
         //newOrder.create(ordersList.get(0));
-        newOrder.readDate(10100);
+        //newOrder.readDate(10100);
+        newOrder.delete(1);
 
     }
 

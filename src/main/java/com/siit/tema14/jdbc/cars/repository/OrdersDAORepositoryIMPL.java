@@ -78,8 +78,14 @@ if (preparedStatement.executeUpdate()>0){
 }
     }
 
+    @SneakyThrows
     @Override
     public void delete(int orderNumber) {
+        String query = "DELETE from orders where orderNumber="+orderNumber+"";
+        PreparedStatement statement= getPreparedStatement(query);
+        if (statement.executeUpdate()>0){
+            System.out.println("The row corresponding to Order Number" + orderNumber + " was successfully deleted");
+        }
 
     }
     private PreparedStatement getPreparedStatement(String query) {
