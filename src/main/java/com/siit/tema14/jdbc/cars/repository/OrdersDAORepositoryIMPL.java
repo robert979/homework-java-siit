@@ -4,10 +4,7 @@ import com.siit.tema14.jdbc.cars.domanin.Orders;
 import com.siit.tema14.jdbc.hr.myexceptions.MyCustomException;
 import lombok.SneakyThrows;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -20,6 +17,27 @@ public class OrdersDAORepositoryIMPL implements OrdersDAORepository {
     @Override
     public void readComments(int orderNumber) {
 
+    }
+
+    @SneakyThrows
+    @Override
+    public LocalDate readDate(int orderNumber) {
+        LocalDate orderDate = LocalDate.now();
+        //DateTimeFormatter dateFormatter= DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        String query = "Select orderDate from orders where orderNumber=? ";
+        PreparedStatement preparedStatement = getPreparedStatement(query);
+
+        preparedStatement.setInt(1, orderNumber);
+
+        ResultSet rs =  preparedStatement.executeQuery();
+
+        while (rs.next()){
+            orderDate = LocalDate.parse(rs.getString("orderDate"), formatSQL);
+            //System.out.println("The date for Order Number " + orderNumber + " is " + rs.getString("orderDate"));
+            System.out.println("The date for Order Number " + orderNumber + " is " + orderDate);
+        }
+        return orderDate;
     }
 
     @SneakyThrows
@@ -56,7 +74,7 @@ public class OrdersDAORepositoryIMPL implements OrdersDAORepository {
         preparedStatement.setInt(7, order.getCustomerNumber());
 
 if (preparedStatement.executeUpdate()>0){
-    System.out.println("Your Order Number " + order.getOrderNumber() + " was successfully added ro orders table");
+    System.out.println("Your Order Number " + order.getOrderNumber() + " was successfully added to orders table");
 }
     }
 

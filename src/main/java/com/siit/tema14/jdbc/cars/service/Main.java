@@ -26,8 +26,8 @@ public class Main {
                     "Este cea mai buna masina Romaneasca din toate timpurile", 325, BigDecimal.valueOf(15200.50), BigDecimal.valueOf(17350.55)));
 
     static List<Orders> ordersList = Arrays.asList(
-            new Orders(1000,LocalDate.of(1979, 02, 19),LocalDate.of(1980, 01, 05),LocalDate.of(1979, 12, 4), Status.Shipped,
-                    "Marfa a fost livrata cu succes",121)
+            new Orders(new Random().nextInt(1000),LocalDate.of(1979, 02, 19),LocalDate.of(1980, 01, 05),LocalDate.of(2020, 12, 4), Status.On_hold,
+                    "Marfa a fost livrata cu succes",363)
     );
 
     private static DateTimeFormatter formatSQL = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -41,15 +41,19 @@ public class Main {
         //newProduct.setPrice();
         //newProduct.delete("S10_6485");
 
-        //newOrder.create(ordersList.get(0));
+
 
        // System.out.println("order number " +ordersList.get(0).getOrderNumber() +
        //         "\norder date " + ordersList.get(0).getOrderDate().format(formatSQL) +
        //         "\norder status " + ordersList.get(0).getStatus() +
        //         "\ncomment " + ordersList.get(0).getComments() +
        //         "\ncostumer number " + ordersList.get(0).getCustomerNumber());
-        
-        newOrder.update(1, LocalDate.of(2020, 05, 15));
+
+        //newOrder.update(1, LocalDate.of(2020, 05, 15));
+
+        //newOrder.create(ordersList.get(0));
+        newOrder.readDate(10100);
+
     }
 
 }
