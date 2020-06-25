@@ -7,8 +7,8 @@ import java.time.LocalDate;
 
 public interface OrdersDAORepository {
 
-void update(int orderNumber);
-void read(int orderNumber, LocalDate localDate);
+void readComments(int orderNumber);
+void update(int orderNumber, LocalDate localDate);
 void create(Orders order);
 void delete(int orderNumber);
 

@@ -18,13 +18,23 @@ public class OrdersDAORepositoryIMPL implements OrdersDAORepository {
 
 
     @Override
-    public void update(int orderNumber) {
+    public void readComments(int orderNumber) {
 
     }
 
+    @SneakyThrows
     @Override
-    public void read(int orderNumber, LocalDate localDate) {
-        String
+    public void update(int orderNumber, LocalDate localDate) {
+        String query = "Update orders set orderDate=? where orderNumber=?";
+
+        PreparedStatement statement= getPreparedStatement(query);
+
+        statement.setString(1, localDate.format(formatSQL));
+        statement.setInt(2, orderNumber);
+
+        if (statement.executeUpdate()>0){
+            System.out.println("for Order Number " + orderNumber + " the Order Date was changed to " + localDate.format(formatSQL));
+        }
 
     }
 

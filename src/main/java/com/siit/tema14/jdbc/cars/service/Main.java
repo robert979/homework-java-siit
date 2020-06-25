@@ -43,11 +43,13 @@ public class Main {
 
         //newOrder.create(ordersList.get(0));
 
-        System.out.println("order number " +ordersList.get(0).getOrderNumber() +
-                "\norder date " + ordersList.get(0).getOrderDate().format(formatSQL) +
-                "\norder status " + ordersList.get(0).getStatus() +
-                "\ncomment " + ordersList.get(0).getComments() +
-                "\ncostumer number " + ordersList.get(0).getCustomerNumber());
+       // System.out.println("order number " +ordersList.get(0).getOrderNumber() +
+       //         "\norder date " + ordersList.get(0).getOrderDate().format(formatSQL) +
+       //         "\norder status " + ordersList.get(0).getStatus() +
+       //         "\ncomment " + ordersList.get(0).getComments() +
+       //         "\ncostumer number " + ordersList.get(0).getCustomerNumber());
+        
+        newOrder.update(1, LocalDate.of(2020, 05, 15));
     }
 
 }
