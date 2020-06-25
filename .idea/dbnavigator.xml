@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe">
-        <schema name="classicmodels" object-types="table, column, function, view" />
+        <schema name="classicmodels" object-types="view, table, function, index, procedure, column, constraint, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
@@ -35,14 +35,6 @@
 select  *from products;
 select *from productlines;
 
-/*new Products("S700_2048","Dacia Duster", ProductLine.Classic_Cars,"1:50","Groupe Renault","Este cea mai buna " +
-                    "masina Romaneasca din toate timpurile",325,15200.50F,17350.55F)
-                    */
-
-Insert INTO products (productCode, productName, productLine, productScale,productVendor, productDescription, quantityInStock, buyPrice, MSRP)
- VALUES ('S10_1680', 'Dacia Duster', 'Classic Cars','1:50', 'Groupe Renault', 'Este cea mai buna " +
-                    "masina Romaneasca din toate timpurile', 325, 15200.50, 17350.55);
-
 select  *from products where `productName`='Dacia Duster';
 select  *from products;
 
@@ -50,7 +42,14 @@ select  *from products;
 
 select  *from products where `productCode`='S10_6485';
 update products SET buyprice=15101.75 where productCode='S10_9729';
-update products SET buyprice=16154.75 where productCode='S10_9729']]></console>
+update products SET buyprice=16154.75 where productCode='S10_9729'
+
+select *from customers;
+
+update orders SET `orderDate`='Feb 6, 2004, 12:00:00 AM' where `orderNumber`=10100;
+update orders SET `orderDate`='2005-02-07' where `orderNumber`=10100;
+INSERT INTO orders(orderNumber,orderDate, requiredDate, shippedDate, status, comments, customerNumber) ;
+INSERT INTO orders VALUES(1000 ,'1979-02-19', '1979-02-19', '1979-02-19', 'Shipped', 'Marfa a fost livrata cu succes', 121);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -62,6 +61,7 @@ update products SET buyprice=16154.75 where productCode='S10_9729']]></console>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="hr.emp" active-filter-id="" />
     <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="classicmodels.products" active-filter-id="" />
+    <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="classicmodels.orders" active-filter-id="" />
     <filter-actions connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe" dataset="test.grades" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">

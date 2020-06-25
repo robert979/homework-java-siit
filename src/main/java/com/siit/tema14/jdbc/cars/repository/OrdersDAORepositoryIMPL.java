@@ -1,5 +1,6 @@
 package com.siit.tema14.jdbc.cars.repository;
 
+import com.siit.tema14.jdbc.cars.domanin.Orders;
 import com.siit.tema14.jdbc.hr.myexceptions.MyCustomException;
 import lombok.SneakyThrows;
 
@@ -7,65 +8,55 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class OrdersDAORepositoryIMPL implements OrdersDAORepository {
 
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd,yyyy, HH:mm:ss a");
+    private DateTimeFormatter formatSQL = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+
     @Override
-    public void create(int deptno, String dname, String city) {
-        String query = "INSERT INTO dept VALUES(?,?,?);";
-        PreparedStatement preparedStatement = getPreparedStatement(query);
-
-        int affectedRows = 0;
-
-        try {
-            preparedStatement.setInt(1, deptno);
-            preparedStatement.setString(2, dname);
-            preparedStatement.setString(3, city);
-            affectedRows = preparedStatement.executeUpdate();
-
-        } catch ( SQLException e) {
-            System.out.println("This is create error");
-           throw new MyCustomException(e);
-        }if (affectedRows>0){
-            System.out.println("you have successfully created one row");
-        }else {
-            System.out.println("No row created, please try again");
-        }
+    public void update(int orderNumber) {
 
     }
 
     @Override
-    public void update() {
+    public void read(int orderNumber, LocalDate localDate) {
+        String
 
     }
-
-    @Override
-    public void read() {
-
-    }
-
-
 
     @SneakyThrows
     @Override
-    public void delete(int deptno) {
-        String query = "DELETE FROM dept where DEPTNO=?";
+    public void create(Orders order) {
+        String query = "INSERT INTO orders VALUES(?, ?, ?, ?, ?, ?, ?)";
+        // "INSERT INTO orders(orderNumber, orderDate, requiredDate, shippedDate, status, comments, customerNumber) " +
+        //                "VALUES(?,?, ?, ?, ?, ?, ?)";
+
         PreparedStatement preparedStatement = getPreparedStatement(query);
 
-        int modifiedRows =0 ;
+        preparedStatement.setInt(1, order.getOrderNumber());
+        preparedStatement.setString(2, order.getOrderDate().format(formatSQL));
+        preparedStatement.setString(3, order.getRequiredDate().format(formatSQL));
+        preparedStatement.setString(4, order.getShippedDate().format(formatSQL));
+        preparedStatement.setString(5, order.getStatus().toString().replace("_"," "));
+        preparedStatement.setString(6, order.getComments());
+        preparedStatement.setInt(7, order.getCustomerNumber());
 
-        preparedStatement.setInt(1, deptno);
-        modifiedRows=preparedStatement.executeUpdate();
+if (preparedStatement.executeUpdate()>0){
+    System.out.println("Your Order Number " + order.getOrderNumber() + " was successfully added ro orders table");
+}
+    }
 
-        if(modifiedRows>0){
-            System.out.println("You have successfully deleted one row, corresponding to " +deptno);
-        }
-
+    @Override
+    public void delete(int orderNumber) {
 
     }
-    private PreparedStatement getPreparedStatement (String query) {
+    private PreparedStatement getPreparedStatement(String query) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hr?serverTimezone=EET",
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels?serverTimezone=EET",
                     "siit",
                     "siit");
             return connection.prepareStatement(query);
@@ -75,4 +66,6 @@ public class OrdersDAORepositoryIMPL implements OrdersDAORepository {
 
         }
     }
+
+
 }
