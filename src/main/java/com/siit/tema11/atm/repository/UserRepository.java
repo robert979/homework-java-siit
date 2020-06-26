@@ -160,7 +160,14 @@ for (User user: getUserActiveList()){
         //addNewUser();
         //deleteUser("nfeinfningifnfi");
         //addNewUser();
+        //deleteUser("RO00INGB2015789012");
+
+        //addNewUser();
+        //deposit("RO00INGB2015789014",10);
+        //withdraw("RO00INGB2015789014", 10);
         deleteUser("RO00INGB2015789014");
+
+
 
     }
 

@@ -205,7 +205,9 @@ public class AccountRepository {
         //deleteAndUpdateIbanInUse("RO00INGB2015789022");
         //System.out.println(convertIbanInUseToList());
         //storeDeletedIban("RO00INGB2015789012");
-        System.out.println(checkIfIbanInUse("RO00INGB2015789022"));
+        //System.out.println(checkIfIbanInUse("RO00INGB2015789022"));
+        //System.out.println(convertFileIntoList());
+        deleteAndUpdatefile("RO00INGB2015789012");
 
     }
 }
