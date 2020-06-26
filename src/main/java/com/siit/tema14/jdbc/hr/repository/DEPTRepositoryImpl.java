@@ -15,7 +15,7 @@ import java.sql.*;
 
 public class DEPTRepositoryImpl implements DEPTCommands {
 
-    private static int rowsNumber=15;
+    private static int rowsNumber = 15;
 
 
     @SneakyThrows
@@ -197,27 +197,28 @@ public class DEPTRepositoryImpl implements DEPTCommands {
 
 
     }
+
     @SneakyThrows
-    public boolean findAutIncrementColumn (String table_name){
+    public boolean findAutIncrementColumn(String table_name) {
         boolean flag = false;
         String query = "SHOW COLUMNS FROM ? WHERE EXTRA LIKE '%auto_increment%'";
         PreparedStatement preparedStatement = getPreparedStatement(query);
         preparedStatement.setString(1, table_name);
-        if (preparedStatement.executeUpdate()>0){
-            flag=true;
+        if (preparedStatement.executeUpdate() > 0) {
+            flag = true;
         }
         return flag;
     }
 
     @SneakyThrows
-    public boolean addColumnAutoIncrement (String table_name){
-        boolean flag= false;
+    public boolean addColumnAutoIncrement(String table_name) {
+        boolean flag = false;
         String query = "ALTER TABLE ? ADD ids int NOT NULL AUTO_INCREMENT";
         PreparedStatement preparedStatement = getPreparedStatement(query);
 
         preparedStatement.setString(1, table_name);
 
-        if(preparedStatement.executeUpdate()>0){
+        if (preparedStatement.executeUpdate() > 0) {
             flag = true;
         }
         return flag;
@@ -227,7 +228,7 @@ public class DEPTRepositoryImpl implements DEPTCommands {
     @SneakyThrows
     public String findDataTypeColumn(String tableName, String columnName) {
 
-        String query = "show fields from "+tableName+" where Field=\'"+columnName+"\'";
+        String query = "show fields from " + tableName + " where Field=\'" + columnName + "\'";
         PreparedStatement statement = getPreparedStatement(query);
         //statement.setString(1, tableName);
         //statement.setString(2, columnName);
@@ -240,30 +241,30 @@ public class DEPTRepositoryImpl implements DEPTCommands {
         return query;
 
     }
+
     @SneakyThrows
-    public void getAllRows (){
-        String temp=null;
-        int myVariable=0;
-        for (int i=1; i<=rowsNumber;i++){
-        String query = "Select*from employee where mycolumn="+i;
-        PreparedStatement preparedStatement = getPreparedStatement(query);
+    public void getAllRows() {
+        String temp = null;
+        int myVariable = 0;
+        for (int i = 1; i <= rowsNumber; i++) {
+            String query = "Select*from employee where mycolumn=" + i;
+            PreparedStatement preparedStatement = getPreparedStatement(query);
 
-        ResultSet rs = preparedStatement.executeQuery();
-        while(rs.next()){
-            temp=rs.getString("name");
-            System.out.print(temp +": ");
-            temp=rs.getString("job");
-            System.out.print(temp +": ");
-            myVariable=rs.getInt("mgr");
-            System.out.print(myVariable);
-            System.out.println();
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                temp = rs.getString("name");
+                System.out.print(temp + ": ");
+                temp = rs.getString("job");
+                System.out.print(temp + ": ");
+                myVariable = rs.getInt("mgr");
+                System.out.print(myVariable);
+                System.out.println();
 
-        }
+            }
 
         }
 
     }
-
 
 
     private PreparedStatement getPreparedStatement(String query) {
