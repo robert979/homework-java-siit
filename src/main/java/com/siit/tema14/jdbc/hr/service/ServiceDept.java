@@ -50,9 +50,16 @@ public class ServiceDept {
        //}
 
         //System.out.println(newDeptIml.findPrimaryKey());
-        //System.out.println(newDeptIml.findRowNumbers("deptno", "dept"));
-        newDeptIml.updateDeptName(150, "LOGISTIC");
+        //System.out.println(newDeptIml.findRowNumbers("id","employee"));
+       // newDeptIml.updateDeptName(150, "LOGISTIC");
        // deptiml.updateDeptName(150,"LOGISTIC");
+        //newDeptIml.addColumnAutoIncrement("employee");
+        //System.out.println(newDeptIml.findAutIncrementColumn("employee"));
+
+        //newDeptIml.findColumnType("employee","mycolumn");
+        //System.out.println(newDeptIml.findDataTypeColumn("employee","mycolumn"));
+
+        newDeptIml.getAllRows();
 
 
     }

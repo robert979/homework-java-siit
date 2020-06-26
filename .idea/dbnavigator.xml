@@ -23,11 +23,16 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe">
+        <schema name="classicmodels" object-types="view, table, function, column" />
+        <schema name="hr" object-types="view, dataset trigger, procedure, table, function, index, column, constraint" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f3462b3e-abf7-46ff-9c40-97ba2b704dbe">
-      <console name="Connection to local server" type="STANDARD" schema="classicmodels" session="Main"><![CDATA[select *from orders;
+      <console name="Connection to local server" type="STANDARD" schema="classicmodels" session="Main">select *from orders;
 select  *from products;
 select *from productlines;
 
@@ -44,7 +49,7 @@ select *from customers;
 
 INSERT INTO orders VALUES(1000 ,'1979-02-19', '1979-02-19', '1979-02-19', 'Shipped', 'Marfa a fost livrata cu succes', 121);
 
-select *from orders;]]></console>
+select *from orders;</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
