@@ -1,4 +1,4 @@
-Pentru atm care este incomplet de vazut userRepository cu metodele descrise mai jos
+Pentru atm care este incomplet, de vazut userRepository cu metodele descrise mai jos:
 ==============
 userRepository
 ==============
